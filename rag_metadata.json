@@ -1,0 +1,1090 @@
+[
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "Kd7c2h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（Kd7c2h）：** 这是一个未成对、彩虹的 K-high flop（三种花色），因此**没有成花，也没有flush draw**；同时也可归类为**没有顺子听牌、也没有成顺**。这使得该 flop **非常静态**：大多数权益来自于**成对牌 vs 未成对牌**，而不是来自后续街可能大幅摇摆的听牌。由于几乎不存在能立刻完成听牌的 turn，**成牌的权益在这里更稳健**——顶对（Kx）、over pair（对 BTN 而言）以及 set / 两对在多数 runout 上都能保持强度；后续街主要的“权益变化”更多来自于**牌面配对**，或是**overcard**帮助高牌类手牌改善。\n\n2) **行动线分析、位置、SPR：** 翻前行动为 **BTN open 2.5bb，BB call**；flop **BB check**，因此 BTN 作为翻前进攻方处于**有利位置（IP）**行动。flop 时底池约 **5.5bb**，双方身后约 **97.5bb**，所以 **SPR ≈ 97.5 / 5.5 ≈ 17.7**（高）。高 SPR + 静态牌面通常会把策略推向**小尺度、效率更高的下注**，而不是快速把筹码打光：你可以高频小注来进行权益拒绝并用价值牌逐步扩大底池，同时也不会被迫用边缘牌去承担大底池的承诺压力。\n\n3) **范围分析：** BTN 的范围分布较完整：包括来自 **Hidden Set**（例如 7s7h）、**两对**（例如 Ks7s）、**Over pair**（例如 AsAc）、大量**顶对**（Kx，例如 KhQc），以及相当比例的**Ace High Card**与**Kicker**类手牌。BB 的范围则更偏向**Kicker**与**Ace High Card**，包含一定比例的**Third Pair/Second Pair**，而**顶对**与高端超强牌（set/两对）占比更小（虽然存在但频率偏低）。结构上，BTN 在该牌面同时具备**range advantage**（整体 EQ 约 55% vs 45%）与**nut advantage**，因为 BTN 保留了更多强的一对+组合，并且拥有 BB 基本没有的 **over pair** 组合。由于几乎没有听牌压力，权益分布更**稳定**，BTN 可以在不需要用大尺度“收费听牌”的情况下持续施压。\n\n4) **策略分析：** BTN 的策略接近**near range-bet**：使用 **1.8bb** 的下注频率约 **91.9%**（约 1/3 pot），而过牌仅 **~5.8%**；学习层面可以**简化为几乎不check**，以极高频率小注。这之所以可行，是因为：(a) BTN 的 range advantage 使大量手牌都能盈利性下注；(b) BB 有大量**高牌 / kicker**持牌，面对哪怕小注也很难良好实现权益；(c) 牌面静态，不需要大尺度去“惩罚听牌”。该小注尺度几乎覆盖所有价值层级：超强牌愿意用小注让 BB 范围保持更宽（7s7h、Ks7s 的 1.8bb 都在 ~95%+），强一对持续榨取（KhQc 的 1.8bb 约 ~95%），甚至 premium over pair 也走同一路线，避免过早把更差的牌挤出底池（AsAc 的 1.8bb 约 ~95%）。同样的尺度也会延伸到更薄的范围部分：由于风险低、且 BB 相对被盖帽，小注能制造弃牌并进行权益拒绝；许多 **Kicker** 仍会高频小注，尤其是具备额外后续潜力的牌，例如带 **backdoor_flush_draw** 的 Qd4d 仍明显偏好 1.8bb。部分较弱的 **Ace High Card** 会混合更多过牌（例如 As8h 的过牌频率高于整体平均），但总体计划仍是：在干燥的 K-high 牌面上，利用位置优势 + range advantage 进行**高频小尺度 range-bet**。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "AdKc5s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌为 **Ad Kc 5s**，这是一个**未成对**的 A-high 牌面，同时带有 K-high 的高张结构，整体是高-高-低的点数分布。牌面为 **rainbow**，因此**没有立即的同花听牌**，但仍然存在 **backdoor_flush_draw**（两张同花可以通过 turn+river runner-runner 成花）。牌面上确实存在顺子听牌，但主要以 **gutshot_straight_draw** 为主（例如 **QcTd** 需要一张 J，或 QJ 需要一张 T），因此相比听牌密度更高的牌面，后续街因为听牌导致的“被迫”权益转移并不强。由于是 rainbow 且听牌密度主要集中在 gutshot/backdoors，很多 turn 上成手牌的权益相对稳定；主要的波动来自 broadway 类型的转牌，它们会补全 gutshot，并改变顶对踢脚相关的对抗结构。\n\n2) **行动线分析：** 翻牌前为 **BTN open 2.5bb, BB call**，翻牌 **BB checks** 给翻前加注者。翻牌底池为 **5.5bb**，有效后手约 **97.5bb**，所以 **SPR ≈ 17.7**，属于高 SPR。在高 SPR 的 SRP 中，BTN（**有利位置**）更容易实现权益，并且可以用大量中等强度牌控制底池；同时在需要极化时，也有足够空间用更大下注施压。BB 的 check 与其非常宽的范围一致：范围里有大量 **Kicker** 牌，也包含一些能够继续对抗下注的 **Top Pair / Second Pair**。BTN 的位置优势使其可以在两者之间分配：一部分通过 check 更好地实现自身权益，另一部分通过下注对 BB 的最弱部分进行**权益拒绝**。\n\n3) **范围分析：** BTN 的范围以 **Kicker** 为主（约 39.8%），同时也有较大比例的 **Top Pair**（22.0%），以及 **Second Pair**（15.7%）和 **Third Pair**（12.3）。此外，BTN 还拥有足够的诈唬候选：**gutshot_straight_draw**（10.4%）与 **backdoor_flush_draw**（24.8%）。BB 的范围更被 **Kicker** 主导（约 49.5%），并且顶端更少：**Hidden Set**（0.68%）和 **two pairs**（2.17%）都少于 BTN（BTN 为 1.94% Hidden Set、4.32% two pairs）。这使 BTN 同时拥有 **range advantage**（整体 equity 约 56% vs 44%）以及由更强顶端牌驱动的 **nut advantage**，例如 **KsKh**（该翻牌的 Hidden Set）与 **AcKh**（two pairs）。相比之下，BB 在顶端更偏被盖帽，同时包含大量在压力下难以继续的组合，即使其中一些有 backdoors（例如 **Qd8d** 是 Kicker 且带有 **backdoor_flush_draw** 潜力）。\n\n4) **策略分析：** BTN 的整体策略主要由 **Check（52.5%）** 与 **bet 5.5bb（38.9%）** 构成；更小的下注尺度频率很低，实战中可基本忽略。这个分配是合理的：BTN 虽然有 equity/nut 优势，但该牌面仍然与 BB 的防守范围有一定连接（BB 拥有不少 Top Pair 与 Second Pair），因此 BTN 不适合无差别全范围下注；通过 check，BTN 可以用大量中等强度牌更好地实现权益。**5.5bb** 的尺度更像一个**极化**下注：BTN 的顶端价值牌（two pairs 与 Hidden Set 明显偏向下注；**AcKh** 几乎纯下注，**KsKh** 也更偏向下注）以及最强的施压牌会更倾向用大尺度（gutshot 经常用大尺度开火；**QcTd** 作为 Kicker+gutshot，倾向下注以迫使 BB 大量 Kicker 部分弃牌并进行**权益拒绝**）。许多 **Top Pair** 会混合策略：更强的顶对仍可用大尺度下注来获取价值/保护（例如 **AcQh** 明显偏向下注），同时也会有相当一部分 Top Pair 选择 check，以避免在高 SPR 下对抗 BB 的持续 Ax 时把底池做得过大。**Check** 这部分主要由 **Second Pair** 与 **Third Pair** 锚定（例如 **KhJs** 以 check 为主）：这些牌有摊牌价值，但在高 SPR 下不希望在遭遇反抗时进入困难局面，并且面对 BB 大量 Kicker 组合时，免费看 turn 往往更有收益。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "JcTc4s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Jhigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：翻牌为 **Jc Tc 4s**：**非对子、J-high**，并且是 **two-tone**（两张梅花），因此存在 **flush draw**，但没有成花。牌面高张部分 **T–J** 相连，制造了大量 **straight draw**（尤其是 **open-ender**，例如 **98**；以及 **gutshot**，例如 **KQ**），而低张 **4** 会让部分低对产生互动，但并不会明显降低听牌密度。由于这是一个同时偏 **wet** 且高张的牌面，双方的 equity 对后续 runout 非常敏感：很多 turn（梅花、Q、9、8、K、A）都会改变谁更占优，并重塑哪些手牌可以 value-bet/保护、哪些必须降速。即使已经成牌的 **Top Pair** 和 **Second Pair** 也并非“锁死”，它们要面对更高张落牌、顺子完成的 turn，以及同花完成的 turn。\n\n2) **行动线分析**：翻前为 **BTN open 2.5bb，BB call**；翻牌从 **BB check 到 BTN** 开始。翻牌底池约 **5.5bb**，有效后手约 **97.5bb**，因此 **SPR ≈ 17.7**（很高）。在这种 SPR 下，双方都远未到“投入承诺”的程度：策略更倾向于用 **小尺寸 stab、probe**，以及让一部分中等强度牌 **check back**，避免在动态牌面上把底池打得过大。BTN 的位置优势非常关键：IP 可以通过 check 更好地 **realize equity**，也能在下注时一边施压一边控制底池规模；BB 的 check 范围仍然可能包含陷阱（set/two pair）与 check-raise，这也会促使 BTN 更倾向于 **mixed sizing**，而不是默认大尺度持续下注。\n\n3) **范围分析**：BTN 具备明确的 **range advantage**（整体 EQ **55.8%** vs **44.2%**），同时也有 **nut advantage**：BTN 拥有更多 **隐藏的set**（**1.86%** vs **0.76%**），**two pair** 比例相近（**2.00%** vs **2.16%**），并且关键是 BTN 的 **Over pair** 更多（BTN 约 **3.71%**）。BB 在范围最顶端相对更 **capped**（“best”桶仅约 **3.9%**，而 BTN 约 **16.0%**），且 BB 的 **trash/weak** 更多（trash：BB **22.2%** vs BTN **6.5%**）。双方范围里都有大量 **Top Pair / Second Pair** 以及相当数量的 **straight draw** 和 **flush draw**；但 BTN 的强成牌与强听牌出现频率更高，因此 BTN 的施压更具可信度。由于大量 turn 会完成或强化听牌，并改变 one-pair 的持续下注能力，双方的 equity 都不算稳健。\n\n4) **策略分析**：BTN 的翻牌策略是 **mixed**：**bet 1.8bb 32.9%**、**check 31.2%**、**bet 5.5bb 18.5%**、**bet 3.7bb 17.4%**。这种混合符合高 SPR、动态牌面：BTN 虽有优势，但 BB 的范围连接度足够高（对子 + 听牌），使得 BTN 不能简单用大尺度对范围施压，否则 BB 的应对（call/raise）会更舒服，也会让 BTN 的边缘牌过度暴露。\n\n- **1.8bb** 是主要的“范围施压”尺寸：允许 BTN 用更宽的手牌去做 value/保护，并对 BB 的高张和随机 float 做 **权益拒绝**，同时让许多尚未准备承受大压力的牌在可控底池内运作（很多 **Top Pair** 与 **Second Pair** 会更常用小尺寸；例如 **Jd9s** 会在小下注与 check 之间混合）。\n- **5.5bb** 更偏向极化的 value + 强听牌尺寸：更多出现在 BTN 最强的成牌与高压型持有上——**Over pair** 很倾向于下大（例如 **KsKh** 明显更偏好下注，且更偏大尺寸），而像 **AcKc** 这种强听牌（A-high + combo draw）也更偏好下注而不是 check。\n- **3.7bb** 作为第二个施压尺寸：在 BB 有大量继续范围的前提下帮助 BTN 更有效地扩大底池，同时相较 1.8bb 获得更多弃牌率，但又不必完全走到大尺度。\n- **check（31%）** 在这里同样重要：BTN 会用不少 **中等强度对子与偏摊牌价值的手牌** 选择 check back（例如 **QdTs** 作为 **Second Pair** 会高频 check），并混入一部分听牌，以增强过牌范围的强度，并降低被 check-raise 针对时的脆弱性。"
+  },
+  {
+    "meta_data": {
+      "line": "(unknown)",
+      "board": "(unknown)",
+      "position": "(unknown)",
+      "street": "(unknown)",
+      "texture": {
+        "pairing_texture": "(unknown)",
+        "high_card_texture": "(unknown)",
+        "suit_texture": "(unknown)",
+        "straight_texture": "(unknown)"
+      },
+      "is_verified": 0
+    },
+    "data": ""
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "8c7h6s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "**1) 牌面分析**：翻牌为 **8c7h6s**，这是一个**无对子**、**rainbow** 的 8-high 牌面（三种不同花色），因此**没有立即的同花听牌**，后续转牌/河牌的花色变化对整体 EQ 的影响相对不大。点数结构极度连张（6-7-8），因此存在大量顺子相关的互动：牌面上已经有**成顺**（尤其是 **T9** 与 **95**），同时双方范围里都会包含大量 **open_ended_straight_draw** 和 **gutshot_straight_draw** 组合。由于许多手牌要么已经是顺子，要么会在常见转牌（5/9，以及更高的连张）转化为顺子/两对，这里的**成牌权益并不稳健**：很多转牌会迅速改变谁是当前最大牌，并让最优的进攻频率与尺度发生明显调整，即便花色本身相对“稳定”。\n\n**2) 行动线分析**：翻前为 **BTN open 2.5bb, BB call**；翻牌先由 **BB check**，轮到作为翻前加注者且**有利位置**的 **BTN** 决策。翻牌底池约 **5.5bb**，双方身后约 **97.5bb**，因此 **SPR ≈ 17–18**（非常高）。高 SPR + 高度动态的连张牌面，通常会让策略更偏向：用更多 **check** 来处理中等强度成牌（避免在容易被加注、且权益波动大的局面里把底池做得过大），并用更“挑选”的下注去覆盖能承受压力的牌（强价值与强听牌）。有利位置让 BTN 在 check back 时更容易实现 EQ（例如 **AcJc** 往往会高频 check），同时也能用小尺寸下注进行**权益拒绝**而不必过度承诺底池。\n\n**3) 范围分析**：BTN 的范围里包含一定比例的 **Straight (3.97%)**、**Hidden Set (1.80%)**、**two pairs (1.20%)**，并且有较大块的 **Over pair (7.20%)** 与 **Top Pair (9.43%)**；同时也有很多未成对的牌，如 **Ace High Card (23.99%)** 与 **Kicker (19.62%)**。听牌结构方面，BTN 的听顺占比很高：**open_ended_straight_draw (24.62%)** 与 **gutshot_straight_draw (23.24%)** 都是范围中的大头。BB 同样是听牌密集（**open_ended 27.82%**、**gutshot 26.12%**），并且有略多的 **two pairs (2.33%)**，**Straight (4.19%)** 也接近，但**Over pair 几乎没有 (0.10%)**（大多数 overpair 会被 BTN 翻前加注保留）。整体来看，BTN 有一定的 **range advantage**（EQ 约 **52.8% vs 47.2%**），且低 EQ 的“垃圾牌”占比更少；但由于双方范围里都有不少顺子，**nut advantage 接近共享**（例如 BB 可有 **Td9s**、**9c5c**，BTN 也会有 **Th9c**）。同时，因为双方都堆叠了大量听顺与成顺，这个对局对 runout 非常敏感。\n\n**4) 策略分析**：基于以上（1-3），BTN 的翻牌策略主要在 **Check ~43%** 与 **小注 1.8bb ~30%** 之间分配（其他尺寸存在，但学习时可弱化）。这种混合策略符合该牌面特征：BB 的 check 范围可以包含不少强权益组合（对子+听牌等）并且具备 check-raise 的惩罚能力，因此 BTN 无法高频率地 range-bet；与此同时，BB 也有大量边缘/弱权益组合，面对任何下注都会承压，所以 BTN 仍需要保留一部分下注范围。**小注（1.8bb）**会广泛覆盖价值牌与听牌：它会出现在 **Straights**（例如 **Th9c** 仍会较多下注）、**Hidden Sets**、**two pairs**、以及 **Top Pair** 类型（如 **9h8d** 这种 top pair + open_ended_straight_draw），并搭配大量 **open_ended_straight_draw** / **gutshot_straight_draw** 来获取弃牌率并进行权益拒绝。小尺寸之所以有效，是因为这里没有需要“收取费用”的 flush draw，同时它能在不把 SPR 降得过快的前提下，对 BB 数量巨大的边缘手牌持续施压。与此同时，**check** 频率仍会保持偏高，因为很多牌希望控制底池并规避 check-raise：**Over pair** 在实战中会大量 check（例如 **AhAc** 经常 check），而许多无成对的 **Ace High Card** 与 **Kicker** 也更倾向拿免费牌（例如 **AcJc** 大量 check；**QdJh** 也经常 check），因为它们虽有一定 EQ，但不愿在动态转牌上被加注或被迫盲目持续 barrel。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "Ad5h5c",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌是 **Ad5h5c**：一个**成对的（明三条）牌面**，顶张为**A高**且是**rainbow**，因此**没有立即的同花听牌**压力，也几乎没有动力去针对同花手牌做“保护”。由于牌面成对，很多一对牌在绝对强度上会被“压缩”（Ax 很强但并非不可战胜），而 **5x** 会成为极其重要的价值类别（明三条），并且牌面已经存在**葫芦**（例如 **Ah5s** 就是葫芦）。这里确实有**一些顺子可能性**（主要是低张连接，可能形成 wheel 类型的转河发展），但相比非成对牌面，这里的权益整体**相对稳健**：多数转牌不会剧烈改变领先方，因为既没有常见的同花听牌，翻牌成对也让许多跑牌不容易制造新的、压制性的强牌。\n\n2) **行动线分析、有利位置与 SPR 分析：** 翻前是 **BTN open 2.5bb，BB call**；翻牌由 BB 先对翻前加注者 **check**，现在轮到 **BTN 在有利位置**行动。底池约 **5.5bb**，有效后手约 **97.5bb**，因此 **SPR ≈ 17.7**（非常高），这会把策略推向：通过**有意义的过牌范围**来进行底池控制，并且更多使用**小尺寸下注**，而不是用中等强度牌去建立巨大的底池。位置在这里非常关键：BTN 可以通过过牌把那些不想面对 check-raise 的牌安全实现权益；同时也能用小号 cbet 高效施压，让 BB 宽范围里大量非 A 的手牌必须更正确地继续或弃牌。\n\n3) **范围分析：** BTN 的范围里有相当多的 **Top Pair（23.6%）**，以及大量的 **Kicker（38.2%）**和 **Kicker High Card（20.0%）**，同时还有一部分 **Second Pair（9.9%）**，并且确实包含 **Open Set（5x 明三条）**、**Full House**、**Four of a Kind** 等更强类别。BB 的范围在 **Kicker（48.7%）**上的占比更高，而 **Top Pair（18.6%）**更少；但在 A55 这类牌面上，BB 明显拥有比 BTN 更多的 **Open Set / 5x**（BB 5.05% vs BTN 2.47%），这会显著影响翻牌策略。整体而言 BTN 仍有**范围优势**（BTN EQ ~54.8% vs BB ~45.2%），主要来自 BTN 拥有更多 Ax，但 BB 的 **5x** 密度更高，使得 BTN 并不存在一个“可以全范围下注”的清晰局面。Nut advantage **接近/共享**：BTN 有不少葫芦与强 Ax/葫芦组合（如 **Ah5s**），而 BB 也有不可忽视的明三条（5x）。由于可用听牌很少，权益分布在很多转牌上都相对**稳定**。\n\n4) **策略分析：** BTN 整体采用 **Check ~60.9%** 与 **bet 1.8bb ~38.7%**；更大的下注尺寸极少见，因此学习时基本可以把该节点当作 **check 或小号 cbet**。过牌占多数的原因是：这个牌面虽然对 BTN 的 Ax 优势有利，但 BB 也有足够多的 **5x** 能在高 SPR 下惩罚过度激进的下注（尤其当底池被过早放大时），因此 BTN 需要一个合理的过牌范围，并避免用大量“还可以但并不想打大底池”的牌（大量 Kicker / Kicker High Card）去自动扩大底池。  \n当 BTN 选择下注时，多采用小尺寸：它能针对 BB 那些没中 A 的大量手牌施加哪怕很小的压力，让对手不得不弃掉过多空气与弱牌；同时也便于 BTN 做**薄价值**下注，而不至于在面对加注时过度暴露自己。\n\n分类来看，BTN 的**超强牌**往往倾向于小注：**Open Set** 很常用 1.8bb，**Full House** 也偏好高频下注（例如 **Ah5s** 明显偏好 1.8bb），因为这些牌希望开始扩大底池，同时仍允许 BB 用 Ax 以及部分对子继续。**Top Pair** 会混合策略：像 **As7s** 这类顶对会大量小注，但也会相当频率地过牌，符合“Ax 可以拿价值、但在成对牌面也受益于底池控制”的思路。**Second Pair** 基本以过牌为主（例如 **QhQc** 几乎全频率过牌），因为它领先 BB 的空气牌，但不想把底池做大或被迫进入困难的继续决策。  \n在较弱持牌中，BTN 会用一部分 **Kicker** 做小注（例如 **Jd9c** 会混合下注），用于低成本的权益拒绝/迫使弃牌，并避免价值牌的下注范围过于脸谱化；而很多 **Kicker High Card** 由于即时权益有限，往往更偏向过牌（例如 **KhQh** 明显偏向 check），利用位置带来的免费实现权益。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "6h5h5s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "6high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌为 **6h5h5s**：这是一个**成对牌面**（牌面上有一对，形成类似 trips 结构的牌面形态）、**低张（6-high）**、且**two-tone**，存在**hearts flush draws**，但没有成花。由于牌面对，我们会看到很多“一对型”牌并不会自然提升，而 nuts 主要集中在 **5x**（四条/葫芦/明三条）以及 **6x 葫芦**；这通常会让权益在很多**砖牌 turn** 上**相对稳定**，但**并非完全稳健**，原因是：(a) 任何 **heart turn** 都会把一部分权益转移给成花；(b) 低/中张 turn（2/3/4/7/8/9）会与既有的**顺子听牌区域**发生互动（从构建上 BB 会有更多 OESD/gutshot）。另外，因为牌面成对，**诈唬的盈利性**会对某些 runout 更敏感：这些 runout 会让 bluff-catcher 被“反制/作废”（例如高张落地、heart 补全），同时也取决于 BB 从“high-card / kicker”提升成一对的频率。\n\n2) **行动线分析：** 翻牌前为 **BTN open 2.5bb，BB call**；翻牌 **BB checks**，BTN 作为翻前加注者在有利位置行动。翻牌底池为 **5.5bb**（0.5+1+2.5+1.5），有效后手约 **97.5bb**，因此 **SPR ≈ 97.5 / 5.5 ≈ 17.7**。这是一个**高 SPR** 的局面：BTN 不会用中等强度牌去“自动打光”；相反，BTN 可以通过大量 check 来进行 **range-manage**，让 BB 的范围保持更宽，并在 IP 更好地实现权益。BB 处于 OOP，往往会用 **check/call** 加上一些 check-raise 来防守；仅仅是 check-raise 威胁的存在，就会推动 BTN 在这种 BB 可能拥有大量 5x 的牌面上，更偏向于**小尺度下注与 check**，而不是早早把底池做大。\n\n3) **范围分析：** BTN 的范围里有相当密度的 **Over pair（9.38%）**、**Top Pair（6x）（6.45%）**，同时也会以较低频率包含 **Full House/Quads/Open Set**；BB 则拥有更多 **Open Set（5x 明三条）（5.99%）**，整体 **Top Pair** 也更多（9.18%），反映了更宽的翻前防守使其更容易与 5x/6x 连接。听牌方面，两边都有 hearts（BTN 有 **nut_flush_draw 1.95%** 与 **flush_draw 4.60%**；BB 类似），但 BB 的顺子听牌量更大：**OESD 3.29%**、**gutshot 4.10%**。总体来看，BTN 有 **range advantage**（EQ ~52.8 vs 47.2），主要来自更强的翻前构成（更多 overpairs/高张），而 BB 由于额外的 5x，在这种牌面上保留了**可信的 nuts 密度**。结构上，BTN 相对更**mixed**（并非纯 polarized）：既有不少强牌，也有大量中等/较弱的 high-card 与 “kicker” 区域；BB 更宽、也更“board-connected”（更多 trips/顺子听牌覆盖）。权益整体是**中等偏不稳健**的，因为 hearts 以及低张补顺 turn 会显著影响实现率，尤其会影响大量“一对或更弱”的那部分范围。\n\n4) **策略分析：** 翻牌 BTN 的总体策略基本在 **1.8bb c-bet（48.30%）** 与 **Check（48.22%）** 之间分流；更大的下注很少，这里为了学习效率可以忽略。**这种混合为何有效：**在这种低张成对牌面上，BTN 一方面希望用**低成本的试探下注**来进行**权益拒绝**，逼退 BB 最弱的 “kicker / high-card” 区域；另一方面，BTN 也需要大量 check 来进行范围管理，因为 BB 可能有很多 5x，并且会用 check-raise 惩罚过度 c-bet；同时 BTN 在 IP 也能不必扩大底池就实现权益。**1.8bb c-bet** 会被一大批手牌使用：包括偏价值/保护的 **Over pair**（例如 *JsJd* 会混合但更偏向下注）、**Top Pair**，以及大量诈唬与听牌——例如 *AhTh*（nut flush draw）多半下注，*9h8h*（combo draw）多半下注，*Qh4h*（flush draw）更偏好下注。甚至一些低权益的“air”也会选择小注去便宜地拿下底池，因为 BB 的 check 往往会在一定程度上向 miss 倾斜；例如 *Kc2c*（kicker high-card，无听牌）会强烈偏好小注，作为低成本的弃牌生成手段。**Check** 则覆盖了范围的另一半：**Ace High Card**、**Kicker High Card**、许多 **backdoor_flush_draw**，以及一些不喜欢被 check-raise 的中等成牌（例如 **Bottom Pair** 的 check 频率高于下注）。此外，BTN 也会用不低的频率把部分强牌放进 check（*JsJd* 也会大量 check），从而避免 BB 在 BTN check back 后就可以无脑持续开火获利。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "KdAd5d",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析 (Kd Ad 5d)：** 这是一个**未成对**的 A-high、K-high 翻牌，点数分布非常**top-heavy**（A/K 主导了成对的可能性）。花色为**monotone diamonds**，因此**已经存在成花**（任意两张♦），并且任何手里**正好带一张♦**的牌都拥有 **flush draw**。顺子方面**没有成顺**，但存在一些通向 Broadway 类 runout 的 **gutshot**（例如 **QhJs** 需要来一张 T），以及通向 wheel 类 runout 的 gutshot（例如包含 2/3 的手牌可能通过来 4 形成 gutshot）。整体来看权益**不够稳健**：(a) 许多手牌的价值强依赖于“有♦/没有♦”，(b) 转牌/河牌若出现牌面配对（A/K/5），会显著改变 flush、set 与两对之间的相对强度。\n\n2) **行动线分析：** 翻前为 **BTN open 2.5bb, BB call**，翻牌 **BB checks**，BTN 在 **IP** 行动。翻牌底池 **5.5bb**，有效后手约 **97.5bb**，因此 **SPR ≈ 17.7**（高）。高 SPR 叠加 monotone 翻牌，使 BTN 不倾向用中等强度牌去 **scale the pot**：此时并不需要把底池打到承诺尺度，同时 BB 有大量强继续牌（包括 flush）可以通过 check-raise 施压。位置优势让 BTN 更容易通过 check 去实现权益，并选择性进行小尺度 stab；同时也便于 BTN 控制对抗 BB 范围中 flush 占比更高部分时的投入频率。\n\n3) **范围分析：** BTN 的范围主要由 **Kicker (34.7%)** 和 **Top Pair (22.0%)** 构成，同时有一定比例的 **Second Pair (15.6%)** 与 **Third Pair (12.3%)**；价值峰值包括 **Flush (5.1%)**、**two pairs (4.5%)**、**Hidden Set (1.9%)**（例如 **Jd9d** 为 flush；**AsAc** 为 set；**AcKs** 为两对）。听牌方面，BTN 有大量 **flush_draw (17.3%)**，并有 **gutshot_straight_draw (5.8%)** 以及部分 **nut_flush_draw (3.2%)**（例如 **Ah9d** 是 top pair + flush draw）。BB 则有更多的 **Kicker (43.2%)**，以及 **Top Pair (18.9%)**、**Second Pair (14.4%)**、**flush_draw (17.9%)**，并且 BB 的 **Flush** 占比略高（6.3%）。总体上 BTN 拥有**range advantage**（平均 EQ 更高；“best hand”占比更多：17.4% vs 10.0%），而 **nut advantage** 更接近共享：BB 的 flush 总量稍多，但 BTN 在非 flush 的顶端强度上更占优（更多 set/two pair）。由于双方范围里都存在大量依赖♦的手牌，整体权益对 runout 仍然非常敏感。\n\n4) **策略分析：** BTN 选择 **Check 64.6%**，主要使用 **bet small 1.8bb（约 33% pot，25.2%）**；更大尺度的下注各自都低于 10%，可弱化处理。以 check 为主的基线来自于：在**monotone A/K** 牌面上，BB 的继续范围天然偏强（flush + 大量带一张♦的组合），自动 c-bet 容易被攻击，而且往往只是对着不太会弃牌的范围把底池做大。**Second Pair** 与 **Third Pair** 的过牌尤其多（两者都接近 85% check），同时不少 **Top Pair** 也倾向过牌（60% check）：例如 **KhJs**（second pair）与 **Ah9d**（top pair + flush draw）通常更偏向于实现权益、让 BB 的 Kicker 牌继续 bluff，并避免在落后于 flush 时把底池膨胀。需要注意的是，check 并不等同于示弱：强牌也会混合一定比例的 check（例如 **Jd9d** 约 42% check，**AcKs** 约 39% check），以维持 check-back 范围的强度，避免在这种牌面上让 BB 通过拿到免费牌而过度实现权益。**1.8bb** 是主要 stab 尺度，因为它能高效施压 BB 的最弱区间：面对该尺度，BB 的弃牌主要集中在 **Kicker** 与 **no draw** 的组合，同时也会弃掉一部分 **Third Pair** 与 **gutshot_straight_draw**；而 BB 会用大量 **Top Pair/Second Pair** 以及几乎所有 **flush_draw** 继续。因此小注同时完成两件事：(1) 用部分不需要大尺度的牌做 **thin value**（例如 **AsAc** 更常下注，**AcKs** 则混合策略），(2) 用低成本进行 bluff/probe，例如 **Jc9h**（纯 kicker，低 EQ）以及部分 gutshot（如 **QhJs**），以较小风险挤压 BB 的空气牌。BB 对 1.8bb 的 raise 虽然存在但比例不高，范围由部分 **Flush** 与部分 **Kicker/no-draw** bluff 混合构成，这也进一步支持 BTN 保持稳健的 check-back 范围，并在下注时优先采用低风险的小 c-bet 尺度。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb&turn=&river=",
+      "board": "Kd7c2h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（Kd7c2h）：** 这是一张未成对的 K-high flop，三张牌点数彼此断开（K–7–2），且为 **rainbow** 花色，因此 **没有成花，也没有立即的同花听牌**；唯一存在的“draw”类型是 **backdoor_flush_draw**（手牌与牌面某一张共享同一花色）。点数结构同样 **没有顺子听牌，也没有成顺**，因此双方的权益主要由 **一对的强度与踢脚** 决定，而不是由动态听牌压力驱动。由于没有直接听牌需要进行权益拒绝，**成牌的权益相对稳健**：set/两对在大多数转牌仍然很强，主要的权益变化来自转牌的高张改变顶对踢脚，或让 backdoor 同花具备发展空间。\n\n2) **行动线分析、位置、SPR 分析：** 翻牌前为 **BTN open 2.5bb，BB call**。翻牌 **BB check，BTN bet 1.8bb**（向约 5.5bb 的底池用小尺度 c-bet）。BB 相对 BTN 处于 **out of position**，因此 BB 的基础策略是以 **call 防守** 为主，把 raise 更多留给那些 (a) 能为了价值持续把钱打进底池的牌，或 (b) 有清晰计划的 bluff。做决定时底池约 7.3bb，BB 约 97.5bb，有 **非常高的 SPR（约 13）**，这会推动 BB **用中等强度牌更多选择 call**（Top Pair / Second Pair / Third Pair），并减少 **thin 的 raise**，因为在高 SPR 下用边缘牌 OOP 扩大底池代价很高。\n\n3) **范围分析：** BB 的范围以 **Kicker**（43.01%）为主，其次是 **Ace High Card**（22.55%），然后有一定比例的 **Top Pair**（12.52%）、**Second Pair**（8.95%）、**Third Pair**（9.67%），并包含少量但重要的 **two pairs**（1.41%）与 **Hidden Set**（1.18%）。BTN 到达翻牌后的范围构成明显更强：更多 **Top Pair**（16.56%），以及 BB 基本没有的 **Over pair**（1.24%），整体强成牌占比也更高（BTN 的“best+strong”分桶 > BB）。在这张 K-high 干燥牌面上，BTN 因此同时拥有 **range advantage（55.51% vs 44.58% EQ）** 和 **nut advantage**（BB 的顶端分桶低于 BTN），而 BB 的优势主要在于 BB 能拥有一部分 BTN 更少出现的 **two-pair** 组合。由于几乎没有会显著改变 runout 的听牌，权益不会剧烈摆动——BTN 的优势在结构上较为稳定。\n\n4) **策略分析（BB vs BTN 1.8bb c-bet）：** BB 采用混合策略：**Fold 37.5% / Call 44.8% / Raise to 6.4bb 15.5%**（更大的 raise 尺度占比 <10%，学习时可简化不考虑）。这种混合符合该局面：BTN 的小注范围很宽，因此 BB 必须防守不少；但 BB 范围中有大量低权益的 **Kicker** 手牌，在高 SPR 且 OOP 的情况下很难盈利地继续。**Call（44.8%）** 主要由各类一对支撑：**Top Pair 多数选择 call**（整体约四分之三；例如 *Kc8c* 是很强的继续牌，常在 call/raise 间混合，取决于 blockers），**Second/Third Pair 也以 call 为主**，因为牌面静态且 BTN 的小尺度让 BB 获得不错的 pot odds。**Ace High Card** 也占据相当比例的 call（往往能对抗 BTN 的 air 处于领先；例如 *Ac9h* 主要通过 call 继续，而不是 fold）。**Fold（37.5%）** 主要来自 BB 范围底端，尤其是 **Kicker** 手牌，这类牌会以极高频率弃牌（例如 *Jc6c* 基本接近纯 fold），因为它们 equity 较差且 OOP 的实现率也差。**Raise 6.4bb（15.5%）** 是 BB 的价值+bluff 杠杆：在价值端高度集中于 **Hidden Set** 与 **two pairs**（例如 *7h7d* 经常 raise），并混合少量 **Top Pair/Second Pair**。bluff 端更偏向 **backdoor_flush_draw** 手牌，因为它们可以在转牌通过 barrel 获得更多 equity；同时需要注意，BTN 面对该 raise 的应对会对 **任何 pair 都非常粘**（基本不弃掉成对牌，主要弃掉部分 **Ace High Card** 与 **Kicker**），因此 BB 的 check-raise bluff 必须更有选择性，不能过度使用——这个 raise 更多是为了 **用强价值牌扩大底池**，并对 BTN 的高牌 float 施压，而不是指望从对子的范围里“稳定打出大量弃牌”。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_5.5bb&turn=&river=",
+      "board": "AdKc5h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（Ad Kc 5h）：** 这是一个未成对、彩虹、A-high 的牌面，点数分布为高-高-低（A/K 与翻前加注者的范围强相关；5 则更多与跟注者的部分 5x 和 55 相关）。三张牌花色各不相同，因此翻牌**没有立即的同花听牌**；这会减少很多“权益大幅波动”的转河组合，使得许多成牌（尤其是**Top Pair**）的牌力相对稳定。牌面**存在顺子听牌**，但多数是通往 Broadway 的**gutshot**（例如 QcJs 这类需要 T 的手牌）。由于没有同花压力且以 gutshot 为主，很多权益相对**稳健**：大量 turn 不会显著改写领先方，不过 Q/J/T 这类 turn 会明显影响一对牌继续的舒适度。\n\n2) **行动线分析、位置、SPR 分析：** 翻前为 **BTN open 2.5bb，BB call**（100bb）。翻牌 **BB check，BTN bet 5.5bb** 到约 5.5bb 的底池（一个**pot-sized c-bet**），随后轮到 BB 行动。接下来 BB 全程处于**out of position**对抗 BTN，这会降低 BB 的 equity realization，并促使 BB 的继续范围更紧（弃牌更多，更多“用能承受压力的牌去 call”）。如果 BB call，码量约剩 92bb，底池约 16.5bb，则 turn 的 SPR 约为 **5.6**，BTN 仍有充足空间在后续街施压——这也是 BB 面对 pot bet 不能“什么都防守”的原因。\n\n3) **范围分析：** BB 的范围主要由大量 **Kicker** 类手牌（约占一半）以及相当比例的 **Top Pair**、**Second Pair**构成；而 BTN 的范围顶端更强：BTN 整体拥有更大比例的**best-equity hands**，并且在该牌面上有更高密度的 **Hidden Set / two pairs / 强 Top Pair**。具体而言，BB 确实会有坚果级别的牌（例如 **5d5c** 作为 Hidden Set；**As5d** 作为 two pairs），但占比不大；BTN 在这类牌面上更频繁拿到非常强的牌（例如 **AhAc** 作为 Hidden Set；**AsKd** 作为 two pairs）。结构上，BB 更**被盖帽**（相比 BTN 更少持有范围顶端），而 BTN 同时具备 **range advantage（60% vs 40.9% equity）**以及明确的 **nut advantage**（在 A-high、K-high 牌面）。在彩虹且以 gutshot 为主的结构下，权益波动不算剧烈；同时因为 BB 需要在 OOP 情况下实现权益，BTN 的优势往往会在很多 runout 上持续存在。\n\n4) **策略分析（BB vs pot c-bet）：** BB 的整体应对频率为 **Fold 57.34%，Call 40.75%**（raise 存在但占比很小：**13.8bb 1.67%，22bb 0.25%**，学习时可基本忽略）。在 OOP 且范围被盖帽的情况下面对 pot bet，这种高弃牌率是合理的：理论上对手下注越大，BB 越需要提高防守频率，但实战/策略结果中，BB 许多手牌要么 EQ 偏低、要么实现能力差，因此策略会自然地相对 MDF 更倾向弃牌。**Call** 主要由能稳定继续的牌驱动：BB 的 **Top Pair**几乎纯继续（例如 **Ac2c** 属于 Top Pair，100% call）；以及带有明确提升路径、同时具备一定摊牌价值的 **gutshot_straight_draw** Kicker（例如 **QsJd** 属于 Kicker+gutshot，大多数时间选择 call）。**Fold** 则高度集中在 BB 最弱的 “Kicker/no_draw” 区域，这类牌难以承受多次 barrel（例如 **Th9d** 是无听牌的 Kicker，几乎总是弃牌），同时也包括相当一部分过于脆弱的 **Second Pair**，因为它们要对抗 BTN 强 A-high 下注范围与后续街压力（例如 **KdTc** 会混合，但弃牌占比很高）。核心驱动因素是下注尺度：BTN 的 pot bet 更偏 polar，并且权益拒绝更强，因此 BB 的最佳应对是用更紧的继续范围来对抗——由更强的成牌与更可打、带听牌的手牌构成，同时放弃那些实现能力低的空气牌。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_3.7bb&turn=&river=",
+      "board": "JcTc4s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Jhigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（Jc Tc 4s）：** 这是一个**未成对**的 J 高翻牌面，高张部分（J/T）非常集中，同时带有一张断张的小牌（4）。花色是**two-tone**（两张梅花），因此存在**flush draw（梅花）**，但没有成花。点数结构也会立刻形成**straight draw**：主要是围绕 **KQ / Q9** 的 broadway 结构，同时也会与一些更低的连张产生互动（例如 **98** 一类）。由于牌面同时具备 **two-tone** 且偏“顺子化”，权益**不够稳健**：大量转牌（梅花、Q/K/9/8，有时还有 A）都会显著改变谁是当前最强牌，并改变下注动机。很多一对牌（顶对/二对）往往属于“目前领先，但不舒服”的类型，而强听牌则更容易获得施压空间。\n\n2) **行动线分析、位置、SPR：** 翻前为 **BTN open 2.5bb，BB call**（单挑）。翻牌 **BB OOP check**，BTN 在约 **5.5bb** 的底池里用 **3.7bb c-bet**（约 **67% pot** 的大尺寸），此时 BB 在不利位置面对该下注。BTN 下注后底池约 **9.2bb**；若 BB 跟注，底池约 **12.9bb**，BB 剩余计分牌约 **93.8bb**，因此 **SPR ≈ 7.3**。这个 SPR 仍然偏高，影响很大：BB 不能在这种动态牌面上，用一对牌轻易打到打光，尤其是在 **OOP 对抗翻前加注者**时。BTN 的位置优势也会让 BB 的边缘继续（薄 float、弱对子）吸引力下降，因为 BTN 更容易实现权益，并在很多转牌上持续施压。\n\n3) **范围分析（类别、结构、优势）：** BB 在这里到翻牌的范围包含大量**一对**与**未成对**牌：**Top Pair（11.8%）**、**Second Pair（12.3%）**、**Third Pair（11.5%）**，以及很大比例的 **Ace High（19.5%）/ K-high-ish “kicker high”（13.9%）/ 低“kicker”牌（25.1%）**。BB 的最强价值主要来自 **Hidden Set（0.76%）** 与 **two pairs（2.16%）**，因此与 BTN 相比，BB 在范围顶端相对更**被盖帽**。相比之下，BTN 的顶端更多：**Hidden Set（2.56%）**、**two pairs（3.49%）**，且关键是有 **Over pair（5.98%）**，同时整体顶对质量也更强。这使 BTN 在此处拥有明确的 **nut advantage** 与 **range advantage**（BTN 总体 EQ 约 **57%**，BB 约 **43%**）。由于双方范围里都有较多听牌（BB 有明显的 **flush draws / OESDs**，BTN 则有更多 **OESDs** 与 gutshots），这个 spot 对 runout 非常敏感：大量转牌会改变相对牌力与后续进攻频率。\n\n4) **策略分析（BB 面对 3.7bb 的总体拆分 + 类别驱动因素）：** BB 的应对主要是 **Fold 50.0% / Call 41.7%**；加注虽存在，但总体频率**较低（约 8.3%）**，为提升学习效率可以简化处理。BTN 的大尺寸会压缩 BB 的继续范围：在 **OOP、范围劣势且顶端偏被盖帽**的前提下，BB 必须弃掉大量低权益牌，主要用两类牌继续：(a) 能够在面对多次 barrel 时具备一定摊牌能力；或 (b) 能在转牌提升。**Call** 主要由具备合理摊牌价值的成牌与更好的听牌构成：**Top Pair** 基本属于纯继续（例如 **Jd8h** 绝大多数情况下选择 call），**Second Pair** 也以很高频率继续（例如 **Td9h**）。大多数 **flush draws** 与 **open-ended straight draws（OESDs）** 也会大量继续，因为它们更容易实现权益，且转牌能变得很强（例如 **Ac7c** 作为 nut flush draw 继续频率很高，且往往更偏向 call）。**Fold** 主要来自 BB 范围底部：这些牌在 OOP 面对大注难以盈利地实现权益——**Bottom Pair** 几乎总是弃牌（例如 **2d2c**），大量 **Ace High** 会弃掉，许多较弱的 **gutshots / 仅 backdoor-flush** 的牌也会放弃。实战上可以概括为：用 **pairs + strong draws** 防守，对最弱的高张与低对子在该尺寸下直接弃牌。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_Call&flop=UTG_Check&turn=&river=",
+      "board": "Ad8h7s",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌为 **Ad‑8h‑7s**：**非对子**、**A‑high**、且是 **rainbow**，因此 **没有 flush draw**，也不存在“单张成花”的压力。牌面的主要动态来自围绕 7–8 区间的 **straight draws**（例如 **6d5d** 拿到 **open‑ended straight draw**），以及一些 gutshot。由于没有 flush draw，相比两同花牌面，**成牌的权益更稳定**；转牌最大的权益波动主要来自：(a) **补成顺子的点数**（取决于具体听牌，可能是 4/5/6/9/T），以及 (b) **牌面配对**（A/8/7）改变 set/two pair 的价值，并影响 one pair 的舒适度。\n\n2) **行动线分析：** 翻前为 **UTG open 2.5bb，BTN call**，翻牌 **UTG check**，因此来到翻前主动方放弃 c-bet、且 **BTN 在有利位置（IP）行动** 的局面。翻牌底池约 **6.5bb**（1.5 盲注 + 2.5 open + 2.5 call），身后约 **97.5bb**，所以 **SPR ≈ 15**，属于高 SPR：没有人会被迫用 one pair 打光，IP 玩家也可以通过 **pot-control checks** 在同时实现权益的情况下控制底池规模。位置优势明显偏向 BTN：可以 (i) 用边缘权益牌拿免费牌，(ii) 在有利时选择极化下注，(iii) 在 UTG 通过 check 表现出弱势后，让 UTG 的范围保持更宽。\n\n3) **范围分析：** BTN 范围包含相当比例的 **Top Pair**（26.2%）、**Hidden Set**（5.4%）、**two pairs**（2.0%）、大量 **Covered Pair**（15.9%），同时也有不少 **Bottom Pair / Kicker High Card / Kicker**，以及听牌（主要是 **open‑ended** 与 **gutshot straight draws**，外加许多仅具备 **backdoor flush draw** 潜力的手）。UTG 虽然选择 check，但仍保有大量 **Top Pair**（32.5%）与 **Covered Pair**（16.6%），也有一些 set/two pair；同时 UTG 在 **Kicker High Card / Kicker** 桶里也保留了不少会不喜欢承受压力的组合。结构上，BTN 的范围支持 **混合策略**：既有很强的牌（set/two pair），也有大量中等与低权益的牌；而 UTG 的 check 范围既包含保护性 check（A‑x、covered pairs），也包含直接放弃的组合。就原始 equity 而言 UTG 略领先（约 51/49），但 BTN 的顶端强度同样具备竞争力（BTN 最强的那一档略占优），因此 **nut advantage 相对共享**（UTG 独有 **AsAc**，但 BTN 也有很多强的 A8/A7/87 类持牌，以及像 **7h7c** 这样的 set）。\n\n4) **策略分析：** BTN 的整体策略是 **Check ~67%**，以及 **bet 6.5bb ~30%**；其余下注尺度占比很小，学习时可简化忽略。高频 check 的逻辑在于：(a) UTG 范围仍包含大量 **A‑x 与 Covered Pair**，不容易弃牌；(b) 牌面是 **rainbow**，BTN 并不“需要”通过下注去做 flush 权益拒绝；(c) 在 **SPR ~15** 的情况下，BTN 通过控制底池、让被压制/边缘牌留在底池中并在 IP 实现权益会更有利。  \n当 BTN 选择下注时，计划主要是使用 **极化的 6.5bb bet**：**Hidden Set** 与 **two pairs** 倾向下注以扩大底池并开始为价值打光做铺垫（例如 **7h7c** 是明确的价值推进牌）；同时 BTN 也会大量用该尺度搭配 **straight draws** 来制造弃牌率并建立后续 barrel 线路（例如 **6d5d** 这种 open‑ender）。此外，从整体分类上看，BTN 也会用 6.5bb 频繁押注 **Second Pair** 与 **Third Pair**：这些牌可以对 UTG 的 broadway 高牌与各类 “Kicker” 手牌做权益拒绝，同时在对抗 UTG 的 check 范围时仍有足够牌力。相对地，**Top Pair** 多数选择 **check**（例如 **AcJs** 经常 check）：在 rainbow 上 top pair 并不需要太多保护，而下注往往会让自己更容易被 UTG 的继续范围（更强的 A‑x 与 covered pairs）所孤立，同时把你本来就领先的手牌打弃。最后，**Kicker High Card** 主要是 **check**（例如 **KhQh**），因为它们不够强来做价值下注，把底池打大也很难从一个仍可能包含许多强 one-pair 的范围中获利。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_Call&flop=UTG_Check&turn=&river=",
+      "board": "Qd7c2h",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Qhigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：**Qd7c2h 是一张未成对的 Q-high 彩虹面（3 种花色），因此**没有立即的同花听牌**；在这个点数结构（Q-7-2）下也**没有顺子听牌**。这使得该 flop 相对“静态”：多数手牌在很多 turn 上的相对强弱不会发生太大变化，权益的明显波动通常来自 turn 的**配对牌**（Q/7/2）或更大的高张落下后改变顶对踢脚关系，而不是来自听牌完成。由于没有真正的听牌需要进行 drawing races，成手牌的权益相对更稳健：顶对与 set 不会害怕太多 turn；诈唬的主要来源更偏向“纯高张 + backdoor flush draws”，而不是强听牌。\n\n2) **行动线分析：**翻牌前 UTG open 2.5bb，BTN call；翻牌 UTG check，轮到 BTN 在 IP 行动。翻牌底池为 6.5bb（0.5 + 1 + 2.5 + 2.5），有效后手约 97.5bb，因此 SPR 约为 15。高 SPR 且牌面静态时，BTN 可以用较小的 stab 施压：风险不高，但仍会让 UTG 的 overcards 付出代价；同时 BTN 也可以用较高频率 check back 来实现权益，并让 UTG 的范围保持更宽。位置优势在这里非常关键：BTN 可以采用高频率小注 stab，因为 UTG 的 check 会让其范围更多偏向 A-high 与中等强度的手牌（尽管 UTG 仍保留强牌），而 BTN 能控制底池扩大节奏，并在 turn 获得更多信息后再做应对。\n\n3) **范围分析：**BTN 的范围包含相当比例的强成手牌（Hidden Set 约 4.7%，Top Pair 约 17.1%），也有大量中等摊牌价值牌（Covered Pair 约 18.7%，Second Pair 约 14.5%），以及不少未成对手牌（Ace High Card 约 23.8%）。听牌方面，主要的“听牌”类别是 backdoor flush draws（约 35.2%），而不是前门的强听牌。UTG 的 check 后范围依然包含真实强度（Hidden Set 约 2.3%，overpair 约 3.5%，Top Pair 约 15.5%），但整体权重更偏向 A-high（约 38.1%）以及其他未成对的 broadway 类手牌。总体而言，BTN 有小幅范围优势（EQ 51.3% vs 48.7%），且顶端桶略更强（nut advantage 更偏向 BTN），这部分来自 BTN 在该 flop 上的 set 密度更高；但 UTG 仍独有一类 overpair（例如 KsKc），即使选择 check 也依然是其顶端的重要支柱。由于没有顺子听牌也没有同花听牌，权益相对稳定，权益实现率也更高——尤其 BTN 因为 IP（BTN 的 EQR 很高）。\n\n4) **策略分析：**BTN 的总体策略是混合的：核心是 **Check 47.4%** 与 **bet 2.1bb 39.8%**；此外还有 **4.4bb 11.0%**，但为了学习与执行效率，可以简化为“两动作”（Check + 小注），因为 **2.1bb 尺寸约占全部下注的 76%**，并且能覆盖该牌面主要逻辑。小注之所以有效，是因为 UTG 的 check 会留下大量不愿意面对任何下注的手牌（尤其是 UTG 的 A-high 与 K-high 组合），同时牌面静态，BTN 不需要用大尺寸去“给听牌收费”。**2.1bb** 会被用于较宽的“价值 + 权益拒绝”区间：既包括仍希望拿到行动并获得一定保护的强牌（如顶对 AdQs、set QsQc），也包括愿意用低成本进行权益拒绝的中等对子/7x；同时还搭配一些天然的低投入诈唬，且经常带有 backdoor flush 潜力（例如 5d4d）。在这张牌面上，这个小注通过让 UTG 大量 air 弃牌来直接盈利，同时保持 BTN 的范围宽且不易被针对。**Check back** 仍会保持高频，因为 BTN 有许多具备不错摊牌价值、并不需要保护的手牌，check 能带来控池与诱导收益：例如中等对子 TdTc，甚至 A-high 如 AhKc，都可以拿一张免费牌，避免被 check-raise 赶走权益，并把 UTG 的较弱牌留到后续街继续获取价值。整体结果是一种稳定、由位置驱动的混合策略：经常用小注 stab，但同时在 check back 范围中保留足够强牌，避免 UTG 在 turn 轻易自动开火。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_3.7bb&turn=&river=",
+      "board": "9d3c2h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌是 **9d3c2h**，一张**无对子**的 9-high **rainbow** 牌面，因此**没有立即的同花听牌**；与同花相关的权益只来自**后门同花听牌**（手牌里同一花色两张）。从点数结构看，这是偏低、整体较为分散的牌面，但**确实存在围绕 wheel 的顺子联动**：**54** 有 **open-ender**，而像 **65** 这类手牌会拿到通向 4 的 **gutshot**。由于没有同花听牌且牌面不成对，很多成手牌的权益相对稳定（顶对和口袋对子不会立刻被同花“冲掉”），但对后续牌仍然**较敏感**：低张转牌（A/4/5/6）会补全或制造顺子，而 9/3/2 的转牌会改变对子/明三条（trips）相关的结构。\n\n2) **行动线分析：** 翻前 **BTN open 2.5bb，BB call**，翻牌 **BB check，BTN c-bet 3.7bb** 打进约 **5.5bb**（一个**大尺寸 c-bet，约 67% pot**）。BB 处于 **out of position**，需要应对这个对 BB 宽防守范围施压较强的下注。若 BB 跟注，底池约变为 **12.9bb**，身后约 **93.8bb**，转牌 **SPR ≈ 7.3**：这意味着在转牌阶段 SPR 仍偏高，**一对类牌不应默认打到全下**。因此 BB 通常更偏向用大量 **call** 来继续，而不是用边缘成手牌去扩大底池；加注更应由价值牌/半诈唬（semi-bluff）驱动，而不是“能加就加”。\n\n3) **范围分析：** BB 以较宽的防守范围进入翻牌，包含大量 **Kicker**（32%）、**Ace High Card**（21%），以及一定比例的 **Top Pair**（15%）和 9 以下的口袋对子（**Covered Pair**，5%）。BB 最强的价值主要来自 **Hidden Set**（33/22，占 1.5%）以及极少量的两对（32，占 0.3%）。BTN 的 c-bet 范围则更集中在强牌：**Hidden Set**（2.6%）+ 一定比例的 **Over pair**（7.5%，例如 **ThTd**），以及更多的顶对（15.5%）。这使 BTN 同时拥有**范围优势**（BTN equity 约 54% vs BB 约 46%）以及在顶端牌力上的**nut advantage**（BTN 更常出现“best hand”）。相较之下，BB 顶端范围更**被盖帽（capped）**（结构上更少出现 premium overpairs）。双方仍保有不少空气牌/高牌密度；在没有同花听牌的前提下，权益整体**相对稳健**，但能完成顺子的低张转牌仍会显著改变权益分布。\n\n4) **策略分析：** 面对 3.7bb 的 c-bet，BB 的应对频率为 **Fold 44.8%，Call 44.8%，Raise 10.2bb 10.1%**（更大的加注尺寸占比很小，可忽略简化）。之所以形成这种混合，是因为 BB 范围里有大量**边缘摊牌牌力**与**高张但低权益的牌**，在面对大尺寸下注时无法盈利继续；同时 BTN 有位置优势且顶端更强，使 BB 难以采用激进的“range raise”打法。\n\n- **Call（44.8%）** 主要由那些在 **SPR ~7** 下能较好兑现权益、且不需要扩大底池的牌推动：**Top Pair** 往往高频继续（例如 **As9c** 属于顶对，会在 call/raise 间混合但整体明显偏向继续），而 **Covered Pair/Second Pair/Third Pair** 基本以跟注为主，因为它们能赢过诈唬，同时把 BTN 的弱牌留在范围里，并避免被 3-bet 后丢失权益。\n- **Fold（44.8%）** 主要来自 BB 最弱的高牌区域，尤其是 **Kicker** 与 **Kicker High Card** 这类在大尺寸 c-bet 面前权益与兑现率都较差的组合；例如 **Qd8h**（低权益、无听牌的 kicker）就是明确的弃牌。\n- **Raise 到 10.2bb（10.1%）** 主要是价值牌/半诈唬（semi-bluff）的构建：BB 会用很高频率加注 **Hidden Set** 和两对来扩大底池并进行权益拒绝，同时用部分顺子听牌（gutshots 以及 **54 open-ender**，例如 **5d4d**）进行补充，避免范围过于透明。关键点是：BB 不希望在这里用一对类牌过度加注，因为 BTN 的继续范围包含大量强牌（包括 overpairs），且 BTN 有位置时能更好地对抗过于激进的 BB 并兑现权益。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb&turn=&river=",
+      "board": "8c7c6h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌为 **8c7c6h**：无对子、点数偏低且连接性很强（最高牌 8），并且有 **两张梅花**，因此存在 **flush draw**，但还没有成花。牌面已经出现了 **成顺**（尤其是 **9-5**、**T-9** 这类组合），而且由于点数分布非常紧密，双方也会获得大量 **open-ended straight draw** 与 **gutshot**。这是一个高波动的牌面：很多转牌（任何 5/9/T、很多 4、梅花，以及让牌面配对的牌）都会显著改变双方的 equity，因此除非你已经拿到顺子，或是那种“已成牌 + redraw”的强牌，否则已成牌的 equity **并不稳健**。\n\n2) **行动线分析：** 翻前 **BTN open 2.5bb，BB call**，形成约 **5.5bb** 的底池。翻牌先 **BB check**，BTN（有利位置）用 **1.8bb 小尺度 c-bet**（约 33% pot），BB 现在可以用 **Fold / Call / check-raise** 应对。翻牌时有效后手仍约 **97.5bb**，因此 SPR 非常高（下注前约 **18**），意味着没人会被迫用一对牌去打光；范围互动与后续 runout 会极其重要。位置上，BTN 能持续施压并更干净地实现 equity；BB 处于 OOP，通常会在这个尺度下用 **较宽的 continue** 来应对（底池赔率很好：BB 跟注 1.8 进 5.5 只需要约 25% equity），同时配置一部分 **check-raise** 来做权益拒绝，并惩罚该牌面大量听牌带来的可发展性。\n\n3) **范围分析：** BB 的范围包含大量 **一对与高牌**：**Kicker（29%）**、**Ace High Card（17%）**、**Kicker High Card（13.7%）**，以及可观的 **Top Pair（10.6%）/ Second Pair（7.9%）/ Third Pair（8.0%）**。BB 也确实有坚果型强牌：**Straight（4.2%）**、**Hidden Set（1.3%）**、**two pairs（2.3%）**，但 **Over pair（0.1%）** 很少。听牌方面 BB 极度“听牌密集”：**open_ended_straight_draw（25.5%）** 与 **gutshot_straight_draw（23.9%）** 占主导，并且还有一些 **flush_draw / nut_flush_draw / combo_draw**。BTN 的范围整体更强，尤其是顶部更“top-heavy”：**best/strong** 组合更多，最明显的是 **Over pair（8.5%）** 多很多，同时 **Straight（5.6%）** 与 **Hidden Set（2.6%）** 也略多。因此 BTN 有更明确的 **range advantage**，并且具备一定的 **nut advantage**（顶端密度更高且 overpair 更多）；BB 的补偿在于，BB 也能拿到不少 **two pairs/straights/强听牌**，并能在这种动态翻牌上用 check-raises 发起进攻。由于双方都有大量听牌，双方范围的 equity 都会强烈依赖 runout。\n\n4) **策略分析：** BB 面对 1.8bb 的 c-bet，主要拆分为 **Call 54.4%**、**Fold 28.0%**，以及一个主要的 check-raise 尺度 **6.4bb（16.9%）**（更大的 10.9bb raise 占比可忽略，可简化不讨论）。**Call** 是策略骨架：因为 BTN 尺度很小，而 BB 有大量手牌具备足够 equity 和/或实现能力；大多数 **Top Pair** 与 **Second Pair** 都以很高频率跟注（Top Pair 约 91%，Second Pair 约 92%），**Third Pair** 也多数选择跟注（约 86%）。很多听牌也更偏好 call：**flush_draw** 偏向以 call 为主（约 70%），并且相当一部分 **open_ended_straight_draw** 也以 call 继续（约 72%），以便在 OOP 用中等强度听牌实现 equity，而不把底池扩大得过快。**Fold（28%）** 主要来自最弱、即使面对小尺度也无法盈利继续、且在转牌会承受很大压力的部分：**Bottom Pair** 是主要弃牌来源（约 61%），大量 **Kicker High Card** 与 **Kicker** 也会高频弃牌（约 50% 与约 41%）。当 **backdoor_flush_draw** 缺少真实顺子 equity 或对子价值时，也会大量弃牌（约 59%）。**6.4bb check-raise** 是 BB 在这张湿润牌面上构建两极化施压范围的主要手段：它由强价值牌驱动，例如 **Straights** 与 **Hidden Sets**（顺子经常加注；例如 **9c5c** 会以很高频率 check-raise），以及高 equity 的半诈唬，例如 **combo_draw**（加注约 52%）。BB 也会用一部分顺子听牌混合加注（open-enders 加注约 23%，gutshots 约 12%），避免策略过于透明，并在这张未来牌极易改变局势的牌面上，对 BTN 的 overcards / 高牌 equity 进行权益拒绝。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_Call&flop=UTG_Check&turn=&river=",
+      "board": "8d7c6h",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌是 **8d7c6h**：**无对子**、**8-high**、且 **rainbow**（三种花色），因此**没有成花**，也**没有立即的同花听牌**；与花色相关的权益主要来自 **backdoor flush draws**。点数结构上，这是一个高度连张的 **6-7-8** 牌面，**顺子已经存在**（例如 **Td9d**、**5d4d**），同时天然产生大量 **open_ended_straight_draw** 与 **gutshot_straight_draw** 组合。由于很多转牌都会改变 nuts（5/9/T、牌面成对等），一对类牌型，甚至部分 **Over pair** 的权益都**不够稳定**：不同 runout 下牌力排序变化很大，所以尽管是 rainbow，这仍是一个对 runout 非常敏感的翻牌。\n\n2) **行动线分析：** 翻前行动为 **UTG open 2.5bb，BTN calls**；翻牌 **UTG checks**，现在 **BTN 在有利位置（IP）行动**。底池约 **6.5bb**（盲注 1.5 + 2.5 + 2.5），有效后手约 **97.5bb**，因此 **SPR ≈ 15**，属于高 SPR。高 SPR 加上动态牌面，会让双方更少走“用一对打光”的路线，而更倾向于 **small stabs、delayed aggression 和 multi-street planning**。UTG 作为翻前加注者选择 check，也意味着 UTG 的范围里常包含大量想要 **control pot / realize equity** 的手牌（许多 A-high、K-high 一类），同时仍保留一部分强牌；BTN 的位置优势使其可以更频繁下注来做**权益拒绝**，并用强牌开始建立底池，而不必依赖极大下注尺度。\n\n3) **范围分析：** BTN 拥有 **range advantage**（整体 **EQ ~54.4%** vs UTG **~45.6%**），并且有明确的 **nut advantage**：BTN 拥有更多 **Straight（4.90%）**、更多 **Hidden Set（7.13%）**、以及更多 **two pairs（1.98%）**，相较之下 UTG 分别为 Straight **2.02%**、Hidden Set **3.65%**、two pairs **0.37%**。UTG 的范围包含更多**垃圾牌**（约 **19.7%** 处于 0–30 EQ），并且有大量 **Ace High Card（37.65%）** 与 **Kicker High Card/Kicker**，在这个 8-7-6 牌面上经常落空；尽管如此，UTG 仍有不少 **Over pair（16.83%）** 以及一些怪物牌（例如 UTG 仍可能有 **5d4d** 这样的顺子）。BTN 的范围同样充满顺子压力：**open_ended_straight_draw（17.72%）** 与 **gutshot_straight_draw（20.63%）** 占比很高，因此 BTN 能在许多转牌上可信地持续 barrel。总体而言，双方的权益都不算“稳健”，因为该牌面会频繁发生 nuts 转移，并在后续街产生较大的权益波动。\n\n4) **策略分析：** BTN 的策略整体偏 **bet-heavy**，明显偏好 **2.1bb（68.28%）**，其次是 **4.4bb（27.52%）**；**Check（1.74%）** 为了学习效率可以直接简化掉，**6.5bb（2.46%）** 出现频率过低，基本不用关注。BTN 之所以能如此高频 stab，逻辑很直接：UTG 的 check 范围包含大量不愿在 8-7-6 面对压力的手牌（许多 **Ace High Card** 与 **Kicker High Card/Kicker**），而 BTN 不仅有**更多顶端成牌**，也有**更多高权益顺子听牌**，再加上位置优势，被跟注后也更容易实现权益。**2.1bb** 尺寸承担了主要功能，作为一种 **range-probe/deny** 的下注：大量一对与中等强度成牌会用它去拿**薄价值**并做保护（例如 **Over pair** 会明显倾向 2.1bb，**QsQh** 就符合这种思路），同时它也非常适合高频听牌，用较低成本换取弃牌率并借助位置优势实现权益（例如 **Ah9h** 作为 **open_ended_straight_draw**）。**4.4bb** 则是更偏“施压”的分支：更多出现在那些想在波动很大的牌面上扩大底池的手牌上（例如 **Straight** 的 **Td9d**、以及 **Hidden Set**），或出现在摊牌价值偏低、但更希望通过更高弃牌率去压制 UTG A-high/K-high 区域的手牌上（例如 **AdJs**——A-high 且 **no_draw**——通常通过推动弃牌会比过牌让 UTG 实现权益更有效）。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb&turn=&river=",
+      "board": "Ad5c5h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌是 **Ad5c5h**，属于 **A-high 的成对牌面**，公共牌上有 **5 的明三条（trips）**。花色是 **rainbow**，因此 **没有立即的同花听牌**，但部分手牌可能带有 **backdoor flush draw** 潜力（手里两张同花）。由于牌面成对且偏干燥，很多权益来自 **成牌**（A-x、口袋对子、以及 5-x），而且很多转牌并不会大幅重洗双方权益；真正明显的权益波动主要来自 **A 转牌**（让 A-x 形成葫芦/boat）和 **5 转牌**（形成四条/葫芦），此外也有少量跑牌会与“存在顺子听牌”的动态产生互动（偏 wheel 型的连张结构），但总体而言，相比高连张或 two-tone 牌面，这仍然是一个更“稳健/robust”的牌面。\n\n2) **行动线分析：** 翻牌前是 **BTN open 2.5bb，BB call**，因此 BB 带着相对较宽的防守范围来到翻牌，并且处于 **OOP**。翻牌 BB **check**，BTN（作为翻前加注者且 **IP**）在约 5.5bb 的底池下注一个 **1.8bb 的小号 c-bet**（约 1/3 pot），现在轮到 BB 面对这个下注做决定。以 100bb 记分牌深度计算，翻前结束后 BB 约剩 **97.5bb**，BTN 下注后底池约 **7.3bb**，因此此时的 **SPR 仍然很高（~13）**（即使 BB 跟注，SPR 也依旧偏高）。高 SPR + 干燥的成对牌面，通常会推动 BB 更多采用 **call**（实现权益、让被支配的牌继续留在对手范围里），并减少在没有很强理由时去建立巨大底池；同时 BTN 的位置优势也支持其用小尺度高频下注，避免让 BB 用大量弱持牌免费实现权益。\n\n3) **范围分析：** BB 的范围主要由 **Kicker**（≈48.7%）构成，同时有相当比例的 **Kicker High Card**（≈18.9%）与 **Top Pair**（≈18.6%）；其余还包括较小比例的 **Open Set**（≈5.1%）、**Bottom Pair**（≈4.6%）、**Covered Pair**（≈2.7%），以及极少量的 **Full House/Four of a Kind**。BTN 的范围中 **Top Pair**（≈23.8%）占比更高，**Covered Pair**（≈6.5%）也更多，同时仍保有很大比例的 **Kicker**（≈43.6%）。更重要的是，BTN 的范围在顶端更“top-heavy”（超强牌密度更高、顶端权益桶更强），这与 BTN 在该牌面同时具备 **range advantage（55% vs 45% equity）** 以及更清晰的 **nut advantage** 相一致（BTN 总体可拥有更多的葫芦/四条组合）。因此，BB 相对 BTN 在顶端存在一定 **被盖帽（capped）** 的倾向，尽管 BB 仍然包含一些很强的 5-x（例如 **5s2s**）以及部分 boat。由于是 rainbow 且缺少立即听牌，权益整体 **不太 runout-fragile**；波动主要集中在公共牌再次成对（A/5）以及少数完成“顺子听牌存在”这一元素的连张跑牌上。\n\n4) **策略分析：** 面对 1.8bb 的 c-bet，BB 的整体应对为 **Call ~49.6%，Fold ~39.2%**，加注存在但不是核心分支（**6.4bb ~9.9%，10.9bb ~1.3%**）；为提高学习效率，可以大体简化为 **call-or-fold**，因为 raise 并非主要路径。核心逻辑是：BTN 的小注在压迫 BB 宽而弱的区域，BB 则通过继续游戏来防守——用那些具有明确摊牌价值或更好实现权益能力的手牌继续，同时放弃最低权益的 Kicker 组合。\n\n- BB 对 **Top Pair** 的继续非常高频（跟注为主；例如 **AcJs** 多数时候选择 **Call**）。\n- **Covered Pair** 与 **Bottom Pair** 也倾向于大量 **Call**（例如 **2s2c** 基本都会继续），因为价格很好且牌面并不需要立刻做大量保护。\n- **Kicker High Card** 区域会混合策略但整体偏向 **Call**（例如 **Kd3d** 经常继续），因为面对小尺度更容易实现权益，同时也能让 BTN 的 bluffs 与 thin value 都保留在范围里。\n- 主要的弃牌来源是 **Kicker** 区域（整体偏 **Fold-heavy**），也就是那些最弱、未成对、与 A/5 互动差且实现权益不够干净的持牌。\n\n整体而言加注不多；当 BB 选择加注时，通常由其最强的 5-x 价值牌驱动，并搭配极薄的一部分 bluff，用来利用 BTN 面对加注时“以一对为主”的继续范围（例如 **4d2d** 会以加注为主）。不过，较低的加注频率也说明 BB 多数时候更偏好在这个干燥的成对牌面上避免 **scale the pot**，尤其是在对手 **IP** 且握有 nut advantage 的前提下。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb&turn=&river=",
+      "board": "6h5c5h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "6high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "**1) 牌面分析：**6h5c5h 是一个低张、成对的 flop（只有一对：5-5），并带有 6 作为踢脚牌。花色是 two-tone（两张红桃），因此立即存在 flush draw（尤其是红桃），但目前没有成花。顺子还没有成牌，但点数连接度足够，确实会带来顺子压力：例如 8x7x、4x3x 这类 open-ender 存在，9x8x 这类 gutshot 也存在。由于牌面成对，*trips/boats/quads*（任何 5x、66、以及 6x5x）都非常稳健——后续转牌来的高张通常不会显著改变它们的相对强度；而一对类牌（Top Pair 6x、Over pair 77+、Bottom Pair 22–44）对 runout 更敏感，尤其会受红桃转牌以及补顺转牌的影响。\n\n**2) 行动线分析：**翻前为 BTN open 2.5bb，BB 跟注（100bb 深）。Flop：BB check，BTN c-bet 1.8bb 到约 5.5bb 的底池（约 1/3 pot）。现在 BB 处于 OOP，面对 IP 玩家的小尺寸下注。有效后手仍约 ~95–97bb，因此即便跟注，SPR 依然很高（大约 ~10+）。这会推动 BB 用更多中等强度牌去 *call*（避免在 OOP 把底池扩大得太快），而 *raise* 范围会更偏向价值/权益驱动（强成牌 + 强听牌），而不是“什么都加注”。同时，BTN 的位置优势也意味着 BB 最弱的继续范围 EQ realization 很差，所以 BB 不能仅仅因为赔率好就“全都防守”。\n\n**3) 范围分析：**BB 到达这里时包含大量 **Kicker** 手牌（39.45%），以及 **Ace High Card**（20.86%）与 **Kicker High Card**（17.45%）。此外还有一块占比更小但很关键的成牌：**Top Pair**（9.18%）、**Open Set**（5.99%）、**Full House**（0.81%）、**Four Of A Kind**（0.22%），以及 **Over pair**（1.55%）和 **Bottom Pair**（4.48%）。BB 也有可观的顺子听牌量（尤其是 **open_ended_straight_draw** 与 **gutshot_straight_draw** 的占比高于 BTN），并且有一些红桃听牌。与此同时，BTN 的整体强度更高（“best” + “strong” 桶更多），明显包含更多 **Over pair**（10.63%）与更强的高张牌，同时总体红桃听牌密度更高（包括更多 **nut_flush_draw**）。总体结果是：BTN 同时拥有 **range advantage**（54.16% vs 45.81% equity）以及 **nut advantage**（最高权益桶更高），尽管 BB 并未被盖帽（BB 可以有 **5s5d** 这种 quads，也可以有 **6c5s** 这种 boat）。由于红桃/补顺转牌会显著影响对一对牌的走势，一对类牌的 equity 稳定性并不高；但牌面成对的特性会让范围最顶端的牌力相对稳定。\n\n**4) 策略分析：**BB 面对 1/3-pot 的 c-bet 采取混合策略：**Fold 33.30% / Call 45.38% / Raise 6.4bb 21.05%**。更大的加注尺寸（10.9bb）占比 **<10%**，学习时可以简化忽略。这个混合是合理的：BB 在 OOP 且处于范围劣势，因此不能过度进攻；但 BB 仍然有足够多的强 5x/66/6x5x，以及足够多的优质听牌，从而支撑一个真实存在的加注范围。\n\n**Raise 6.4bb** 主要由两类驱动：  \n(a) 需要去打进筹码、同时对 overpairs/6x 进行权益拒绝的超强价值牌——quads/full houses/open sets 的总体加注频率很高（例如 **5s5d** 明显偏向加注；**Ah5s** 作为 Open Set 也会更激进地继续）。  \n(b) “权益 + 可操作性”最好的 bluff：**open_ended_straight_draw** 与 **combo_draw** 经常选择加注，因为它们既能通过当下的弃牌率直接获胜，也仍然拥有很强的 turn barreling equity（例如 **8d7h**（OESD）与 **4h2h**（combo_draw）都会混合加注）。部分 **flush_draw** 也会加注，尤其是当其能从 fold equity 与未来在红桃转牌持续开火中获益时。\n\n**Call** 是策略主干，因为高 SPR + OOP 更鼓励用并非无敌、但往往领先的牌做底池控制：**Top Pair** 多数选择 call（例如 **Qd6d** 几乎都是 call），**Over pair** 也以 call 为主（例如 **7h7c** 主要 call，少量加注），而不少 **Ace High Card** 会在具备更好 realization（backdoors/overcards）时选择 call 继续，而不是直接转成 bluff-raise。\n\n**Fold** 主要集中在 realization 最差的区域：低 EQ 的 **Kicker** / **Kicker High Card** / **no_draw** 牌，它们既缺乏有效 blockers，也不够经常改善——例如 **Jd9c**（Kicker, no_draw）是明确的 fold；甚至 **As2s**（Ace High Card, no_draw）也可能被迫弃牌，因为它在该牌面上连接性差，且没有红桃权益。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_Call&flop=UTG_2.1bb&turn=&river=",
+      "board": "QdQc2h",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Qhigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌 **Qd Qc 2h** 是一个**高对牌（QQ）**、**rainbow** 的牌面，**没有成花也没有flush draw**，同时也**没有顺子听牌**。由于几乎不存在能立刻提供听牌权益的牌型，双方EQ主要由成牌强度决定：**Four Of A Kind / Full House / trips-Q（Open Set）**处于绝对主导地位，其余牌型只能依靠很薄的权益与有限的后续“补牌”空间继续。也因此翻牌的权益相对**稳定**：大多数转牌并不会突然完成听牌；更多是通过**overcards改善Ace High**，或通过牌面对子的变化来改写权益分布（例如转牌来一张 **Q** 变成quads，或来一张 **2** 让trips/22这类区域更容易形成boat）。\n\n2) **行动线分析：位置与SPR分析：** 翻前行动为 **UTG open 2.5bb，BTN call**；翻牌UTG以 **2.1bb into ~6.5bb** 继续下注（小尺寸c-bet）。BTN处于**有利位置（in position）**，这会显著提高用一些不适合raise的牌去**call**的价值（更容易实现权益，并在后续街控制底池规模）。此时筹码仍然很深：打完翻牌这一注后底池约 **8.6bb**，有效后手约 **95bb**，因此 **SPR ≈ 11**（仍然很高）。高SPR通常不鼓励用“中等”牌力去强行把钱打进去（例如 **TdTc** 这种 **Covered Pair**），更倾向于用更宽的范围以call继续，并进行更有选择、更偏polar的raise。\n\n3) **范围分析：** UTG在这个牌面上拥有明确的**range advantage**（整体EQ约 **55.9 vs 44.1**），同时也具备**nut advantage**：UTG更经常能拿到非常强的牌（更高占比的 **Four Of A Kind** 与 **Open Set**；例如UTG可以以较高频率拿到 **KdQh**，并且UTG也拥有像 **AsAc** 这样的 **Over pair**）。BTN当然也有顶端组合（例如quads **QsQh**，以及通过 **22** 形成的 **Full House**），但整体来看BTN的范围里**较弱牌与垃圾牌**的占比更高。构成上，BTN更多集中在 **Covered Pair**（大量小于Q的口袋对子）以及 **Ace High Card / Kicker High Card / Kicker**，同时有一部分 **Open Set（trip-Q）**，并夹杂少量 **backdoor_flush_draw** 组合。UTG则由 **Open Set + Over pair + Ace High Card** 构成更强的核心，并带有一些 **Covered Pair**；由于牌面没有直接听牌去惩罚持续行动，UTG在这里的权益也相对更**扎实**。\n\n4) **策略分析：** BTN的整体应对为 **Call 72.8%，Fold 16.6%，Raise 7.4bb 10%**（更大的raise频率可以忽略，不影响学习）。这很合理：在 **QQ2r** 面对UTG的小尺寸c-bet时，UTG的下注范围整体偏强、且能较好继续；与此同时，BTN的IP优势让你可以在不扩大底池的前提下更好地**实现权益**。**Call（72.8%）**覆盖了BTN范围中的大量牌：强牌经常选择慢打（很多 **Open Set** 如 **KdQs** 主要是call），**Covered Pair**（例如 **TdTc** 主要call），以及不少 **Ace High Card**（例如 **AsJc** 也以call为主），因为在高SPR下对小注直接fold会过紧，而raise它们又很难获得足够收益。**Fold（16.6%）**主要来自范围中权益最低的部分，尤其是那些没连上、且缺乏有用后门的 **Kicker** 牌（例如 **8h7h** 基本是纯fold），以及少量偏弱的 **backdoor_flush_draw** 或高牌组合，它们的牌力不足以继续。**Raise 7.4bb（10%）**体现的是polar施压：主要用于用 **Full House** 做**价值**（**22** 区域会大量raise），并混入部分强 **Open Set**；同时搭配少量诈唬，通常选择带 **backdoor_flush_draw**、能在转牌改善的手牌，以在施压UTG高牌持续范围的同时保持raise范围的可信度。其核心目标是让UTG那些小注下注、但承压能力不足的 **Ace High Card / Kicker High Card / Kicker** 组合做出弃牌，同时你的raise范围仍能代表足够多的boat/trips。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb&turn=&river=",
+      "board": "9d7d3d",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：翻牌为 **9d7d3d**：**无对子**、**9高**、且为 **monotone**（三张方片）。这意味着场上已经存在**成花**（手里两张方片），同时任何**带一张方片**的手牌都拥有 **flush draw**（转牌/河牌再来一张方片即可）。围绕 9–7–3 的结构也存在一些**顺子听牌**：例如 **Th8c** 这种 **open-ender**，以及 **JhTs** 这种 **gutshot**。整体权益对 **runout** 非常敏感：(a) 转牌/河牌**成对**时，部分 **Hidden Set** 可能补成 **boat**，从而反制成花；(b) **diamond** 转牌会让大量“一张方片”的手牌补成花；(c) 非方片的 runout 会让不少中等对子仍保持“存活”，但由于始终存在成花威胁，它们仍容易在后续压力下被迫弃牌。\n\n2) **行动线分析**：翻前为 **BTN open 2.5bb，BB calls**（面对后位开池，BB 以较宽范围防守）。翻牌底池约 **~5.5bb**。BB 过牌后，BTN 使用 **small c-bet 1.8bb**（约 1/3 pot），此时轮到 BB 行动（底池变为 **~7.3bb**）。下注后有效后手约 **~95.7bb**，因此 **SPR 仍然很高（~13）**，这会抑制轻易“打光”的行动线，并使**权益实现/价值保护**类决策更重要。BTN 处于 **IP**，因此 BB 的策略通常更偏向**多跟注**（保持范围更宽、实现权益）；而 BB 的加注会更谨慎，因为在 monotone 牌面上，一旦被 **3-bet** 或被 IP 持续 **barrel**，成本较高。\n\n3) **范围分析**：BB 的范围包含这里的关键类别：**Flush（6.6%）**、**Hidden Set（1.2%）**、**two pairs（0.8%）**，以及大量 **Top Pair（14.7%）** 和 **Second Pair（13.4%）**；同时 BB 也有较多听牌成分：**flush_draw（18.0%）** 与 **nut_flush_draw（5.4%）**。BTN 拥有更高的整体强度（BTN EQ ~54.3 vs BB ~45.9）以及更高的顶端密度（BTN “best” 桶 18.4% vs BB 9.1%），并且 BTN 还有相对明确的 **Over pair（6.4%）** 区间。就 nuts 结构而言，BTN 翻前范围天然携带更多**高方片**组合与整体强牌，因此在这类 monotone 牌面上往往具备 **range advantage**，并且在实战中也更接近 **nut advantage**。BB 的顶端并非空缺（例如能有 **AdTd** 这种成花，以及 **7s7h** 这种暗三条），但 BB 在最顶端的**频率更受限**，同时含有更多需要对抗 c-bet 直接弃牌的较弱/垃圾牌。\n\n4) **策略分析**（BB 面对 1.8bb）：BB 的整体应对为 **Call 57.6%**、**Fold 33.8%**、**raise 6.4bb 8.6%**（更大的加注 **10.9bb ~0%**，可忽略）。由于没有任何单一行动 >80%，整体属于真实混合策略，但核心仍是**以跟注防守为主**。\n\n- **Call** 主要来自：  \n  (i) 不愿在 OOP、monotone 牌面上把底池打大的成牌，例如 **Top Pair** 几乎纯跟注（如 **Qh9c** 跟注约 ~99.6%）；  \n  (ii) 各类 **flush draws**，在面对小尺度下注时通常有足够权益去跟注并实现；  \n  (iii) **nut_flush_draw** 也会有混合，但在该尺度下仍明显偏向跟注（如 **AdTh** 多数跟注）。\n\n- **Fold** 主要集中在权益很低、既不连接牌面也不带方片的手牌（例如 **QcTh** 基本以弃牌为主），以及最弱的 “Kicker/Kicker High Card” 区域（当其缺乏权益与关键 blockers 时）。\n\n- **6.4bb raise** 虽然存在但频率不高；从理论上主要由**强成牌**（部分 **Flush** 与 **Hidden Set**）以及一部分**高权益听牌**支撑，用于**权益拒绝**并避免 BTN 过于轻松地实现权益（例如 **AdTd** 这种成花会在 raise/call 间混合，而非一味 slowplay）。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_Call&flop=UTG_Check&turn=&river=",
+      "board": "AdKd4d",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌为 **AdKd4d**，是一张**未成对**的 A-high、K-high 牌面，并且有**三张 diamond（monotone）**。这会立刻把手牌分成两大类：一类已经成了 **Flush**（例如 BTN 可以拿到 **8d7d**），另一类则是带**一张 diamond**、因此拥有 **flush draw** 的牌（其中包含带 **Qd** 的 **nut_flush_draw**，因为 Ad/Kd 已经在牌面上）。这里也存在**顺子听牌**，但多数是偏 **gutshot**、需要跑出 Broadway 路线的补牌（例如 **JhTh** 需要一张 Q）。由于是 monotone 牌面，权益并**不稳健**：转牌只要来一张 diamond，很多范围的 nuts 就会发生变化；而不少没有 diamond 的一对牌（Top Pair / Second Pair）也可能从“还行”迅速变得“非常脆弱”。\n\n2) **行动线分析：** 翻前为 **UTG open 2.5bb，BTN call**。翻牌底池约 **6.5bb**，双方有效后手约 **97.5bb**，因此 **SPR ≈ 15**（高）。UTG（翻前进攻方）选择 **check**，BTN 处于**有利位置（IP）**行动。高 SPR + monotone 翻牌会强烈促使 BTN 的大量范围以**控池与实现权益**为主：在很多转牌会大幅改变权益的牌面上，用中等强度的一对牌去自动扩大底池并不理想。另外，当 UTG 在这种牌面选择 check 时，UTG 仍然可以可信地拥有非常强的牌（包括像 **KhKc** 这种 **Hidden Set**），因此 BTN 需要尊重在自己过度频繁 stab 时可能遭遇的 **check-raise** 威胁。\n\n3) **范围分析：** 双方范围都包含这里相关的成牌类型：**Flush、Hidden Set、two pairs、Top Pair、Second Pair、Third Pair、Bottom Pair、Kicker**，以及听牌（**nut_flush_draw/flush_draw/gutshot_straight_draw**；同时 UTG 还独有一小部分 **combo_draw**）。UTG 的整体范围更强（UTG EQ ~56% vs BTN ~44%），其 **Hidden Set** 密度更高，并且 **Top Pair** 与 **Second Pair** 的数量与质量也更占优；但 BTN 在该牌面上拥有更多成牌 **Flush**（BTN ~5.0% vs UTG ~2.9%），并且平跟范围里包含不少带 diamond 的组合。因此 nuts 优势在一定程度上是**分裂的**：UTG 更偏 set/two-pair 密度，BTN 则在这张 monotone 上略偏 flush 密度。双方都谈不上“明确被盖帽（capped）”。权益实现与后续街的 leverage 对跑牌非常敏感，尤其是转牌来 diamond 以及转牌配对的情况。\n\n4) **策略分析：** BTN 的整体策略偏 **check-heavy**：**Check ~68.8%**，其次主要是 **bet 4.4bb ~17.8%**（其他下注尺度占比更小，学习时可简化为“check 或 4.4bb”）。check 占主导的核心原因是：BTN 有大量**中等/较弱的一对牌与 Kicker**（以及不少没有立即听牌的牌），它们更适合通过 free card 来实现权益、让 UTG 的范围保持更宽，同时避免在 check-raise 面前被迫放弃权益。这也会直接体现在分类行为上：**Top Pair** 经常 check（例如 **AcQc**），**Second Pair** 也经常 check；同时，一些强牌也会混合 check（two pairs 与 flush 并非纯下注）。**4.4bb** 更偏**两极化、施压导向**：BTN 会更频繁用它去推动自己的 **value**（Flush / Hidden Set / two pairs）在 UTG 仍有大量可继续的情况下开始做大底池；也会用在 BTN 最好的 **semi-bluff** 上——尤其是那些带 diamond、既能提升又能很好代表 flush 的牌（例如 **KsQd** 作为 Second Pair + **nut_flush_draw**，或 **TsTd** 作为 Second Pair + **flush_draw**）。一些 **gutshot**（如 **JhTh**）有时也会混合下注，但总体更倾向于 check，因为它们的即时 EQ 较低，而且在 monotone A-high 牌面不喜欢面对 raise。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check&turn=&river=",
+      "board": "Jh7d2h",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Jhigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：**Jh7d2h 是一个未成对的 J-high 翻牌，下方是较低且不连张的 7、2，并且带有**两张红桃**，因此**立即存在 flush draw**（双方范围里都会出现 nut_flush_draw/flush_draw）。这张牌面也具备一定的**顺子听牌连通性**，主要来自能与 T/9/8 发生互动的手牌（会看到 gutshot_straight_draw，以及偶尔的 combo_draw，例如 Th9h）。由于有大量活听牌，并且很多 turn 会显著改变相对牌力（红桃、T/9/8，以及一些 broadway 会提升权益分配），因此**成牌的权益并不稳健**：over pair 和 top pair 往往需要保护；同时，范围里相当一部分“air”在 turn 也能补到权益。\n\n2) **行动线分析：**翻前行动为 CO open 2.5bb → BTN 3-bets 到 8.5bb → CO call；翻牌后 CO check，BTN 在 3-bet pot 中**IP 且有主动权**行动。底池约 18.5bb，有效后手约 91.5bb，因此 **SPR ≈ 4.95**。这个 SPR 足够大，使 BTN 不必急于快速打光；但也足够小，使得**价值/保护型下注**依然很重要（用超强牌仍然可以构建 turn/river 的 stack-off 线）。位置优势会推动 BTN 更高频率地 c-bet：对手 check 后 BTN 可以更顺畅地实现权益，并在拿着边缘强度时更好地控制底池规模。\n\n3) **范围分析：**BTN 的范围主要由 **Ace High Card（35.5%）**驱动，其次是 **Top Pair（16.6%）**、**Over pair（12.6%）**，此外还有较小占比的 **Covered Pair / Second Pair**，以及一些红桃听牌（nut_flush_draw 4.7%，flush_draw 2.5%）。CO 的占比更偏向 **Second Pair（20.3%）**、**Ace High Card（23.2%）**、**Covered Pair（15.1%）**，并包含 **Top Pair（12.0%）**，且 **Hidden Set 占比（6.1%）**高于 BTN（3.1%）。从结构上看，BTN 有明确的**范围优势**（整体 EQ 53.35 vs 46.65），并且拥有更大体量的 **overpair**（CO 基本没有）；而 CO 的顶端更多依赖 set 以及部分 Jx。坚果优势**接近**：CO 可用的 set 更多，但 BTN 的最强牌桶整体略强，同时其高端密度也由大量 overpair 支撑。\n\n4) **策略分析：**BTN 主要采用**小尺度 c-bet（5.0bb）占 69%**，主要替代方案是**更大尺度（12.4bb）占 21%**；check **低于 10%**，在学习简化时可以基本忽略。小下注之所以有效，是因为 BTN 具备范围/位置优势，能够在不需要过度极化的前提下，对 CO 宽泛的 check 范围施压；该范围包含大量 **Ace High Card、Covered Pair、Second Pair**。5bb 是核心“工作尺度”：**Top Pair**大量使用（偏向价值/保护型小下注），**Hidden Set**也经常选择小下注以保留更差牌继续；同时不少 **Ace High Card**也倾向小下注，以较低风险争取弃牌率——例如 AcKc 往往会更频繁选择小下注。更大尺度 12.4bb 则更多用于 BTN 需要更强的即时压力/价值与权益拒绝的场景：**Over pair**会明显向更大尺度倾斜（例如 KsKh 会混合较多的大下注），因为 overpair 希望向红桃听牌与 gutshot 收费，同时仍能从不少 Jx/7x/各类对子拿到跟注。整体而言：BTN 的计划是**高频率小尺度 c-bet**，再用更大尺度搭配那些要么 (a) 想为价值/保护打更大底池（over pair），要么 (b) 具备更强、可持续的权益以支持后续 barrel 的手牌与听牌结构。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check&turn=&river=",
+      "board": "KdTc4c",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "**1）牌面分析**  \nKd‑Tc‑4c 是一个**不成对**的 K 高翻牌，牌阶分布为**高/中/低**（K 和 T 会与大量 broadway 牌产生互动，4 主要与小口袋对子以及少量同花 wheel 类手牌有关）。花色为**两同花（两张 club）**，因此**立即存在 flush draw**，但牌面上不存在成牌同花。与此同时也存在**顺子听牌**：最主要的是 **QJ open‑ender**，另外还有不少**gutshot**（如 AQ/AJ/Q9/J9 等，取决于具体组合）。由于 **club 转牌**与 **broadway 转牌**都会显著改变 EQ 分布，一对类手牌（Top Pair/Second Pair）的权益并不稳健，通常更倾向于下注以进行**权益拒绝**并让范围更清晰，而不是过度 slow-play。\n\n**2）行动线分析**  \n翻前行动为 **CO open 2.5bb → BTN 3bet 8.5bb → CO call**，形成 3BP，且 BTN 为翻前进攻方并处于 **IP（有利位置）**。翻牌 CO 对 BTN **check** 属于标准打法：OOP 的跟注方通过过牌让 BTN 兑现主动权。此时底池约 **18.5bb**，有效后手约 **91.5bb**，因此 **SPR ≈ 4.95**。这个 SPR 低到足以让强价值牌（暗三条（set）/两对/Over pair/强 Top Pair）在后续街上合理打光筹码，但同时也足够高，不需要在这种动态牌面用大尺度过度扩大底池——小尺度 c-bet 往往能为 turn/river 留下更清晰的计划，同时让自身范围保持更宽。\n\n**3）范围分析**  \nBTN 在该翻牌的范围中包含大量 **Top Pair（0.2206）**，并拥有显著的顶端强度，例如暗三条（set）（0.0411）与 **Over pair（0.0449）**；同时也有不少中等强度牌，如 **Second Pair（0.1939）**，以及高牌（**Ace High Card 0.2790**），这些牌受益于让 CO 的空气牌弃牌。符合该 spot 的具体例子：**AdAc** 是高 EQ 的 **Over pair**；**KcQd** 是 **Top Pair（Kx）**，倾向于获取价值并进行保护。BTN 也有能持续施压的听牌，包括 **combo_draw**，例如 **QcJc**（同时具备顺子听牌与同花听牌成分）。  \nCO 在 open 后 OOP 跟注 3bet 的前提下，整体更偏**被盖帽且更弱**：其构成更多集中在 **Second Pair（0.3854）** 与 **Ace High Card（0.2249）**，顶端强牌更少（CO 的 “best” 桶仅 **0.0717**，而 BTN 为 **0.3319**）。因此 BTN 同时拥有**范围优势**（总体 EQ 59.55%）以及明确的 **nut advantage**（更多 set/Over pair/强 Kx）。不过 EQ 依然对 runout 较敏感，因为 club/broadway 转牌会完成大量听牌并改变施压方，但 BTN 的基础优势仍然明显。\n\n**4）策略分析**  \nBTN 的整体策略接近 **near range-bet**：**bet 5.0bb 约 86.7%**。其余频率很小（12.4bb 约 9.9%，18.5bb 约 1.7%），**Check 约 1.7%**，在学习简化时可以近似忽略。小尺度 c-bet 之所以有效，逻辑在于：BTN 拥有主动权、IP，并具备范围优势与 nut advantage；而 CO 到达翻牌时包含大量**弱对子与 Ace-high**，在这种**两同花 + 顺子听牌**的牌面上不愿面对压力。小注同时实现三点目标：（i）从 CO 的大量继续范围中获取**价值**（尤其是 **Second Pair** 与部分 **Ace High Card**），（ii）对 CO 的 overcards/gutshots/后门听牌进行**权益拒绝**，（iii）由于 BTN 也会高频下注强牌，因此能让自身下注范围保持不易被针对。分类来看，5bb 这个尺度会被 BTN 的价值区大量使用（暗三条（set）、两对、**Over pair（如 AdAc）**、**Top Pair（如 KcQd）**），因为它既能被更差的牌跟注获取价值，又能在面对 club/顺子转牌时起到保护作用；同时也会被各类听牌大量使用（combo_draw、nut_flush_draw、gutshot_straight_draw），以较低成本利用弃牌率并为后续合适的转牌建立持续 barrel 的框架；**QcJc** 就是典型例子：既能通过即时施压获得 fold equity，又能在被跟注时保有很强的 EQ。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check&turn=&river=",
+      "board": "9h8h4s",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 牌面分析\n\n（9h 8h 4s）：这是一个**未成对**的 9-high 翻牌，且有**两张红桃**，因此**立即存在 flush draw**（红桃），但还**没有成花**。牌面点数连接度较高，**顺子听牌**也很多（常见的延续包括 **open-enders** 如 JT、76，以及大量 **gutshots**）。由于后续公共牌既可能发出**红桃**，也可能发出多张能**补顺子**的点数牌，单对和 Over pair 类型牌的权益**不够稳健**：很多转牌（红桃、T/7/6/5，甚至让牌面成对的牌）都会显著改变谁是最好牌、以及谁能持续施压。\n\n## 行动线分析\n\n翻前：**CO open 2.5bb → BTN 3-bet 8.5bb → CO call**。翻牌 CO **check**，因此 BTN（翻前进攻方）在翻牌处于**有利位置（IP）**行动。底池约 **18.5bb**，有效后手约 **91.5bb**，因此 **SPR ≈ 4.95**。在这种中等 SPR、且牌面动态很强的情况下，BTN 不需要在翻牌强行走 stack-off 路线；IP 让 BTN 可以用较高频率 **check back**，让其范围里大量的 Ace-high / K-high / 中等强度牌更好地实现权益，同时也保留一定下注频率，用于**权益拒绝**以及用强价值牌和强听牌去扩大底池。\n\n## 范围分析\n\n- **BTN**：包含大量 **Ace High Card**（占比很大），有一定数量的 **Over pair**，以及部分 **Top Pair / Second Pair**，再加上少量 **Hidden Set**。听牌方面，BTN 有一些 **nut_flush_draw / flush_draw**，也有 **gutshot_straight_draw** 和部分 **open_ended_straight_draw**（例如 **JdTd** 属于 open-ender）。  \n- **CO**（3-bet 跟注方）：成牌更偏向与牌面连接的组合，尤其是更多 **Hidden Set**，以及一些 **two pairs**（例如 **9d8d**），还有大量 **Second Pair**；同时也包含 Ace-high 和各类听牌（包括 **nut_flush_draw**，例如 **AhQh**）。\n\n总体而言，在这张牌面上 CO 的“超强牌”组合（set / two pairs）更多，因此 CO 的 **nut advantage** 更明确；整体原始 equity 也略微偏向 CO。BTN 的补偿在于 **Over pair** 的密度（例如 **JsJd**）以及位置优势。由于很多转牌会补出红桃或顺子，这两边的 equity 都对 runout 非常敏感，范围的施压能力会随转牌明显变化。\n\n## 策略分析\n\n（CO check 后 BTN 的翻牌策略）BTN 的策略以 **check-heavy** 为主，并辅以一定比例的**小尺度下注**：**Check ~65%**，**bet 5.0bb ~30%**。更大的下注尺度（12.4bb、18.5bb）各自都 **<10%**，学习时可以基本不作为重点。\n\n- **Check（主线）**：BTN 之所以高频 check，是因为这张牌面对 CO 的继续范围连接度很高（CO 有更多 set/two pairs，且有大量 8x），BTN 并不存在足够清晰的范围与 nuts 优势来支持范围持续下注。check 也能让 BTN 范围里很宽的 **Ace High Card** 与 **Kicker High Card** 更好地看转牌实现权益，并在这种听牌密集的牌面上，用许多 **Top Pair / Second Pair** 控制底池规模，降低被 check-raise 或把底池做得过大的风险。同时，强牌也会混入 check：部分 **Over pair**（如 **JsJd**）和部分 **Hidden Set** 会以可观频率选择 check，用强牌覆盖过牌范围，从而让过牌范围中的较弱牌更不容易被对手无成本地进攻，并诱导 CO 用一些 stab 去下注。\n\n- **Bet 5.0bb（唯一值得重点关注的下注尺度）**：小尺度 c-bet 主要服务于**权益拒绝**与薄价值，同时在 CO 存在 nut advantage 的前提下把风险控制在可接受范围内。它会被大量 **Hidden Set** 使用（在构建底池的同时仍允许对手的 bluff/较弱继续范围跟进），也会被很多 **Over pair** 采用；此外，许多天然的 **semi-bluff**（如 **flush_draw / nut_flush_draw** 与各类 **straight draws**）也会用这个尺度，通过争取让 CO 的 overcards 与部分较弱牌弃牌来获得收益，并在被跟注后仍保有可玩性。例如 **AhTh**（nut flush draw）与 **JdTd**（open-ender）都可以很舒服地用小注作为施压 + 实现权益的工具，同时避免把底池过度膨胀到 CO 的 set/two pairs 所在的范围区域中。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check&turn=&river=",
+      "board": "8c7h6s",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌为 **8c7h6s**，属于**无对子、彩虹**牌面（**没有立即的同花听牌**），但它的顺子关联度极高：此时已经存在成牌**Straight**（例如 BTN 可以有 **Tc9c**），同时双方都有大量的 **open_ended_straight_draw** 与 **gutshot_straight_draw** 组合可用（例如 BTN 可以用 **Jh9h** 作为 open-ender，用 **AcTc** 作为 A 高 gutshot）。由于大量转牌都会强烈连结（4/5/9/T，以及牌面对导致 set/two-pair 互动改变的配对牌），因此一对牌与高牌的权益并不“稳健”；后续街的权益会大幅波动。相对“平静”的部分在于没有前门 flush draw 的压力，所以波动主要来自顺子完成与牌面配对。\n\n2) **行动线分析：** 翻前为 **CO open 2.5bb → BTN 3-bet to 8.5bb → CO calls**，翻牌 **CO checks**，BTN 作为 **IP** 行动。底池约 **18.5bb**（双方各投入 8.5bb，再加 1.5bb 盲注），身后约 **~91.5bb**，因此 **SPR ≈ 4.95**。这个 SPR 的意义在于：它高到让 BTN 不能把 overpair 当作必然“自动打光”的牌，但又低到一旦在这种动态牌面开始大额投入，范围很快就会被拉扯到高压力状态。作为 **in position**，BTN 能用大量边缘牌（A-high、连结性不足的 broadway）更好地实现权益，同时也能在面对 CO 的 check（其中可能包含很多在 876r 上适合 check-raise 的强牌/强听牌）时控制底池规模。\n\n3) **范围分析：** BTN 的范围主要由 **Ace High Card (37.9%)** 与 **Over pair (20.2%)** 构成，同时也有不错的顺子听牌覆盖（**open_ended_straight_draw 12.4%**、**gutshot_straight_draw 16.7%**），但真正的超强成牌占比偏少（**Straight 1.3%**、**Hidden Set 3.0%**）。CO 虽然是翻前跟注方，但在这里连结更强：更多的 **Straight (4.6%)**、更多的 **Hidden Set (9.3%)**，甚至有一定的 **two pairs (2.3%)**，并且 **open_ended_straight_draw (22.7%)** 也更多。这也反映在整体 equity 上（CO ~54.8% vs BTN ~45.2%）以及“best-hand”密度上（CO 的 75–100 EQ 组合明显更多）。因此在这张特定翻牌上，**CO 同时拥有 range advantage 与 nut advantage**，而 BTN 在范围顶端相对更**被盖帽**（BTN 当然也能有顺子/暗三条，只是数量更少）。对 BTN 来说，权益实现也更棘手，因为 BTN 的大量主体手牌是 **overpairs 与 A-high**，它们通常不喜欢转牌完成顺子或制造更多双向行动的变化牌。\n\n4) **策略分析：** BTN 的整体策略基本是 **range check**：**Check 99.85%**，仅有极少量试探性下注（**5.0bb 0.15%**、**12.4bb ~0%**；这些下注尺寸出现频率极低，学习时基本可忽略）。接近全范围过牌之所以成立，是因为这是典型的“3-bettor 结构性落空”的翻牌：CO 拥有更多 **straights/sets/two pairs**，也有更多天然的 **open-enders**，因此 BTN 若高频下注，会更容易撞上 check-raise，并在后续高压力转牌面临困难，而 BTN 的价值区密度又不足以支撑频繁下注。过牌也能让 BTN 的中等强度牌（例如 **Over pair** 的 **JsJh**）更好地控制 SPR，并迫使 CO 在转牌主动 lead，而不是让 CO 在翻牌通过 check-raise 直接获得最大杠杆。即便是 BTN 的最强牌也不必急于行动：像 **Tc9c** 这种成牌 **Straight**，实战中也几乎仍以 check 为主，因为牌面过于动态，BTN 可以允许 CO 用大量次优成牌与听牌继续，然后在后续街当 CO 的范围更明确后再选择价值线。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check&turn=&river=",
+      "board": "5h6h5d",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "6high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "**1) 牌面分析：** 翻牌是 **5h6h5d**：这是一个**成对、非常低的牌面**（5-6），并且带**两张红桃**，因此**没有成花**，但**flush draw 仍然有效**。牌面对子的存在，会强烈压缩大量“常规”的一对牌力：很多手牌要么是**空气牌/overcards**，要么是**overpairs**，要么直接是基于 **5x/6x** 的**超强牌**（BTN 会有 **Open Set**，例如 *As5s*；CO 则有不少 **Full House**，例如 *6s5s*）。**顺子听牌**也存在（CO 的范围里会有 **open_ended_straight_draw** 和 **gutshot_straight_draw** 等桶），但由于牌面成对，“成牌层级”会变得更清晰：**Full House / Four Of A Kind / Open Set** 的权益非常稳健；而 **Over pair / Top Pair / Ace High Card** 会对后续发牌更敏感，尤其是转牌/河牌出现红桃或顺子化的 runout 时。\n\n**2) 行动线分析：** 翻前行动为 **CO open 2.5bb → BTN 3-bet 8.5bb → CO call**。翻牌底池 **18.5bb**，有效后手 **91.5bb**，因此 **SPR ≈ 4.95**。CO 过牌后，作为翻前进攻方的 **BTN 在有利位置（IP）行动**。在这个 SPR 下，翻牌一旦用大尺度下注，就会把底池迅速做大，并在转牌/河牌更容易打到全下尺度，因此 BTN 不能机械 c-bet：CO 的过牌范围可能包含 slowplay（boat/5x），而 BTN 的范围中也有大量高张牌更偏好免费看牌。位置优势让 BTN 能通过过牌更好地实现权益，同时在选择下注时用更极化（polar）的尺度施压。\n\n**3) 范围分析：** BTN 的范围以 **Ace High Card（约 40%）** 和 **Over pair（约 24%）** 为主，同时也有相当比例的 **Kicker High Card/Kicker**；BTN 的坚果区也存在，但占比不大（**Full House / Four Of A Kind / Open Set**）。CO 的范围包含更多 **Bottom Pair（约 11%）**，同时 **Full House / Open Set** 的占比也明显高于 BTN，并且有更高的**顺子听牌密度**（**open_ended_straight_draw、gutshot_straight_draw、combo_draw**），外加 **nut_flush_draw/flush_draw**。结构上，BTN 更像是“**overpairs + overcards**”，而 CO 更像“**中等对子 + 更多 5x/6x 连接牌 + 听牌**”。**Nut advantage 更偏向 CO**（顶端桶更强，例如更多 *6s5s* 这类 boat），但 BTN 仍保有明显的**位置/主动权优势**，并且有很多高 EQ 的 overpairs。对于非坚果区而言，权益**不算特别稳健**，因为红桃与顺子相关的牌会改变领先方；但 **Full House/Four Of A Kind/Open Set** 这些怪物牌的权益依旧稳定。\n\n**4) 策略分析：** BTN 会采取显著的混合策略：**Check 49.0%**，**Bet 12.4bb 35.7%**（主要下注尺度），其余尺度为次要选项。这个混合是合理的，因为 BTN 不适合对一个包含大量 **Open Set/Full House**、且也有不少**不会弃牌的成对牌**的 CO 范围做 range-bet。**12.4bb** 这个尺度是一个**polar 压力注**：它由 **Over pair** 与强价值牌强力支撑（例如 *KsKd* 明显更偏好下注，且大多使用 **12.4bb**；*As5s* 也强烈倾向下注），同时也能很好承载具备强红桃权益、可以持续 barrel 的牌（例如 *Ah4h*（**nut_flush_draw**）会 mix 下注与 check，下注时更偏好使用大尺度）。这类大注会攻击 CO 的 **Ace High Card / Kicker High Card / Kicker** 区间，对 CO 的听牌进行**权益拒绝**，并让 BTN 即使在 CO 有 nut advantage 的情况下，依然保持范围上的威慑力。**Checking** 同样重要，因为 BTN 有不少手牌不希望在对手可能 check-raise、或其范围可能包含 boat 的前提下去膨胀底池：**Top Pair** 往往会更多选择过牌（例如 *Ks6s* 以 check 为主），甚至一些 **flush_draw** 组合（例如 *Kh9h*）也会频繁过牌以实现权益并让 CO 的范围保持更宽。这个 check-back 也能反过来约束 CO：由于 BTN 的过牌范围里仍可能混有部分 slowplay 的强牌（一些 **Full House/Four Of A Kind** 组合会 mix），CO 不能在转牌无脑 stab。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_5.0bb&turn=&river=",
+      "board": "Kd7c2h",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：**Kd7c2h 是一个**未成对**的 K-high flop，且为**三色牌面（rainbow）**，因此**不可能直接成花，也没有前门 flush draw**；唯一的听牌成分是**后门 flush draw**（例如 UTG 可能拿到 AdJd，属于 A-high 带后门同花）。点数结构也非常“断连”：**没有顺子听牌，也不存在已成顺**，所以大多数手牌要么是**成牌（Kx、pairs、sets）**，要么是**air/A-high**，后续提升路径很有限。由于缺少立即的听牌来“翻转”权益，很多 turn 上成牌的权益通常**相对稳定**；主要的权益变化来自**高张 turn（A/Q/J/T）**提升高牌/overcards，或来自**turn 牌面对（pairing turns）**改变一对牌相对 set 的价值关系。\n\n2) **行动线分析：**翻前为 **UTG open 2.5bb → BTN 3-bet 8.5bb → UTG call**，形成 3BP，**BTN 有利位置（IP）且拥有主动权**。翻牌底池约 **18.5bb**，有效后手约 **~91.5bb**，因此 flop **SPR ≈ 5**：不意味着一对牌就必然打光，但一旦出现加注，底池仍会很快变大。UTG 过牌后，BTN 下了一个**小尺度 c-bet（5bb，约 27% 底池）**，此时 UTG 在 **OOP** 面对这种在干燥 K-high 牌面上常用于高频下注的大众尺度。\n\n3) **范围分析：**UTG 的范围权重主要集中在 **Covered Pair（32.45%）**、**Ace High Card（23.85%）**，其次是 **Top Pair（14.63%）**、**Second Pair（12.31%）**、**Kicker（13.39%）**，以及占比不大但确实存在的 **Hidden Set（3.28%）**（例如 UTG 可能有 7s7d）。BTN 的高端牌明显更多：包含 KK 在内的 **Hidden Set（5.55%）**，以及 **Over pair（5.08%）**（例如 AsAd），并且有很大一部分 **Top Pair（27.10%）**（例如 KhQc）。这也反映在整体权益上：**BTN 具备明确的范围优势（EQ 约 57.8 vs 42.8）**，同时还有显著的**nuts 优势**（BTN 的 best-hands 桶更大）。UTG 在顶端强牌上**更容易被盖帽（capped）**，因为 BTN 保留了更多与 K72 强相关的最强组合。由于牌面很干燥，相比动态牌面，这里的权益在多数 runout 上**更稳定**；但 UTG 的中等强度手牌（Covered Pair / Ace-high）仍会对**overcard turns**以及 BTN 在 IP 施压的能力更敏感。\n\n4) **策略分析（UTG 面对 5bb c-bet）：**UTG 的整体应对为 **Call 44.86%**、**Fold 43.83%**，加注则分为 **24.1bb（8.84%）**与 **14.4bb（2.47%）**；由于每个加注尺度都**不到 10%**，这里基本可以把学习简化为**以 call/fold 为主**的策略，而损失不大。  \n**Call** 主要由那些在小 c-bet 面前能**较舒服实现权益**的手牌驱动：UTG 会用大量 **Top Pair** 继续（许多 Kx 都会继续；例如 AhKs 是 top pair），所有 **Hidden Sets（77/22）**都会继续，以及相当比例的 **Covered Pair**（例如 QsQh 往往会继续，因为对手下注很小，弃得太多会变得可被利用）。UTG 也会防守一部分 **Ace High Card** 与 **backdoor_flush_draw** 组合（例如 AdJd），因为它们对 BTN 范围的部分仍保留 overcard 权益，并且能在 A/J turn 改善，或通过后门成花 runout 改善。  \n**Fold** 则集中在范围里权益较低的部分：多数 **Kicker** 组合会高频弃牌，**Second Pair** 也明显偏向弃牌，因为在 K72r 上它们通常落后于 BTN 以 Kx 为主的价值区间；更关键的是，这里**没有顺子听牌**提供额外 turn 权益，OOP 下这类牌实现权益能力差，后续也更容易被持续施压。总体而言，干燥牌面 + BTN 的范围/nuts 优势，使得 UTG 更实用的基线是：**“用 calls 防守到位，把低权益垃圾牌直接丢掉”**，加注只是占比较小、非必需的一层。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_5.0bb&turn=&river=",
+      "board": "AdKc5s",
+      "position": "UTG vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：**翻牌为 **Ad Kc 5s**，属于**无对子**、**A-high** 牌面，点数分布非常**顶端的牌高比重**（A/K 在成对牌力的结果中占主导）。牌面是 **rainbow**，因此**没有成花，也没有立即的同花听牌**；与花色相关的权益主要来自带有 **backdoor_flush_draw** 的手牌。  \n牌面存在**顺子听牌**，但主要以 **gutshot_straight_draw** 为主（例如 **QdTd** 可能带有 gutshot 成分），因此听牌压力确实存在，但不像有强前门听牌的牌面那样容易把对局推向“被迫all-in”。由于没有同花听牌、也没有牌面成对，**成牌权益相对稳健**（Top Pair / 两对 / Hidden Set 不会因为单张转牌花色就立刻被否定），但仍然会对**runout**敏感：例如出现 broadway/connector 转牌会提高 gutshot 密度；出现成对转牌也会改变两对/set 的互动关系。\n\n2) **行动线分析：**翻牌前行动为 **UTG open 2.5bb → BTN 3-bet 8.5bb → UTG call**，因此 UTG 在 3-bet 底池中以**位置不利的跟注者（OOP caller）**身份进入翻牌。翻牌为 **UTG check → BTN 5bb c-bet**（相对底池的小尺度）。双方起始 100bb，翻牌前投入 8.5bb 后，身后约剩 **91.5bb**；翻牌底池约 **18.5bb**，因此在 UTG 应对前 **SPR ≈ 5**。  \n该 SPR 会让策略更倾向于：UTG 在 OOP 情况下不应使用边缘成牌轻易打光筹码；但因为筹码仍然较深，UTG 依然可以用强价值牌与部分精选诈唬施加 **check-raise** 压力，以惩罚 BTN 过于自由的范围 c-bet。位置因素在这里影响很大：BTN 更容易持续开火并实现权益；UTG 必须有选择地防守，避免用被压制的 bluff-catcher 持续流失 EV。\n\n3) **范围分析：**UTG 的范围主要由大量 **Second Pair** 构成，并包含一部分 **Top Pair**，较小比例的**两对**与 **Hidden Set**；同时也有一定数量的 **backdoor_flush_draw** 以及一些 **gutshot_straight_draw**。BTN 作为 3-bettor，整体更集中于**超强牌/强权益**区域，且 **Hidden Set** 与两对的密度显著更高，也拥有更多高权益的 **no_draw** 手牌。实际表现上，BTN 拥有**范围优势**（BTN 总体 EQ 约 64% vs UTG 约 38%）以及明确的**nuts 优势**（BTN 顶端组合更多）。与 BTN 相比，UTG 在顶端更偏**被盖帽**，而且 UTG 的中段相对脆弱：UTG 很多“成牌”部分（例如这里被归类为 Second Pair 的 **JhJd**）在 OOP 面对后续持续压力时并不稳健。由于牌面缺少前门同花听牌，权益不会通过补花产生大幅波动，但 BTN 的优势依然明显，因为其价值区域密度更高。\n\n4) **策略分析：**面对 BTN 的 5bb c-bet，UTG 的应对为 **Fold 54.1% / Call 30.1% / raise-to-14.4bb 14.0%**（更大的 raise 尺度很少出现，可简化忽略）。这种混合是合理的：BTN 在 A-high 的 3-bet 牌面上可以高频 c-bet；UTG 处于 OOP 且顶端更被盖帽，因此需要**丢弃大量低 EQ 手牌**，用**能实现权益的手牌继续**，并保留一个**极化的 check-raise** 来阻止 BTN 用小尺度高频下注稳定获利。\n\n- **Fold（54%）**主要来自 UTG 巨大的 **Second Pair** 区域（以很高频率弃牌），以及不少较弱的 **Kicker** 与 **no_draw** 手牌——这些牌在 OOP 面对 BTN 更密集的价值区时无法盈利地继续。在该分类中，**JhJd** 属于 Second Pair，整体不够稳健，难以承受小注后续再开火的线路。\n\n- **Call（30%）**以 **Top Pair** 为核心（高频跟注；例如 **AhQh** 多数通过 call 继续），同时 **gutshot_straight_draw** 与 **backdoor_flush_draw** 也贡献了相当比例的跟注。Call 可以让 BTN 的小尺度下注不能过于随意，同时让 UTG 用具备一定摊牌价值的牌（Top Pair）或无需立刻扩大底池也能改善的牌（gutshots/backdoors）去实现权益。\n\n- **Raise 14.4bb（14%）**是 UTG 的主要进攻手段，并且天然**极化**：以 **Hidden Set** 为主（例如 **5h5c** 会高频加注取价值），辅以部分两对（例如 **AsKh** 参与），并搭配来自 **gutshot_straight_draw**、**backdoor_flush_draw** 以及部分 **Kicker** 手牌的诈唬/半诈唬成分，用 fold equity 与**权益拒绝**来限制 BTN 的权益实现。这里加注的目的并不是试图“压过”BTN 的范围优势，而是确保 BTN 不能用小尺度对全范围下注并在位置上无风险地实现权益，同时让 UTG 少数真正能可信打到打光筹码的强牌更容易扩大底池。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check_BTN_12.4bb&turn=&river=",
+      "board": "9s8c4d",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（9s8c4d）：** 这是一个无对子、彩虹、9-high 的翻牌，三种不同花色，因此**没有立即的同花听牌**，只有一些 **backdoor flush draws**（例如 CO 可能拿到 Ac4c，属于 third pair + BDFD）。点数结构偏中低且连接性较强：存在**顺子听牌**（尤其是 **open-enders**，如 JsTs / 7h6h，以及 **gutshots**，如 QhTh；BTN 也可能拿到 QdJd 作为 gutshot）。由于没有 flush draw，主要的权益变化更多来自于会改变顺子连接性的**转牌**（T/7/6/5）以及**overcards**（A/K/Q/J），这些牌会与许多以 A-high 和 broadway 为主的 3-bet 范围产生强交互。因此，很多一对牌的权益**并不稳健**：大量转牌会改变双方“one pair / draw”的相对结构，而 set / two pairs 的权益则更稳健。\n\n2) **行动线分析、位置、SPR 分析：** 翻前行动为 **CO open 2.5bb → BTN 3-bet 8.5bb → CO call**，形成 3-bet 底池，且 **BTN 处于有利位置（IP）**并拥有主动权。翻牌为 **CO check → BTN bet 12.4bb**，下注进约 18.5bb 的底池（一个**大尺度 c-bet，约 2/3 pot**），此时 CO 需要在 OOP 应对。有效记分牌为 100bb；翻前跟注后 CO 身后剩 **91.5bb**。面对翻牌下注时，底池约为 30.9bb，因此 CO 行动前的 **SPR 约为 3.0**；若 CO 跟注，转牌底池约为 43.3bb、身后约 79.1bb，**转牌 SPR 下降到约 1.8**，这会把博弈推向更偏“stack-pressure turns”的格局：强成牌更容易接近“commitment”，而 OOP 用边缘 bluff-catch 实现权益会更困难。BTN 的位置优势也会提升实现率：BTN 可以在好转牌持续下注，在差转牌选择 check back。\n\n3) **范围分析：** CO 的范围包含大量**中等强度对子**以及一些强的坚果牌：second pair 占比很大（19.1%），同时有一定比例的 hidden sets（8.2%），以及主要由跟注方才更多保留的价值牌，例如 **two pairs**（0.96%，如 9d8d）。CO 也具备一定的顺子听牌覆盖（OESD 6.4%，gutshots 9.6%），并且有不少 A-high（23.4%）。BTN 的范围结构不同：主要由 **overpairs（31.5%，如 AsAh）**和 **ace-high（35.1%）**主导，同时还有一部分 K-high（19.6%）；BTN 的 set 很少（1.0%），two-pair 占比也低，因此在这张特定牌面上 BTN 的范围**不够“nutty”**，但拥有更高密度的强 one-pair 手牌（overpairs / top pair）。这通常会让 BTN 在“实战施压”层面拥有**范围优势**（更多手牌能更舒适地使用大尺度下注），而 CO 则通过更多的 sets / two pairs 保留重要的**nut advantage**。由于双方范围中大量成分来自 one-pair / 高张 + 顺子听牌，而非 flush-draw 驱动，这个牌局对 runout 相对敏感。\n\n4) **策略分析（CO 对抗 12.4bb c-bet）：** CO 的整体应对为 **Call ~50% / Fold ~40% / Raise 26.7bb ~9.6%**；从学习角度，这里基本可以视为一个**以 call-or-fold 为主**的 spot，因为 raise 低于 10%，可大幅简化。call 占主导的原因在于：CO 有很多手牌**强到不能弃牌**，但在面对 BTN 充满 overpairs 的范围时又**不够干净地做价值加注**。例如，top pair 几乎总是跟注继续；JhJc 这类 overpairs 也主要以跟注继续；third pair（如 Ac4c）同样会以较高频率继续，因为它有改进空间，并且通过跟注能让 BTN 的 bluffs 保持在范围中。CO 也会用大多数顺子听牌以跟注继续：**open-enders**（JsTs、7h6h）以及大多数 **gutshots**（QhTh）在对抗这个大尺度下注时拥有足够的 EQ 与后续可玩性（外加一些 backdoor 组件），因此能够防守。弃牌则主要集中在 CO 的**弱对子**以及**弱高张/无听牌**区域：bottom pair（如 2s2d）接近纯弃牌；K-high 手牌如 KsQh 多数弃牌；同时也会有不少 A-high（如 AhJh）在面对这个大尺度下注时选择放弃，因为它经常被压制，且在 OOP、SPR 下降的条件下会在转河面对更强的持续施压。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check_BTN_12.4bb&turn=&river=",
+      "board": "9h3h2s",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（9h3h2s）**：这是一个**无对子、低张且不连张**的翻牌面（9-high，带两张wheel牌）。**花色**：两张红桃意味着**立即存在flush draw**（任意两张红桃），但**不会出现成花**。**顺子**：存在一定的顺子听牌，主要集中在**54**（open-ender）以及类似**65**这种牌（根据具体花色与结构，可能是gutshot / pair+draw 等类型）。由于这是两色面且顺子区域仍然活跃，很多牌的EQ对后续公共牌非常敏感：红桃转牌/河牌，以及4/5/6转牌都可能显著改变EV（尤其是对抗一对类型牌时）。不过，极强成手牌（例如 CO 的 **3s3d** 明三条）整体仍更稳健；而 overpair / top pair 则更容易在复杂runout下承受难打的局面与尺度压力。\n\n2) **行动线分析**：翻前为 **CO open 2.5bb → BTN 3-bet 到 8.5bb → CO call**，形成典型的**3BP**，BTN 拥有有利位置且范围更紧、更强。翻牌 CO check，BTN 在约 **18.5bb** 的底池中下注 **12.4bb（约67% pot）**——这是偏大的 c-bet，符合 BTN 利用**有利位置 + overpair 密度**来施压的思路。筹码量：翻前 call 后 CO 身后 **91.5bb**；若 CO 跟注 12.4bb，底池约到 **43.3bb**，CO 剩余约 **79.1bb**，则转牌 **SPR≈1.8**（已相对偏低）。若 CO check-raise 到 **26.7bb**，底池结构会被强烈压缩（若被跟注，转牌 SPR 约 **~0.9**），双方更容易在强价值牌与高EQ诈唬上走向**stack-commitment**。\n\n3) **范围分析**：CO 的范围里包含一定比例的**Hidden Sets（6.7%）**（例如 **3s3d**），但相对较少的 **Over pairs（4.5%）**（例如 **TsTh**）。CO 也有 **Top Pair（7.8%）**（例如 **9s8s**），大量 **Covered Pairs（25.4%）**（小于9的口袋对子），以及较大比例的 **Ace High Card（24.9%）**与更弱的高张牌。CO 的听牌包括 **nut_flush_draw（5.1%）**（例如 **AhTh** 这类A-high红桃组合）、**flush_draw（6.3%）**，以及部分 **open_ended_straight_draw / gutshot_straight_draw** 和 **backdoor_flush_draw**。BTN 的范围则以 **Over pairs（29.9%）**为主（例如 **QhQc**），并搭配较少的 **Top Pair**、**Ace High Card**，以及一些 **nut_flush_draw / flush_draw / backdoor_flush_draw**（例如 **AhJh** 作为 nut FD）。整体而言 BTN 具备**范围优势**（平均EQ更高且由于有利位置更容易实现），但 CO 通过 set 拥有真实的 nuts 组成，因此 nuts 优势并非完全单边。并且在该牌面上，很多一对类牌的相对强度会被大量转牌改写，在低 SPR 下会更频繁地被迫做艰难决策，因此整体EQ并不稳健。\n\n4) **策略分析**：CO 面对 67% pot 的 c-bet，主要应对为 **Call 46.1% / Fold 42.7% / Raise-to-26.7bb 10.6%**（其他加注尺度占比可忽略，可简化不考虑）。总体逻辑是：BTN 的大尺度下注会强力挤压 CO 的大量 underpairs 与高张空气牌，而 BTN 的位置优势也使得 CO 必须对底端组合进行更多弃牌，同时仍要用在低 SPR 下能盈利继续的牌进行防守。**Raise 26.7bb（10.6%）**主要集中在愿意做大底池和/或进行**权益拒绝**的组合：**Hidden Sets**会显著加注（也会有部分慢打），**Over pairs**会混合加注（对抗听牌与更差对子时的保护+价值），而强听牌——尤其是 **nut_flush_draw** 以及类似 **5h4h** 这种 **combo_draw**——也会选择加注，以利用弃牌率并制造接近承诺的 SPR，从而让自身EQ更好地实现。**Call（46.1%）**是防守主干：大多数 **Top Pair**（例如 **9s8s**）、不少 **Over pairs**（例如 **TsTh**）、大多数 **flush_draw**，以及几乎所有 **open_ended_straight_draw**都会以跟注继续，因为它们对抗 BTN 的 c-bet 范围表现良好，同时也不总是希望被再加注/被 jam 而损失权益。**Fold（42.7%）**主要来自最弱区域——大量 **Covered Pairs**、过于薄的 **backdoor_flush_draw**，尤其是EQ与实现率都很差的 **Kicker High Card**（例如 **KcJc**），在这种尺度与位置劣势下难以继续。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check_BTN_5.0bb&turn=&river=",
+      "board": "Ad5c5h",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析（Ad5c5h）：** 这是一个 **A-high 且成对（5-5）**、并且 **三种花色（rainbow）** 的牌面，因此 **没有立即的同花听牌（no immediate flush draws）**；唯一的“同花”相关权益来自 **backdoor_flush_draw**（例如 **AhQh** 有 backdoor）。由于牌面成对，天然会让范围顶端变得 **非常偏价值、且更密集**（Four Of A Kind / Full House / Open Set），同时也会让大量一对牌（Top Pair）更偏向 **薄价值 / bluff-catchers**。  \n顺子听牌确实存在但比较有限（多数是 gutshot 这类可能性，而不是很明显、很强的听牌结构），因此成牌的权益整体 **相对稳健**：与动态的 two-tone / 连张牌面相比，很多 turn 并不会大幅改变领先方。\n\n2) **行动线分析、位置、SPR：** 翻前行动为 **CO open 2.5bb → BTN 3-bet 8.5bb → CO call**，形成 3-bet 底池，**BTN 有利位置（IP）**，通常也更容易推动权益实现（realization）。翻牌 **CO check，BTN c-bet 5.0bb 到 ~18.5bb（约 27% pot）**，这个小尺度一方面给 CO 的最弱区间压力，另一方面也让 BTN 能保持范围更宽。  \n翻牌开始时有效后手约 **91.5bb**；如果 CO 跟注，底池约变为 **28.5bb**、身后约 **86.5bb**，因此 **SPR ≈ 3**，这会鼓励用 **Top Pair** 走更多的 call-down 线路，也让 **check-raise 来为后续打光（set-up stacks）** 成为现实选项。若 CO 选择大加注 **到 24.1bb**，后续街的有效后手会变得接近 **commitment**，因此这个尺度天然更对应 **polar** 的范围（强价值 + 诈唬）。\n\n3) **范围分析（双方有什么、谁占优）：** CO 的范围包含所有列出的成牌类别，但主要集中在 **Covered Pair（29.8%）** 与 **Top Pair（19.9%）**，同时还有大量 **Kicker / Kicker High Card**，这些面对 c-bet 往往很难继续。CO 的坚果区间也存在（例如 **6s5s** 作为 **Open Set（明三条）**，**As5s** 作为 **Full House**，**5s5d** 作为 **Four Of A Kind**），但数量并不如 BTN 的最强牌充足。  \nBTN 的整体范围明显更强：**Top Pair 占比 36.5%**（且其 Top Pair 的平均 EQ 通常高于 CO 的 Top Pair），BTN 也有可观的 **Full House** 占比（包含 **AsAc** 这类），并且 BTN 的 **Covered Pair** 平均强度更高。结论是：**BTN 同时拥有范围优势（59.7% EQ vs 41.4%）与坚果优势（nut advantage）**，而 CO 在最顶端相对 **被盖帽（capped）**，尤其在 BTN 更偏 AA 主导的葫芦区间面前更明显。由于牌面上强听牌较少，权益波动不大，这通常更有利于已经握有范围/坚果优势的一方（BTN），并迫使 CO 更有选择地防守。\n\n4) **策略分析（CO 面对 5bb c-bet）：** 总体上 CO 的应对为 **Fold 43.8% / Call 41.1% / Raise to 24.1bb 12.5%**；小加注尺度（14.4bb）低于 10%，在学习时可以 **简化忽略**。  \n- **Fold：** 主要由 CO 最弱的类别推动：**Kicker** 与 **Kicker High Card** 接近纯弃牌（例如 **KhTh**、**9c8c** 这类 EQ 很低，且在对手有利位置下权益实现很差）。  \n- **Call：** 是防守主干，因为 BTN 的下注尺度很小，CO 需要继续足够多的组合。CO 主要用 **Top Pair**（很多 Ax）以及一大部分 **Covered Pair** 来继续，它们在 **SPR ~3** 下仍有一定实现空间；其中一些手更偏 **bluff-catcher** 而非价值继续（例如 **6s6h** 属于 Covered Pair，往往会继续但处境并不舒服）。  \n- **Raise to 24.1bb：** 这是极化（polar）的主要杠杆：会被 **Open Set（5x）** 大量使用，也经常由最强的葫芦使用（如 **6s5s**、**As5s**，以及有时用 **5s5d** 进行 slowplay），因为这个尺度能在后续街制造明显的堆叠压力，并对 BTN 的边缘继续牌形成权益拒绝（迫使其无法舒适实现）。主要的诈唬部分来自那些“跟注表现不佳”的较弱成牌——尤其 **Bottom Pair** 会以较高频率混合加注——目标是让 BTN 的高牌区域弃牌，并利用 BTN 小尺度 c-bet 带来的宽范围优势，同时保留一定的改进空间，或在某些 runout 下让 BTN 的一对牌承受更大压力。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=CO_2.5bb_BTN_8.5bb_CO_Call&flop=CO_Check&turn=&river=",
+      "board": "AdKd5d",
+      "position": "CO vs BTN",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 翻牌是 **Ad Kd 5d**：无对子，A-high，带有一张 broadway 牌（A/K）加上一张小牌（5）。花色分布为 **monotone diamonds**，因此**成牌同花已经存在**（任何两张♦的手牌），同时**flush draw 极其常见**（任何带一张♦的手牌都拥有一张牌就能成花的 flush draw）。也存在一些**顺子听牌**，但多为**gutshots**（例如 QJ/QT/JT 这类 broadway gutter），且**没有成顺**。在这种牌面上，一对类手牌的权益**不够稳健**（尤其是不带♦的一对），因为很多转牌（♦以及 broadway/牌面对子的变化）都会显著改变谁是领先方；相对而言，**成牌同花**（例如 BTN **QdTd**）当前很强，但后续如果牌面成对，仍会出现一定脆弱性。\n\n2) **行动线分析：** 翻前为 **CO open 2.5bb → BTN 3-bet to 8.5bb → CO call**，进入 3BP，BTN 作为翻前进攻方且处于 **IP**。翻牌 **CO check**，BTN 在有利位置且掌握主动权。底池约 **18.5bb**，有效后手约 **91.5bb**，所以 **SPR ≈ 4.95**：中等 SPR，BTN 可以用小尺度持续施压，同时仍保留足够的后续街空间。在 monotone 翻牌上，位置优势非常关键：IP 玩家可以通过下注对大量一张♦的手牌进行权益拒绝；同时也可以用一定比例的 check 控制底池，避免在 OOP 具备可信 check-raise 的牌面上，把自己推入尴尬的 bet/call 线路。\n\n3) **范围分析：** BTN 到翻牌的范围中，**Second Pair (39.18%)** 与 **Top Pair (28.53%)** 占比较高，同时也包含一定比例的 **two pairs (8.58%)**、**Hidden Sets (5.88%)** 与部分 **Flushes (2.73%)**；此外，范围与♦的互动很多，包括 **flush_draw (14.89%)** 与 **nut_flush_draw (5.68%)**（例如 BTN **AhQd** 属于 **Top Pair + nut_flush_draw**），也包含一些 **combo_draw**（例如 BTN **QhJd**）与 **gutshot_straight_draw**。CO 的跟注范围中，**成牌 Flushes (5.52%)** 比 BTN 更多（例如 CO **JdTd**），同时也有不少 **flush_draw (20.61%)**，但整体更偏向弱牌结构（CO 的 **trash** 占比很大）。从结构上看，BTN 在平均 equity 上有**明确的范围优势**（BTN ~60.9% vs CO ~39.2%），且高权益密度更高（“best”手牌更多）；而 **nut advantage** 在一定程度上是分化的：CO 更常出现成牌同花，但 BTN 拥有更多强力的非同花价值牌（set/two pairs/top pair），并且有更多 **nut flush draws** 可以持续施压。\n\n4) **策略分析：** BTN 的翻牌策略以 **bet 5.0bb (65.8%)** 和 **check (15.4%)** 为主；学习时可以将其理解为“以小尺度 c-bet 为主，辅以一定比例的 check”，其余下注尺度相对次要。小下注之所以有效，主要因为 BTN 具备：(a) 范围优势，(b) IP，(c) CO 有大量不愿在 monotone A-high 牌面继续的手牌——尤其是 **Kicker** 与弱对子——从而允许 BTN 在 CO 可能持有同花的前提下，仍能高频率 c-bet 而不过度 polarize。**5bb** 尺度会被较广的牌型使用：既可以用 **Top Pair**（例如 **AhQd**）、**Hidden Set**（例如 **KhKc**）与 **two pairs** 做价值下注并收费；也会拿许多带♦的 **nut_flush_draw/flush_draw**，甚至部分 **combo_draw**（例如 **QhJd**）去下注，以进行权益拒绝并清除 CO 最弱的非♦持牌。与此同时，BTN 也需要保留一定的 **check** 组合：在 monotone 翻牌上，不应把所有中等强度的手牌自动下注进一个可能包含同花、且大量一张♦会继续的范围；因此 BTN 会用一定比例 check 回一些手牌（包括部分强牌，例如 **QdTd** 会混合 check），以在 IP 更顺畅地实现权益，并避免用不想面对激进反击的组合去扩大底池。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "7c2sKd3c",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面是 **K♦7♣2♠3♣**：未成对、**K-high**，且出现两张梅花（因此 **flush draw 依然有效，但还没有成花**）；同时它也在 A2345 / 6 这一带制造了**真实的顺子听牌压力**（例如 **5♣4♣** 这类手牌，可以通过 A/6 的河牌发牌获得很强的权益）。由于转牌补出第二张梅花，并且低张进一步连通（2-3-7），很多一对牌都**无法“锁定胜局”**：权益对 **runout** 相当敏感（梅花河牌、A/6 河牌，以及一些让对子提升的河牌都会显著改变胜负）。但与此同时，这也不是那种成牌会频繁被“反超/作废”的牌面（仍然未成对），所以主要波动来自于**听牌完成**，而不是来自牌面成对。\n\n2) **行动线分析：** 翻前行动为 **BTN open 2.5bb，BB call**。翻牌 **BB check，BTN c-bet 1.8bb，BB call**，来到转牌 **BB 再次check**，BTN 继续处于 **IP** 行动。翻牌小尺度下注会让 BB 的范围更宽、更“黏”，因此 BB 到转牌仍会保留大量 **Kx**、各种对子，以及一部分听牌。转牌底池约 **9.1bb**，有效后手约 **95.7bb**，因此 **SPR ≈ 10.5**：在这种深度下，BTN 没必要用中等强度牌强行打到打光；选择 check-back 来实现权益、让自己的 check-back 范围不至于过弱，会变得非常有吸引力。位置优势在这里影响很大：BTN 可以在转牌选择 **施加高压的 barrel**，也可以选择**控制底池**，用更低成本去对抗一条梅花转牌后已经提升/新增权益的 BB 范围。\n\n3) **范围分析：** BTN 的范围顶部包含价值牌（例如**隐藏set**与**两对**，以及一些 **overpair** 例如 **A♠A♦**），但也有大量以 **Ace High Card** 与各类 **Kicker** 形态存在的高牌/空气牌。BTN 的成牌骨架主要是 **Top Pair（16%）**，外加一部分 **口袋对子/Second Pair**，同时仍存在不小比例的“miss”。听牌方面，BTN 有 **flush_draw** 与 **nut_flush_draw**（例如 **A♣8♣** 作为 nut FD），以及少量 **combo_draw**（例如 **5♣4♣**）。BB 在翻牌跟注后会更偏向**对子密集**：包含大量 **Top Pair（20%）**，以及更大量的 **Second Pair（23%）**，也会有一些 **Ace High Card**，但纯垃圾牌更少。总体而言，当前 BB 拥有 **range advantage**（整体 EQ 更高；其分布更收缩、更集中在可玩牌附近），而 BTN 仍保留一定的**高端优势**：因为 BTN 在这里仍可能拥有 BB 基本不会出现的 **overpair** 组合，同时双方也都可能拥有 set/两对。权益稳健性处于中等偏低水平，因为梅花与顺子相关的 **runout** 会让许多对局关系发生翻转。\n\n4) **策略分析：** BTN 的转牌策略是明显 **check-heavy（64.7%）**，其次主要使用 **11.8bb 大尺度下注（18.1%）**；其余更小的下注尺寸总体占比较低，学习时可以简化为“下注分支基本等同于主要用 overbet”。这种高频 check 合理，因为 BB 翻牌跟注范围强且对子密集，转牌又给听牌增加权益，同时 SPR 很高：BTN 通过对大量 **Ace-high/Kicker** 牌 check-back 来实现权益，并避免用边缘价值牌把底池打大、却又不愿面对对手强力反应。**11.8bb 的 overbet** 是偏极化的施压工具：它针对 BB 大量的一对牌，迫使其做出艰难决策，同时也为 BTN 的最强价值牌与最强半诈唬构建底池。价值端上，**overpair** 是纯粹的 overbet 推动者（例如 **A♠A♦** 几乎总是下注 11.8bb），而 **隐藏set** 与 **两对** 等强成牌也更倾向于大尺度下注，以便最大化从 BB 的 Kx/7x 区域获取价值。诈唬/半诈唬端上，BTN 会选择那些既能推动 fold equity、被跟注后也有良好实现能力的手牌：**combo_draw**（例如 **5♣4♣**）与 **nut_flush_draw**（例如 **A♣8♣**）会频繁选择 overbet，一些 **flush_draw** 也会混合大尺度下注来施加最大压力。相对地，**check-back** 的部分包含大量 BTN 的中等摊牌价值牌与放弃：不少 **Top Pair** 与 **口袋对子/Second Pair** 会选择控池；同时也有相当一部分低权益、无听牌的 **Kicker** 牌（例如 **J♦T♦**）主要通过 check 来实现仅有的权益，避免向 BB 收缩且偏跟注的范围继续投入筹码。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "Qd9c5h2h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Qhigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：**Qd9c5h2h 是一个未成对的 Q 高牌面，带两张红心（5h、2h），因此存在**真实的flush draw**，但**没有成花**。牌面点数较为断连（Q-9-5-2），使大量**one-pair**牌型仍会继续（尤其是 Top Pair 与 Second Pair），同时也给了不少**straight draws**（open-ended 与 gutshots），但并未形成任何成顺。由于同时存在**红心听花**与**顺子听牌**，one-pair 的权益并不稳健：很多 river 会显著改变谁是最强牌，以及谁能更可信地持续施压。\n\n2) **行动线分析：**翻前 BTN open 2.5bb，BB call。翻牌 BB check，BTN c-bet 1.8bb（小尺度），BB call。转牌发 2h，BB 再次 check，因此 BTN 在**有利位置**行动，并延续了翻牌的下注主动权。此时转牌底池约 **9.1bb**，有效后手约 **95.7bb**，所以 **SPR ≈ 10.5**（高）。高 SPR + 有利位置通常支持：(a) 用较多 check-back 让中等牌型实现权益；(b) 一旦下注则更多采用**大尺度的polar barrel**，因为你不需要被迫打光，同时可以用尺度把 BB 收缩的翻牌跟注范围置于艰难决策中。\n\n3) **范围分析：**BTN 到转牌时的范围很宽，既包括强价值牌（Hidden Set 如 **9s9h**、两对、overpair），也包含大量弱牌/高张与低权益的“Kicker / Kicker High Card”类持牌；整体上 BTN 的垃圾牌占比更高。BB 的翻牌跟注范围则**更偏向成牌**：大量 **Second Pair** 与 **Third Pair**，相当一部分 **Top Pair**，总体垃圾牌显著少于 BTN。到这张转牌，BTN 在**范围顶端**的占比更高（Hidden Set 频率更高，同时 BTN 也存在 overpair），但**整体范围优势**更偏向 BB（BB 的范围在 check/call 翻牌后更“结实”）。Nut advantage 某种程度上是分割的：BTN 拥有更多“真怪兽”（set/overpair），而 BB 也有大量不容易被随意施压的强 one-pair。由于双方仍保留 flush draw 与 straight draw 组件（BTN 尤其有很多 gutshots 与红心听牌可用于继续开火），权益对 runout 非常敏感。\n\n4) **策略分析：**基于 (1–3)，BTN 转牌策略主要是 **Check ~60%** 与 **11.8bb overbet ~34%**（其他下注尺度占比很小，学习上可忽略）。这是合理的：BB 的翻牌跟注使其范围变得收缩且以对子为主，BTN 很难再用“range bet”持续盈利；因此 BTN 往往拆分为：(a) 大量 check，用于那些不希望被加注、或很难被更差牌充分跟注的持牌；(b) 用大尺度的polar overbet 对 BB 的中等强度对子施压，重点攻击 BB 相对“被盖帽在 one-pair”的区域。**11.8bb overbet**主要由明确的价值牌与匹配的 bluff 共同驱动：BTN 的最强成牌会高度选择该尺度（Hidden Set 如 **9s9h**、两对、overpair），而强 Top Pair 也会大量使用（例如 **AdQs** 经常继续下注以获取价值/保护）。在 bluff / semi-bluff 侧，BTN 会用同样尺度选择那些能改善并且/或者带 blockers、能够迫使对手弃牌的组合：combo draws 如 **Jh8h**、许多 gutshots（如 **KsJs**），以及包括坚果听花在内的红心听牌（如 **AhTh**），都自然成为 overbet barrel，因为它们既能立刻制造弃牌率，被跟注时也仍保有权益。**check**桶则以那些不想在 BB 强继续范围面前扩大底池的牌为主：大量 **Second Pair** 与 **Third Pair** 会非常频繁地 check，同时还会包含相当数量的 **Ace High Card**，并混入少量 Top Pair；在高 SPR 且有利位置下，check 能避免 BTN 在一个已经通过翻牌跟注“证明强度”的范围面前过度诈唬。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "Kc7h3sAs",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面是 **Kc7h3sAs**：没有配对，包含两张高牌（**A 和 K**）+ 两张低牌（**7 和 3**）。花色上有 **两张黑桃（As、3s）**，因此存在 **flush draw**，但目前还 **没有成花**。顺子也没有成型，不过 **gutshot** 很常见（例如 **QJ** 需要 **T** 才能成 broadway；以及一些与 A/3 互动的偏 wheel 的 gutshot）。由于主要听牌（黑桃 + 一些 gutshot）都可能在河牌完成，因此整体 **权益稳健性中等**：许多一对牌现在看起来很强，但在黑桃河牌以及部分补顺河牌上会承受明显的 runout 压力；而 **set / two pairs** 的稳定性则高得多。\n\n2) **行动线分析：** 翻前 **BTN open 2.5bb，BB call**。翻牌 **Kc7h3s** 过牌到 BTN，BTN 用 **小 c-bet 1.8bb**，BB 跟注。转牌来 **As**，BB 再次 check，因此 BTN 以 **IP（有利位置）** 行动，并且延续了翻牌下注带来的主动权。底池约 **9.1bb**，有效后手约 **95.7bb**，因此 **SPR ≈ 10.5**，属于偏高：BTN 不需要用边缘牌去扩大底池；BB 也有空间继续游戏，而不至于被迫进入必须 stack-off 的门槛。高 SPR 通常支持用 **中等强度** 更多 check；而一旦下注，则更多采用 **polarized 的价值牌 + 强听牌** 配合更大尺度。\n\n3) **范围分析：** 走到这个节点时，BTN 的范围权重主要集中在 **Kicker（37.8%）**，其次是 **Second Pair（22.0%）** 和 **Top Pair（20.5%）**；顶端价值包括 **two pairs（6.0%）** 与 **Hidden Set（2.9%）**（例如 **KsKd** 在这里属于 Hidden Set）。听牌方面，BTN 有相当比例的 **gutshot_straight_draw（10.8%）**，并且有一定数量的 **flush_draw / nut_flush_draw / combo_draw**（例如 **QsJs** 会作为 combo draw 出现）。BB 的范围更偏“一对牌密集”的中段结构：**Second Pair（24.6%）**、**Top Pair（22.7%）**、**Third Pair（21.1%）**，再加上 **Bottom Pair（11.2%）** 和 **Kicker（15.5%）**，同时有 **two pairs（4.8%）**，极端 air 持有更少（BB 的“trash”占比低）。结构上，BTN 更 **polarized**（很多垃圾牌 + 一些非常强的牌），而 BB 更 **condensed（收缩的/压缩的）**，围绕一对牌集中。纯粹的 raw equity 上 BB 整体领先（**~54% vs ~47%**），但 BTN 拥有 **nut advantage**（BTN 保留更多 Hidden Set 且 two pairs 略多），并且由于位置优势带来显著的 **realization advantage**（BTN 的 EQR 高得多），在高 SPR 的转牌这一点尤其关键。\n\n4) **策略分析：** BTN 的整体策略是 **Check ~62%**，以及使用 **bet 11.8bb ~30%**（其他下注尺度占比很小，可忽略）。这个混合策略是合理的：A 是影响很大的高张牌，会让许多翻牌局面更容易出现 **更清晰的 polarized 下注机会**；但 BB 到转牌仍带着大量能继续对抗压力的牌（大量一对牌），因此 BTN 不可能靠范围自动下注来稳定获利。**11.8bb** 是主要下注工具，因为它能更干净地讲述 polarized 的故事，并对 BB 收缩的一对牌区域施压：BTN 用大尺度更多下注 **强价值**（Hidden Set 与 two pairs 明显偏向下注；**KsKd** 几乎是纯大注），也会用 **强 semi-bluff** 去下注，这些牌可以在后续继续 barrel，和/或立刻制造弃牌收益（例如 combo draw 的 **QsJs**、flush draw 的 **9s6s**、以及 gutshot 的 **QsJd**）。部分 **Top Pair** 若强度足够，也更倾向用大注去做底池建设与 **权益拒绝**（例如 **AhTh** 明显偏向大注）。而 **checking** 则更多集中在 **Second Pair** 以及其他更适合控池与 bluff-catching 的牌（例如 **KdTd** 主要是 check），同时也会有一部分 Top Pair 混合 check，以及一些 kicker 类牌更愿意拿到免费河牌，而不是在 BB 相对粘的一对牌范围面前把底池打大。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_5.5bb_BB_Call&turn=BB_Check&river=",
+      "board": "9d8d3cKh",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** Turn 牌面是 **9d8d3cKh**：仍然是**未成对**牌面，在低/中张 flop 上补了一张 **K-high** 的高张。花色上有 **两张方片**（9d、8d），因此存在明确的 **flush draw**，但牌面上**没有成花**。点数结构 **9-8-3-K** 也让**顺子听牌**继续存在（大量手牌从 flop 延续到 turn 仍可能有 open-ender 或 gutshot，而 K 并不补成顺子）。由于河牌仍有可能出现**方片**，以及多张可能**补顺/改变连张结构**的河牌，再加上这张 K 已经改变了很多一对牌的相对强弱，因此已成牌的 equity **不够稳健**：许多河牌会显著摆动 equity，并改变最优的 value / bluff 组合。\n\n2) **行动线分析：** 翻前是 **BTN open 2.5bb，BB call**。Flop **(9d8d3c)** BB check，BTN 打 **5.5bb into 5.5bb（pot）**，BB call；Turn **(Kh)** BB 再次 check，轮到作为上一条街进攻方的 BTN 在 **IP（有利位置）**行动。此时底池 **16.5bb**，双方身后约 **92bb**，所以 **SPR ≈ 92 / 16.5 ≈ 5.6**。在有位置且 SPR 中等的情况下，BTN 可以可信地通过**较大尺度的 turn barrel**来进行权益拒绝，并为河牌的大尺度下注做铺垫（turn 下注也会把对局推向“强牌两条街打到接近打光”的行动线）。BB 的 check 使其范围大量停留在 flop 的 **check-call** 区间（很多 9x/8x、flush draw、顺子听牌），而 BTN 的位置优势让其可以在**施压**与**控池**之间选择。\n\n3) **范围分析：** BTN 到 turn 时带着大量 **Top Pair**（15.8%），同时也有不少高端 value，例如 **Hidden Set**（4.4%）和 **two pairs**（6.4%），外加少量 **Over pair**（1.3%）与 **Covered Pair**（8.4%）。BTN 的听牌占比也很可观：**gutshot_straight_draw**（11.4%）、**open_ended_straight_draw**（6.0%）、**flush_draw**（5.4%）、**nut_flush_draw**（3.1%）以及 **combo_draw**（2.8%）。BB 的范围则更集中在中等强度的 bluff-catcher：**Second Pair** 占比很大（29.9%，许多 9x，例如 **9c7c**），其次是 **Third Pair**（16.7%，许多 8x），以及很大的 **Kicker** 组（27.7%）；BB 也有相当比例的 **flush_draw**（15.2%），但 **Top Pair** 很少（1.7%，但确实存在，例如 **Kd5d**）。结构上，BTN 更偏**极化**（更多超强牌与更多空气牌），而 BB 更**收缩的/压缩的**，主要围绕对子与听牌分布。BTN 同时拥有 **nut advantage**（更多“最强”组合）与整体的 **range advantage**（平均 equity 更高），并且这张 **K turn** 通常更有利于 BTN 的翻前加注分布（更多 Kx）；BB 在强 Kx 与 set 上相对更容易被盖帽。\n\n4) **策略分析：** BTN 的 turn 策略主要由 **下注 11.1bb（65.3%）**与 **Check（30.8%）**构成；其他下注尺度频率很低，可以简化忽略。**11.1bb** 之所以成为主导尺度，是因为 BTN 同时具备 range/nut 优势，而 turn 牌支持高压计划：BB 含有大量 **Second Pair / Third Pair / Kicker**，这些牌型不愿意面对第二枪的大尺度下注；同时 BB 也有不少听牌需要被收费。价值下注的构建也非常自然：**Hidden Set** 与 **two pairs** 基本都会继续开火，**Top Pair** 也是重要的价值来源（例如 **KsQh**；以及 **AdKd** 这种 Top Pair + **nut_flush_draw**，下注非常舒适）。同一个大尺度也是主要的半诈唬载体：**QdJd** 这类 **combo_draw** 希望对 BB 的 9x/8x 获取弃牌率，同时在被跟注时仍保有很强的 equity；许多 **flush_draw / open_ended_straight_draw / gutshot_straight_draw** 也会基于同样理由继续施压。选择 **check back** 的部分同样重要，因为 BB 的范围对子密度很高，部分 turn 可能会 check-raise；因此 BTN 会用一些更偏向控池与实现 equity 的牌来过牌（不少 **Second Pair / Third Pair**，一些 **Ace High Card** 如 **Ah6h**，以及一些混合型手牌如 **QhJc**（Kicker + **gutshot_straight_draw**）——这些牌可以在不扩大底池的情况下实现 equity）。这能避免 BTN 形成“只用价值牌下注”的单一策略，并降低 BTN 过牌后 BB 在河牌通过过度偷鸡自动获利的空间。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_Check&turn=BB_7.2bb&river=",
+      "board": "8h7s6c2d",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 牌面为 **8h7s6c2d**，**未成对**，核心结构 **8-7-6** 连张性很强，turn 的 **2** 是一张较低的空白牌。花色为 **rainbow**，**没有 flush draw**（也**没有**有意义的 backdoor 同花压力），因此主要的波动性来自 **顺子互动**：此时已经存在 **成牌顺子**（例如 BB 可以有 **9h5h**，BTN 可以有 **Ts9h**），同时还有大量 **open-ended straight draws** 与 **gutshots**。由于很多手牌都会在顺子相关的河牌上竞争，单对类手牌的 equity **并不稳健**（很多 river 会改变谁是最强牌）；而已经做成的 **Straights / Hidden Set / two pairs** 的牌力稳定性要高得多。\n\n2) **行动线分析：** 翻前为 **BTN open 2.5bb，BB call**；翻牌 **8h7s6c** 双方 **check-check**，BTN 因此保留了更宽的范围，BB 则没有在一个很契合其防守范围的牌面上主动扩大底池。turn **2d** 后，BB 下注 **7.2bb** 到约 **5.5bb** 的底池（overbet），BTN 在 **IP** 面对这种偏极化的压力。起始记分牌 100bb；此时 BTN 身后约 **97.5bb**，BB 在下注后身后约 **90.3bb**。在 BTN 行动前，底池约 **12.7bb**，有效 **SPR ≈ 90.3/12.7 = 7.1**；如果 BTN 跟注，河牌底池约 **19.9bb**，SPR 降至约 **4.5**。这种下注尺度与 SPR 的下降，典型用于 BB 想通过 overbet **迫使边缘对子与高牌弃牌**，同时又能让自己用范围顶端的牌型更舒服地打到全下。\n\n3) **范围分析：** BB 在本牌面的顶级牌型密度明显更高：BB 拥有更多 **Straight (8.46%)**、**Hidden Set (3.87%)** 与 **two pairs (4.43%)**（例如 **8s7h** 属于 two pairs）；而 BTN 的 **Straights (1.02%) / Hidden Set (1.72%) / two pairs (0.78%)** 明显更少。BTN 的补偿在于拥有更多 **Over pair (5.72%)**（例如 **KsKd**）以及大量 **Ace High Card (28.07%)**，并且还有可观的 **open_ended_straight_draw (22.58%)**（例如 **Ks9d**）与 **gutshot_straight_draw (24.27%)**。总体而言，BB 拥有明确的 **range advantage**（BB EQ 54.05 vs BTN 45.90）以及巨大的 **nut advantage**（BB “best” bucket 35.24% vs BTN 3.00%）；同时 BTN 因为翻牌选择过牌，来到 turn 时顶端的顺子/三条/两对更少，范围在顶端相对 **capped**。由于存在大量顺子听牌与能补成顺子的 runout，双方范围中段的 equity 都对 runout **非常敏感**（尤其是一对与高牌区域）。\n\n4) **策略分析：** BTN 的应对基本是一个 **Fold/Call** 的局面：**Fold 50.6%，Call 46.2%**，加注占比很小（**17.2bb 3.15%**、**27.1bb 0.03%**、jam 约 0%），因此学习上基本可以简化为这里 **不加注**。BTN 之所以不能防守得更宽，是因为 BB 的 overbet 来自一个同时包含大量 nuts 与大量强听牌的范围；BTN 需要通过继续游戏来避免被过度 **权益拒绝**，继续的手牌通常要么 (a) 已经能压制 BB 的 bluff 且不至于被 value 过度碾压，要么 (b) 有足够 equity 并能在 IP 更好地实现 equity。**Call** 主要由 BTN 的成牌推动：**two pairs** 基本为纯继续（≈100% call），**Hidden Set** 多数选择 call，**Over pair** 也是高频 call（例如 **KsKd**），**Top Pair** 也会大量 call（例如 **As8s**）。**Straights** 会继续并有一定混合，但仍然体现出很强的跟注占比（例如 **Ts9h** 继续得很积极）。听牌方面，**open_ended_straight_draw** 是主要的继续类别（以 call 为主），因为对抗 BB 的 value 有真实 equity，且非常受益于位置；而 **gutshot_straight_draw** 更接近边缘，会弃掉更多。**Fold** 主要来自 BTN 最弱的非成牌区域：大量 **Ace High Card**、**Kicker High Card**，以及 equity 较低的 **Kicker/gutshot** 手牌（例如 **KdTc** 属于明确的弃牌），这些手在面对 overbet、且牌面上 BB 的 value 很强并能在很多 river 继续施压时，无法盈利地实现 equity。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "4s4h5c2h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "5high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：Turn 牌面为 **4s 4h 5c 2h**：这是一个**paired** 的低张牌面（4 成对），且点数集中（2/4/5），会让大量的一对牌与高牌仍然“存活”，而绝对坚果牌相对稀缺。花色方面：现在出现 **two hearts**，因此 turn **增加了一个真实的 flush draw**（此时还没有成花）。顺子已经存在（尤其是 **A3** 组成 wheel straight），同时由于点数低且相连，也会出现大量 **straight-draw patterns**（open-enders 与 gutshots）。因为 turn 引入了 hearts 且牌面相连，权益**不够稳健**：河牌来一张 heart，或来一张补成低顺的牌，都可能大幅改变胜负归属，尤其是在高 SPR 下更明显。\n\n2) **行动线分析**：翻前 BTN open **2.5bb**，BB call。Flop（**4s 4h 5c**）行动为 **BB check → BTN c-bet 1.8bb → BB call**。Turn（**2h**）BB 再次 check，BTN 需要决定是否继续 barrel 或选择 check-back。BTN 处于有利位置且是上一轮的进攻方，因此由 BTN 决定底池是否扩大；BB 的 check 让其范围保持很宽，并包含一些强牌与大量 bluff-catchers / draws。Turn 底池约 **9.1bb**，身后约 **95.7bb**，因此 **SPR ≈ 10.5**（非常高）。高 SPR 会让策略更偏向 **mixing**：不能用薄价值轻易打到打光，同时也不希望用太多中等强度牌去扩大底池，因为它们不喜欢被 check-raise 或在河牌面对艰难决策。\n\n3) **范围分析**：在这个 turn，BTN 的范围里大量是 **Kicker** 手牌（占比最大），其次是很多 **Ace High Card**；价值部分主要集中在 **Over pair**、**Top Pair**，以及一部分 **Open Set（4x）**，并且还有一个占比不大但关键的顶端范围：**Straight / Full House / Four Of A Kind**。BTN 也保留了有意义的听牌：**flush_draw / nut_flush_draw / open_ended_straight_draw / gutshot_straight_draw / combo_draw**，在第二张 heart 出现后这些听牌的重要性更高。BB 的范围以 **Ace High Card** 与 **Kicker High Card** 为主，但由于 BB 防守更宽、能带着更多低张相连牌来到 turn，BB 相比很多 BTN 范围会有更高密度的 **Top Pair** 与 **Open Set（4x）** 类型手牌。结构上，BTN 更**polarized**（很多垃圾牌 + 一段真实的坚果牌），而 BB 更**收缩的/压缩的**在中等权益附近（大量“还不错”的手牌）。即便 BB 的整体 raw equity 更高，BTN 仍有 nut advantage（BTN 的超强牌密度更高），并且 BTN 拥有有利位置，这会改善权益兑现并让合适的范围继续 barrel 变得更盈利。整体权益仍然对 runout 很敏感，因为 hearts 与补顺牌会频繁改变谁拿到最佳牌。\n\n4) **策略分析**：基于 (1-3)，BTN 在 turn 的整体策略是混合的：**Check ~45%**，以及 **bet 6.1bb ~38%**（这个 size 是明确的“主力” barrel；其他下注尺度属于次要，可以简化忽略）。之所以会形成明显分流，原因包括：(a) 高 SPR 会惩罚薄价值；(b) BB 的 flop call 范围里有很多牌不会因为很小的压力就弃牌；(c) turn 这张牌带来了更多听牌，因此更大的 size 既能做**权益拒绝**，又能为河牌施压做铺垫，同时也能让 check-back 范围保持一定强度。选择 **bet 6.1bb** 的主要是清晰的价值牌与强压制牌：BTN 会大量用 **Four Of A Kind / Full House / Straight / Open Set / Over pair / Top Pair** 去继续 barrel（例如 **Ah3h**（Straight）与 **JdJc**（Over pair）明显更偏好下注），因为 BB 可以用很多更差的一对牌与 draws 继续，同时 BTN 也希望向 BB 的 heart draws 与 straight draws 收费。这个 size 也会被 BTN 的听牌区域大量使用——**combo_draw**、**flush_draw**、**open_ended_straight_draw**，以及很大一部分 **gutshot_straight_draw**——因为这些手牌能从 fold equity 中获益，并在 hit 的时候建立更大的底池（例如 **Kh3h**（Kicker High Card + combo_draw）是天然的 barrel）。**Check** 主要来自 BTN 的 **Ace High Card** 区域，以及一些不愿被迫打大底池的较弱成牌：不少 A-high（包括带 gutshot 的 **As6d**）以及 **Kicker High Card** 类型（例如 **Kd8h**）会选择拿免费牌来兑现权益，同时保留河牌继续 bluff 的空间。BTN 也会让一部分 **nut_flush_draw**（例如 **Ah8h**）选择 check-back，以维持 check-back 范围的强度，并避免用一手权益很强但未必想面对激进 turn check-raises 的牌去过度扩大底池。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "AhAs3c9c",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** turn 牌面为 **Ah As 3c 9c**：一个**A成对**（公共牌面有明三条）+ 一张小牌（3）+ 一张中张（9）。花色现在是**两张梅花**（3c、9c），因此存在 **flush draw**，但**没有成花**。由于牌面已经成对，范围的绝对顶端是 **quads** 和 **full houses**，这类牌面对 river 的各种runout非常稳定（不太在意第三张梅花）。更常见的“强成手牌”是 **trip A (Ax)**（你的 “Open Set” 类别），它很强，但**并非无懈可击**：梅花补全会带来额外压力，而 river 若再次成对（3/9/A）会改变双方拿到 **boat** 的分布。与此同时，像 **second pair（9x / 同一层级的口袋对子）**以及 **covered pairs** 这类中等强度成手牌，对runout更**敏感**：很多 river 容易迅速被更强牌反超，同时它们对范围顶端的blocker作用也不明显。\n\n2) **行动线分析、位置、SPR分析：** 翻前是 **BTN open 2.5bb，BB call**。flop **Ah As 3c**，BB check，BTN 用一个**小号 1.8bb c-bet**，BB call；turn **9c** BB 再次 check，BTN 在**有利位置**做决策。进入turn时底池约 **9.1bb**，身后约 **95.7bb**，因此 **SPR ≈ 10.5**。高SPR意味着：BTN并不是想用一枪就“stack off”，而是可以利用位置去打 **thin value + cheap bluffs**（小尺度下注），同时也需要通过一定的check来实现权益、避免被BB的check-raise线惩罚。BB连续两次check也让BB的范围保持更宽：包含大量 **bluff-catchers** 和高张，但仍然可能保留不少 **trip A** 以及一些慢打。\n\n3) **范围分析：** BTN的范围包含完整的顶端：**quads**（例如 *AdAc*）、**full houses**（A3/A9/33/99这一类），以及大量 **trip A（Open Set）**（例如 *AcKh*）。BTN也有不少 **covered pairs**（例如 *TdTc*）、**second pair**（例如 *Jh9s*）、一些 **third pair**（例如 *Ks3s*），以及许多 **kicker-high-card / kicker** 手牌（例如 *KsQd*、*7d6d*）。听牌方面，BTN有 **nut_flush_draw**（通常还会同时带着很强的成手牌，例如 *Ac7c* 属于 trip A + nut FD），也有常规 **flush_draw**（例如 *Kc4c*）。BB的范围（flop check/call，turn check）最强部分是 **full houses** 和大量 **trip A（Open Set）**（例如 *AcQd*），同时也高度集中于各类**较弱/中等**手牌：**second pair**（例如 *Kc9h*）、许多 **kicker high-card** 与 **kicker**，并带有一些 **flush_draw**（例如 *QcJc*）。从结构上看，BTN更偏向**上下两头重**（更多nuts牌型 *以及* 更多低摊牌价值的bluff），而BB更多是**弱权益的bluff-catcher**。BTN拥有 **nut advantage**（BTN更完整地保留AA），但BB仍可能有很多trip A，因此整体优势只是**中等稳健**：boat/quads基本锁死，但trip/second pair会随着river（梅花补全/再次成对）而明显改变价值与压力。\n\n4) **策略分析：** BTN在turn采取明确的**小注与check混合**：**bet 3.0bb ~44%**，**check ~40%**（其他尺度相对次要，这个节点基本可理解为“3bb或check”）。小号3bb之所以好用，是因为BB的范围里有大量手牌要么：(a) **落后但足够粘**，会对小注继续；要么 (b) **弱到无法继续**，使BTN能盈利性地让对手弃掉权益。这个尺度会被BTN的最强价值牌大量采用（例如 *AdAc* 明显偏好下注），也会被许多 **trip A** 使用（例如 *AcKh* 经常继续下注）；同时它也能对不希望免费发river的手牌施压：**second pair**（例如 *Jh9s* 频繁下注）与 **flush draws**（例如 *Kc4c* 会混合下注）。此外，它也提供来自低摊牌价值的 **kicker** 手牌作为bluff来源（例如 *7d6d*），这类牌更依赖fold equity而不是check去摊牌。另一方面，**check-back** 也必须存在：因为BB仍有大量不会弃掉的 **trip A**，会惩罚过度bluff；同时BTN也有很多手牌要么 (i) 下注收益不大，要么 (ii) 不愿意面对check-raise：**third pair** 基本是纯check（例如 *Ks3s*），许多 **kicker high-card** 更偏向check（例如 *KsQd* 经常选择拿免费牌），部分 **covered pairs**（例如 *TdTc*）也会以较高频率check，用于控池与实现摊牌价值。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_Check&turn=BB_Check&river=",
+      "board": "AdKd5d3d",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** turn 牌面为 **AdKd5d3d**：无成对、极高张（A/K），并且是**四张方片**的牌面。花色分布极度偏斜（四张方片），因此**任何拿到一张方片的手牌都已经成花**，**常规的flush draw动态基本不存在**——河牌再来方片多数时候会形成**公面同花（board flush）**，从而压缩EV优势并提高平分底池（chop）的比例。牌面上也已经存在**顺子**（典型是 **42**），且由于公面未成对，主要的“权益波动”河牌来自：(a) **方片**（往往会中和同花 vs 非同花的对抗，并且削弱价值空间），或 (b) **公面对**（改变哪些成手牌还能继续价值下注）。总体而言，相比常见的两同花牌面，很多牌力已经在turn“兑现”，但对于是否出现单张方片的河牌仍然**高度敏感**，因为它会显著拉平结果分布。\n\n2) **行动线分析：** 翻前 BTN open **2.5bb**，BB 跟注；翻牌 **BB check → BTN check**，turn **BB 再次check**，轮到 BTN 在有利位置行动。底池约 **5.5bb**，有效后手约 **97.5bb**，因此 **SPR ≈ 17–18**，属于很高的SPR：这会让策略更偏向**控制底池、薄价值/保护性下注，并避免用中等强度牌去堆大底池**，尤其是在这种BB已经可能拥有大量同花、甚至可能拿到顶端牌力（例如 **4d2d**）的四同花牌面上。位置优势在这里非常关键，因为 BTN 可以通过check back用边缘的A/Kx去实现摊牌权益，同时仍保留用小尺度下注施压的选项；在高SPR下，这类小注往往不容易被有效惩罚。\n\n3) **范围分析：** 双方范围里都有大量 **Flush**（BTN 约26.8%，BB 约24.9%），以及不小比例的 **Top Pair**（BTN 约14.5%，BB 约15.3%）和 **Second Pair**（BTN 约23.4%，BB 约16.1%）。同时也有大量 **Kicker** 类手牌（BTN 约23.9%，BB 约26.0%），在这种牌面上基本属于空气/偏非摊牌收益。BB 的范围中还包含 **Straight Flush**（例如 **4d2d**），并且以非零频率拥有 **Straight**（42），这使得BB具备一定的**nuts杠杆**；尽管BTN整体EQ略高（BTN EQ ~51.9 vs BB ~48.1），并且在最强牌力分组上略占优势。结构上看，BTN的范围略偏**polar**（更多超强同花，同时也有不少低EQ的Kicker），而BB更**宽且更“垃圾牌”比重更高**（0–30分桶更大）。因此BTN有轻微的**range advantage**，但在四同花牌面上必须尊重BB用nuts同花/同花顺进行check-raise的能力。整体权益的稳健性尚可（许多手牌已成牌），但“价值下注的清晰度”较脆弱，因为河牌方片与公面对都会改变哪些牌还能稳定进行价值下注。\n\n4) **策略分析：** BTN的整体策略以 **Check（66.8%）** 为主，并且主要使用一个占主导的下注尺度 **1.8bb（28.5%）**；更大的尺度很少出现，可以简化掉。高频check是合理的：在高SPR且四同花的牌面上，下注更容易遭遇包含nuts的范围raise；同时由于公面本身已经极度“吓人”，也很难让明显更差的牌持续跟注。**Check**主要由中等强度的摊牌型手牌与偏弱的顶对组成，它们不希望面对加注或多次barrel——例如 **Ac2c**（Top Pair）就是明确的check back候选；此外，大量 **Second Pair** 类型的牌基本处于bluff-catcher模式（例如 **KcJc** 几乎都是check）。**1.8bb** 的下注更多像一种低成本、高频率的probe：(a) 让BTN用一些领先但不想扩大底池的牌去拿价值，包括部分 **Top Pair** 与 **two pairs**（例如 **AsKh** 可以走小注线）；(b) 让BTN用 **Flush** 类手牌中的一部分去做薄价值/保护，而不需要承诺太多（即便是很强的同花如 **QdJd** 也会出现在小注范围里，因为小尺度能让BB的应对范围保持更宽）；(c) 用低成本bluff去覆盖一些能从弃牌率获益且/或带相关blockers的手牌（部分 **Kicker** 手牌如 **Qs7s**）。总体而言，BTN大量check以控制底池、降低被BB用nuts check-raise惩罚的风险，并用**单一小尺度**去压迫BB最弱的Kicker与边缘对子，同时在这张危险牌面上仍能从更差的成牌中提取可实现的价值。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=&river=",
+      "board": "Kc7h3s7c",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：**Kc7h3s7c 是一张**成对**的 K-high 牌面（turn 7 成对），同时有**两张梅花**（Kc、7c），因此是**带 flush draw 但没有成花**的牌面。turn 成对会显著重塑牌力结构：任何 **Open Set（明三条 7）**都会成为核心成牌类型；而一对牌（例如 **Top Pair** 的 Kx 或更小的对子）会变得更脆弱，因为它们会被明三条/葫芦强力压制，并且在成对牌面上更容易承受对手的诈唬压力。牌面存在顺子听牌，但总体**比较有限**，主要以 **gutshot_straight_draw** 为主。整体来看，**boats/trips** 的权益相对更稳；但 Kx / 中等对子对河牌更**敏感**：河牌可能落第三张梅花（对 flush draw 施加压力），而成对牌面的后续 runout 也会持续提高葫芦密度。\n\n2) **行动线分析：**翻前为 **BTN open 2.5bb，BB call**，因此 BB 以较宽的防守范围进入翻后。翻牌 Kc7h3s：**BB check**，BTN 下 **small c-bet 1.8bb**，BB **call**。turn 为 7c，此时 BB 作为上一街进攻方的对手，处于**OOP**。底池约 **9.1bb**，有效后手约 **95.7bb**，因此 SPR 约为 **10.5**（很高）。高 SPR 会让策略更倾向于**更多 check**（用 bluff-catcher 控制底池、避免用 thin value 扩大底池），同时也提升让范围保持**uncapped**的价值，因为后续街仍然存在打大额的空间。\n\n3) **范围分析：**BB 的范围以 **Ace High Card（29.5%）**、**Top Pair（22.44%）**以及占比不小的 **Open Set（10.18%）**为主，并包含一定量的 **Second Pair / Third Pair**。BB 也有少量 **nut_flush_draw（1.84%）**与 **flush_draw（4.55%）**，并带有少量 **gutshot_straight_draw**。BTN 在翻牌小注下注后到达 turn 的范围，主要由 **Kicker（35.65%）**与 **Ace High Card（25.94%）**构成，其次是 **Top Pair（17.86%）**，并包含一些 **Covered Pair**，以及更少但关键的顶端强牌：**Full House**，甚至 **Four Of A Kind**。BB 拥有**范围优势**（整体 EQ 约 **57% vs 43%**），并且强牌占比更高（BB 的 “best” 桶更厚、垃圾牌更少）。BTN 的纯空气更多，但其 nuts 区域仍包含 **boats/quads**（例如 **Ks7s** 为葫芦），因此 BTN 在顶端并未被完全压制。总体而言，BB 权益领先但并不“安全”：turn 成对会对一对牌制造大量的**诈唬与反超/作废（counterfeiting）压力**，梅花听牌也增加了河牌波动性。\n\n4) **策略分析：**BB 在 turn 的总体策略是 **Check 82.33%**、以及 **bet 3.0bb 17.67%**。由于 **check 超过 80%**，接近范围过牌（range check）的策略效果很好：BB 在**高 SPR 的 OOP**局面下，可以用强牌与中等牌一起高频 check，而不容易被盖帽——BB 会 check 很多 **Open Set**（大部分明三条）、大量 **Top Pair**，也会 check 像 **As8d** 这种 **Ace High**（作为对抗 BTN 高垃圾密度时可用的 bluff-catcher）。更多 check 也能避免在对手仍保留顶端强牌（葫芦/四条）的情况下进行 donk，转而让 BTN 继续用诈唬/价值牌推进，从而让 BB 在一个强且不易被利用的过牌范围中实现权益（例如 BB 可以拿到 **Jd7d** 这种 **Open Set**，但仍然会经常选择 check）。而 **3.0bb donk** 是主要值得学习的下注动作：它更多被用于那些希望**权益拒绝 / 设定价格 / 迫使 BTN 空气弃牌**的手牌，尤其是 **flush_draw** 与 **gutshot_straight_draw**（这里最激进的听牌类型），以及部分 **Second Pair / Bottom Pair / Kicker** 作为施压下注。BB 也会把一部分 **Open Set** 混入这个尺寸，避免自己 lead 时过于 face-up；但在成对牌面上，明三条仍会大量选择 check，以便让 BTN 继续下注，同时也让 BB 的 check 范围保持强度。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_5.5bb_BB_Call&turn=&river=",
+      "board": "9d8d3c8h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：turn 牌面为 **9d-8d-3c-8h**：这是一个**成对**的 8，顶牌为 9。花色结构为 **两张方片 + 一张梅花 + 一张红桃**，因此存在**方片 flush draw**，但尚未形成同花。turn 配对使得 **明三条 8（Open Set 类别）**成为牌面上的核心要素，同时也让 **Full House / Four of a Kind** 的密度相较于未配对的 turn 明显上升。顺子压力依然存在（大量 **open-ended straight draws**，例如 7x6x，以及一些 **gutshots**），但由于牌面已经配对，顺子在这里不像未配对牌面那样“nutty”——真正的顶端仍然是葫芦与明三条。整体来看，葫芦/明三条的权益相对更**稳健**，而一对类牌力与方片听牌对后续 runout 更敏感（river 任意一张方片都可能显著改变 EV）。\n\n2) **行动线分析**：翻前 **BTN open 2.5bb**，BB call。flop **9d8d3c** 走向为 **BB check，BTN bet 5.5bb，BB call**，因此 BTN 是上一条街的最后进攻者，但 turn 由 BB 在 OOP 位置率先行动。turn 底池为 **16.5bb**，BB 身后约 **92bb**，所以 **SPR ≈ 5.6**——深度足够，双方都还没进入必须打光的局面，小尺度的 probing/deny bet 仍然能显著塑造牌局。由于 BB 在 flop 选择 check-call，BTN 的 flop c-bet 范围会在 turn 遇到一张（turn 配对 8）会强烈将 nuts 分布偏向 BB 的牌；这类结构下，**OOP 选择 lead** 来避免让 IP 通过 check-back 免费实现权益，是典型的策略分岔点。\n\n3) **范围分析**：BB 的范围中 **明三条 8（Open Set）**占比很高（**0.1622**），同时包含 **Full House（0.0129）**，甚至还有少量 **Four of a Kind（0.0012）**；而 BTN 的 **Open Set（0.0334）**明显更少，更多集中在中等强度牌型，例如 **Over pair（0.1178）**，以及大量 **Ace High / Kicker High Card / Kicker**。BB 的 **diamond draw**占比也明显高于 BTN（例如 **flush_draw 0.1596** 与 **nut_flush_draw 0.0216**）。总体上，BB 既有明确的 **range advantage**（57.6% equity vs 43.0%），也有 **nut advantage**，因为 BB 拥有更多最强的 8x 与葫芦/四条区域。BTN 在这张 turn 上更偏向于“顶端被盖帽”，尽管仍保留不少可继续的组合（overpairs、部分 8x、部分 9x、draws）。同时，BB 的最强牌也更不脆弱：例如 **Kh8c** 属于明三条且权益很高；而 BTN 的 overpairs 很难经常提升到能压过 boats 的级别，更多时候只能作为 bluff-catcher。\n\n4) **策略分析**：BB 接近用范围策略行动：**bet 5.4bb ~90%**（check **<10%**，为学习效率可以近似简化掉）。这种小尺度 lead 有效的原因在于：BB 同时拥有**更多强成牌**与**更多强听牌权益**，且尺度足够便宜，使 BB 能在不让自身范围过度极化的情况下施压。BB 的价值区域会高频 lead：**Four of a Kind** 与 **Full House** 基本都下注，**Open Set**（明三条 8，如 **Kh8c**）也会持续往底池里放钱，因为 BTN 仍被迫用大量更差的牌继续。BB 的“中等成牌”同样从下注中获益，因为 BTN 有大量会放弃的组合：**Top Pair**（例如 **As9h**）可以下注获取价值，同时进行权益拒绝；**Third Pair** 也有类似收益，因为 BTN 范围中存在大量未成对的手牌。BB 的听牌也倾向于 lead：**nut_flush_draw**（例如 **Ad4d**）与一般 **flush_draw** 可以对 BTN 的垃圾牌获得 fold equity，同时为自己命中时扩大底池；并且 BB 可以加入一些较低权益的 **semi-bluff**，例如 **QdTd**（combo-draw 类别），以避免 lead 范围过于一眼可读。总体而言，这张 turn 的配对 8 是一张显著将范围优势转向 BB 的牌，因此 solver 倾向于用一个小尺度、范围覆盖面很广的 donk 来主动夺回 initiative，迫使 BTN 用更弱的整体分布进行防守。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_Check&turn=&river=",
+      "board": "Ad5c5h2h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** turn 牌面是 **A♦ 5♣ 5♥ 2♥**：点数结构非常 **top-heavy（A）**，且是 **paired trips board（55）**，这会让坚果牌型高度集中在 **quads / full houses / open sets（5x 明三条）** 一带，并使大量一对牌在实战中更像是 bluff-catchers。花色上是 **两张红桃**，因此存在 **flush draw**，但还 **没有成花**。同时牌面已经存在 **made straight**（尤其是 **4♥3♥** 在这里已经成 wheel straight），因此除了 boat/trips 之外，部分手牌也具备“已经成型”的摊牌强度。由于牌面成对，equity **相对稳健**（很多 river 不会改变谁拥有 trips/boats），但并非完全锁死：**红桃 river** 会补成同花听牌，而 **A/5/2 river** 会制造更多 boat/quads 的 runout，从而改变坚果归属与 bluff-catch 的阈值。\n\n2) **行动线分析、位置、SPR 分析：** 翻前行动线是 **BTN open 2.5bb，BB call**；flop 为 **BB check，BTN check back**；现在来到 **turn**，BB 在 **OOP** 行动，BTN 处于 **IP**。flop 的 check-back 会移除 BTN 一部分自动 c-bet 的组合，因此 BTN 到 turn 时会带着大量中等强度牌（很多 **kicker / kicker-high-card** 与 **covered pairs**），同时也会有一些慢打；BB 这边仍然可以保有更多与牌面强相关的防守牌（尤其是更多 5x 与 43），而这些在 BTN open 里出现得相对更少。底池约 **5.5bb**，有效后手约 **97.5bb**，所以 **SPR ≈ 17.7**（很深）。高 SPR 通常更偏向 **OOP 大量 check**（避免用中等强度牌扩大底池），而一旦下注，更倾向使用能够利用坚果优势与弃牌率的 **polar sizing**。\n\n3) **范围分析：** BB 范围中包含相当比例的 **open set（5x）**、**full house**、**four of a kind** 以及 **Straight**（例如 **4♥3♥**），同时还有大量低 equity 的 **kicker** 类手牌；BB 也有红桃听牌（**flush_draw / nut_flush_draw**）以及部分 **gutshot_straight_draw**（例如 **6♣4♣**）。BTN 的范围则以 **Top Pair（Ax）**、**covered pair** 以及大块的 **kicker / kicker-high-card** 为主，并带有一些 **flush_draw / nut_flush_draw**。整体 equity 偏向 BTN（BTN EQ ~53% vs BB ~47%），因此 BTN 具有 **range advantage**；但 BB 具有明确的 **nut advantage**：BB 更常以 **open set/full house** 现身，并且从 BB 防守中更自然地拥有顺子。由于存在听牌但牌面成对，equity 对 runout 的敏感度 **中等**（红桃与 boat/quads river 会显著影响），但并非高度剧烈波动。\n\n4) **策略分析（BB turn，OOP）：** BB 的整体策略是 **Check 76.0%**，以及 **bet 7.2bb（overbet）16.6%**；其他下注尺寸对学习意义不大。**Checking** 是默认选择，因为 BB 有大量手牌要么 (a) 需要控池并做 bluff-catch（多数 **Top Pair** 会大量 check——例如 **A♠4♣** check ~91%），要么 (b) 是不受益于扩大底池的中等对子（**Covered Pair** 基本 check ~100%，**Second Pair/Third Pair** 也多为 check），要么 (c) 是偏高张/踢脚的牌型，既无法让更好牌弃牌，也很难被更差牌跟注（**Kicker High Card** 近乎 check ~100%）。此外，check 也能让 BB 的过牌线保持强度，因为强牌同样会出现在 check line 中（甚至 **Straight** 如 **4♥3♥** 也会大量 mix 到 check）。**7.2bb overbet** 是一种与坚果优势匹配的极化进攻：主要由 **Four of a Kind**（~98% bet）、**Open Set**（~85% bet）以及相当比例的 **Full House** 推动，同时用天然的 bluff/施压牌去平衡，例如高频率下注的 **gutshot_straight_draw**（**6♣4♣** overbet ~62%）以及一部分 **flush_draw**。面对 overbet，BTN 主要会 **fold** 掉没有听牌的 air 与很多 kicker 类手牌，并且大多用 **Top Pair** 与红桃听牌 **call**；raise 基本不存在，这使得 BB 的极化 overbet 对其强牌与部分 bluff 组合更具吸引力。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check_BTN_11.8bb&river=",
+      "board": "Ac5h5c2s",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 1) **牌面分析：**\nturn 牌面为 **Ac5h5c2s**：这是一个 **A-high 的成对牌面**，存在组成 **trips（5x）** 的可能，同时还有一张较小的边张（2），会带来一些额外的 **boat / runout** 互动。\n\n花色上是 **两张梅花（Ac、5c）** 加上一张红桃和一张黑桃，因此存在 **club flush draw**，但 **没有成花**。顺子整体不多见，但已经存在 **made straight**（例如 **4c3c** 组成 A‑2‑3‑4‑5）。由于牌面成对，很多一对牌的权益会比较“脆弱”：比如 **Top Pair** 往往会在面对 boat / trips 时陷入被动；而当河牌发出 **一张梅花**（成花）或 **牌面再次pair** 时，权益可能出现明显波动。与此同时，很多 blank 并不会显著改变牌力层级（成对牌面相对更“静态”，不像不成对且连张的牌面那样变化剧烈）。\n\n---\n\n## 2) **行动线分析：**\nPreflop：**BTN open 2.5bb，BB call**。  \nFlop：**BB check**，BTN 使用 **小尺寸 1.8bb c-bet**，BB call——这让 BTN 的范围保持得很宽，而 BB 会用大量一对牌以及部分听牌继续。\n\nTurn：**BB 再次 check**，BTN 下注 **11.8bb into ~9.1bb**（大尺度 overbet）。这通常意味着 BTN 的范围更偏向 **polarized**：利用 IP 迫使 BB 更清晰地界定自己的范围。\n\n在 BB 行动前，底池约 **20.9bb**，BB 身后约 **95.7bb**，因此该决策点的 **SPR ≈ 4.6**；如果 BB call，底池将来到约 **32.7bb**，身后约 **83.9bb**（**SPR ≈ 2.6**）。因此 turn 的选择会显著塑造河牌策略空间（BTN 在 river 仍能可信地再次施加大压力）。\n\n---\n\n## 3) **范围分析：**\nBB 到这里的范围中，主要由 **Top Pair（35.6%）** 构成，其次是大量 **Kicker High Card（25.3%）** 与 **Kicker（18.4%）**；此外还有一些 **Open Set（5x）** 和 **Full House**（尤其是 A5 与 22），以及一定数量的 **flush draws**，其中包含 **nut flush draws**。\n\n不同强度层级都存在可继续的代表组合，例如：  \n- **Ah5d** 是 **Full House**  \n- **AsJh** 是 **Top Pair**  \n- **KcTc** 可以是 **nut_flush_draw**  \n- **Kc2c** 是 **Third Pair + nut_flush_draw**\n\nBTN 在 flop 小注、turn overbet 之后，结构上更偏向强烈的 **polar**：一方面包含大量 **超强价值牌**（较高比例的 **Open Set**、**Full House**，以及像 **AsKd** 这类强 **Top Pair**），另一方面也保留了不少低权益的 **Kicker** 组合用于 bluff；同时 BTN 也会保留一些梅花 **flush draws**（例如 **Tc9c** 作为 **flush_draw**）。\n\n在该 runout 下，BTN 具备明确的 **nut advantage**（整体拥有更多的 boats / quads），同时也有 **range advantage**（总体 equity 更高）。相比之下，BB 在最顶端强牌比例上相对更 **capped**，尽管 BB 仍然有一定数量的 boats / straights。\n\n---\n\n## 4) **策略分析：**\nBB 面对 11.8bb 的 overbet，整体回应基本为 **Fold ~60% / Call ~40%**；加注极少（**28.2bb ~0%**），学习时可以近似忽略。BTN 的大尺度迫使 BB 只能用能对抗 polarized 范围、并能承受糟糕 river 的组合继续；BB 无法像面对小 turn bet 那样用边缘对子去“peel”得很宽。\n\n**Call：**  \nBB 主要用能击败 BTN 价值区、或具备很强实现率的牌继续：  \n- **Full House**（例如 **Ah5d**）与 **Open Set** 基本都是高频 call  \n- **Straight**（例如 **4c3c**）也会以很高频率继续  \n- **Top Pair**（例如 **AsJh**）属于混合继续但整体仍偏向 call：如果把所有 Ax 都弃掉，会在 BTN 有大量 bluff 的结构下过度弃牌；此处 kicker 质量以及 unblock / block 效应非常关键  \n- **nut_flush_draw**（例如 **KcTc**）是重要的继续部分  \n- 像 **Third Pair + nut_flush_draw**（例如 **Kc2c**）也可以 call：既有真实 equity，也带有有利的 blockers，同时某些 river 还能改善成 boat\n\n**Fold：**  \nBB 会弃掉难以承受 overbet 压力的牌：  \n- **Covered Pair**（例如 **8s8c**）与 **Second Pair** 基本都是直接 fold  \n- 大部分缺乏强听牌支撑的 **Kicker** 与 **Kicker High Card** 会被释放  \n- 多数非 nut 的 **flush_draw** 组合在较高频率下选择 fold：一方面梅花落地时更容易被更强同花压制，另一方面未成牌时对抗 BTN 价值区的表现也较差"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_Check&turn=&river=",
+      "board": "7d7c2h2d",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "7high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** Turn 牌面是 **7d7c2h2d**，属于**双重成对**的牌面结构（7-7 与 2-2），整体点数很低（“7-high” 牌面）。花色方面有**两张方片**，因此存在**diamond flush draw**（例如 BB 可能有 **Td8d**），但目前还**没有成花**。由于牌面是双重成对，**顺子听牌在这里基本可以忽略**（几乎没有实际的顺子听牌，也不存在成顺）。整体权益通常比较**稳定/稳健**：范围顶端（手里带 7 或 2，从而形成 **Full House/Four Of A Kind**，例如 **5s2s**、**Kh7h**）在大多数 river 上都保持极强；主要会导致“权益波动”的发牌是 **diamond river**（flush 完成）以及 **river 发到某个玩家的口袋对子同点**（让“手牌成对”的牌变成葫芦）。\n\n2) **行动线分析：** 翻牌前是 **BTN open 2.5bb, BB calls**，随后 flop 为 **BB check, BTN check**。BTN 在 flop 选择 check-back 会让 BTN 的范围保持**更宽**（大量 Ace High Card / Kicker High Card / Kicker 类手牌都能更容易实现 EQ），同时也意味着 BB 在 turn 仍然带着其防守范围中**全部**的 7x/2x 密度进入。到 turn 时，BB 虽然 **out of position** 但先行动；在这种成对牌面上，OOP 仍然可以选择 donk/lead，因为牌面往往会把 **nut advantage** 更偏向防守方。Turn 底池约 **5.5bb**，有效后手约 **97.5bb**，所以 **SPR ≈ 17–18**（非常高）。高 SPR 降低了“被迫打光”的压力，因此双方都能支撑**混合策略**：BB 可以用大尺度进行极化而不必直接 all-in，BTN 也可以用很多手牌继续，因为跟注不会立刻把筹码打进去。\n\n3) **范围分析：** BB 的范围中 **Kicker** 类手牌占比很高（43.50%），同时还有 **Ace High Card**（22.81%）与 **Kicker High Card**（16.89%）。但关键在于，BB 还包含大量葫芦：**Full House 10.29%**，以及少量 **Four Of A Kind 0.40%**。相比之下，BTN 的范围主要由 **Ace High Card（32.50%）**、**Kicker High Card（27.84%）** 与 **Kicker（29.11%）**构成，**Full House（1.80%）**明显更少，同时 **Over pair（6.52%）**略多于 BB。结构上，BB 更**polar**（更多极强牌 + 更多垃圾牌），而 BTN 更**收缩的/压缩的**，集中在中等强度的 bluffcatcher（高牌与一些对子）。优势方面：BTN 的整体**平均 equity**略占优（51.4 vs 48.6），但 BB 拥有明确的 **nut advantage**（BB 的顶端桶更高），原因在于 BB 比 BTN 拥有更多的 7x/2x，而 BTN 以同样频率到不了 turn（BTN 也可能有一些，例如 **Ah7s**，但数量少得多）。由于缺少“动态威胁”（没有顺子压力；主要只有方片相关），EQ 的实现相对直接：核心在于谁拥有更多葫芦，以及谁能让对手的高牌类持有被迫弃牌。\n\n4) **策略分析：** BB 在 turn 的整体策略是 **Check 45.53%**，其余下注分布在多个尺度，其中以 **7.2bb (overbet) 27.39%** 作为主要进攻尺度。为提升学习效率，可以简化为一个**两行动**策略：**Check + 7.2bb**，因为 7.2bb 覆盖了 BB 大部分下注频率，并且是在该牌面上最清晰的“solver 叙事”：BB 利用双重成对牌面的 **nut advantage**，对 BTN 收缩区间施加最大压力（大量 Ace High Card / Kicker High Card 都不愿意面对 overbet）。**7.2bb** 是一个典型的**极化**行动：它会被 **Four Of A Kind** 与 **Full House** 大量使用（价值牌希望现在就扩大底池），也会被一些天然诈唬候选使用，例如 **flush_draw**（BB 的 flush_draw 类别经常选择 overbet；像 **Td8d** 这样的牌符合逻辑：既能获得弃牌率，也能在方片 river 改善）。此外，BB 也会用不少 **Kicker**（偏弱端、往往无法靠摊牌盈利的那部分）去 overbet，形成成对牌面常见的“葫芦 + 诈唬”极化结构。**Check** 分支则更多保留 BB 的**偏向摊牌**区域：**Ace High Card**（例如 **Ac6c**）与 **Kicker High Card**（例如 **Kc9c**）经常过牌，因为它们往往能击败 BTN 的纯空气牌，同时也不喜欢面对加注；BB 也会保留一部分慢打（部分 **Full House** 与 **Four Of A Kind** 选择 check），以防 BTN 在 BB check 后于 river 频繁自动下注。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_Check&turn=BB_Check_BTN_1.8bb&river=",
+      "board": "9d8d4d2d",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "9high",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 牌面分析\n\nturn 牌面是 **9d8d4d2d**：无对子、9-high，并且现在是 **four-flush**（四张方片）。这意味着双方手里**只要有一张方片就已经成花**，因此在这一街**不再存在 flush draw**；牌力分布会变得非常“是否持有方片/方片大小”驱动（flush vs 非flush）。\n\n**顺子听牌仍然存在**（9-8-4-2 的点数结构允许一些 gutshot / double-gutshot 类型的组合），但牌面本身**没有已经成型的顺子**。对**成花**而言，权益总体相对稳定（大多数 river 不会改变“是否有花/哪边花更大”的核心格局），但依然对 runout 很敏感：river 如果**让牌面对**，一些**暗三条（Hidden Sets）**就可能补成 **boat（葫芦）**反超成花；而大量不带方片的 bluffcatcher 会变得脆弱，面对多街压力很难舒服继续。\n\n---\n\n## 行动线分析\n\n翻前为 **BTN open 2.5bb，BB call**。flop **9d8d4d** 选择 check 到底（**BB check，BTN check**），这会让双方范围保持更宽，同时也让 BTN 更容易带着较弱牌进入 turn（并且有时也会让一部分强方片牌 slowplay）。\n\nturn 来到 **2d**，补成 four-flush。BB 再次 check，BTN 在约 5.5bb 的底池里用 **1.8bb 小注**试探（约 **1/3 pot**）。这是一个经典尺寸：在 flop check back 之后，既能对 BB 的非方片继续牌施压，又允许 BTN 用较广的范围在 turn 下注。\n\nBB 处于 **OOP**，现在需要在面对下注时行动（在这个节点没有继续 check 的选项）。如果 BB call，底池约到 ~9.1bb，背后还剩 ~95.7bb，因此 **river SPR 仍然很高（~10.5）**：BB 并不会被迫打光，这更鼓励用**更宽的 call 策略**来实现权益，而不是用中等强度牌去强行扩大底池。\n\n---\n\n## 范围分析\n\nBB 范围里有相当比例的 **Flush（27.8%）**，以及少量 **Hidden Set（1.5%）** 与 **two pairs（2.7%）**，其余大量是一对及更弱（Top/Second/Third/Bottom pair，以及高牌）。\n\nBTN 的 **Flush** 占比类似（28.2%），但平均来看 BTN 的 flush **更强**（BTN flush 平均 EQ ~93.5 vs BB ~79.9）；同时 BTN 还拥有 **Over pair（5.9%）** 与较大的 **Top Pair** 区域（21.9%）。\n\n整体上 BTN 在这里有 **range advantage**（总体 EQ ~52.8 vs BB ~47.1），并且通常也更偏向 **nut advantage**，因为 BTN 更常出现最强的方片组合（例如 **AdTh** 基本接近 nuts）。BB 当然也能拿到极强的方片（例如 **Ad6s** 约 **99% EQ**），但 BB 的非方片区域更容易被压缩成 bluffcatcher 与弃牌。稳健性上，第四张方片落地后，权益不再主要取决于“听牌是否完成”，而更多取决于**谁有方片、方片是哪一张**；同时 sets / two pair 会对 **river 牌面对**更敏感，因为那会带来补成葫芦的可能。\n\n---\n\n## 策略分析\n\nBB 面对 BTN 的 1.8bb 下注，整体应对为：**Call 58.3%、Fold 34.8%、raise to 6.4bb 3.4%、raise to 10.9bb 3.5%**。由于没有任何一条行动线超过 80%，BB 确实是混合策略，但明显以 **call-heavy** 为主。\n\n**Call** 是核心，原因主要是：\n1) **SPR 很高**，我们希望在 OOP 不过度扩大底池、以更可控的方式实现权益；  \n2) BTN 这个小注在 flop check back 后偏“range-ish”，因此 BB 需要较宽地防守。\n\n大多数 **Flush** 主要选择 **call**（不希望通过加注把自己隔离到更高方片的 flush 面前），但最顶端的方片仍会混合一些加注（例如 **Ad6s** 会显著混入 raise）。\n\n**Top Pair** 与 **two pairs** 基本是**纯 call**（two pairs 100% call；top pair 接近纯 call）：在 four-flush 牌面上，它们很少想 raise，因为对方片的阻断不强，更倾向于以 bluffcatch 的方式继续，同时让 BTN 的弱下注继续留在范围里。\n\n**Fold** 主要集中在即便面对 1/3 pot 也无法盈利防守的牌：**Ace High Card** 与 **Kicker High Card** 近似纯弃（例如 **AcJs** 直接弃牌），并且不少较低的 “Kicker” 区域也会放弃（例如 **QhJc** 基本以 fold 为主）。\n\n**Raising** 很少见，更多是价值/压力用途：**6.4bb** 的加注在 **Hidden Sets** 中更常出现（它们可以在 river 牌面对时补成 boat，因此不太介意现在开始做底池）；而 **10.9bb** 更像是更极化的杠杆，主要由 BB 最强的方片区域使用，用来打价值并对 BTN 宽小注范围进行权益拒绝。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_SB_10.9bb_BTN_Call&flop=SB_6.2bb_BTN_Call&turn=&river=",
+      "board": "Ad9h8s3c",
+      "position": "BTN vs SB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 1. 牌面分析\n\nAd9h8s3c 是一个未成对、A-high、rainbow 的牌面，**没有 flush draw**（甚至连 backdoor flush 都不存在），因此很多对局会呈现“成牌 vs 成牌”的格局，花色不会导致 EQ 大幅波动。主要的波动来自 **straight draw**：比如 **open-ender** 的 **76**（需要 5/T）和 **JT**（需要 7/Q），以及多种 **gutshot**（一些 broadway 结构会连到 T/J/Q）。\n\n转牌 **3c** 基本是一张低张 blank，不太会改变顶对之间的互动；但它确实让某些范围有了 **set of 3s** 的可能。总体而言，相比听花牌面，成牌的权益更“稳健”，但仍需要重视顺子完成的 runout，以及河牌出现牌面成对（A/9/8/3 成对）带来的变化。\n\n## 2. 行动线分析\n\n翻前是 **BTN open 2.5bb → SB 3bet 10.9bb → BTN call**，翻牌 **SB bet 6.2bb → BTN call**。这是典型的 3bet 底池：SB 有主动权但全程 **OOP**，而 BTN 处于 **IP**，更容易实现 EQ 并控制底池规模。\n\n转牌底池约 **35.2bb**，双方后手约 **82.9bb**，所以 **SPR ≈ 2.4**。在这个 SPR 下，转牌决策权重很高：一个中等尺度的下注就能铺垫河牌 jam，因此下注范围往往会倾向于 (a) 更受控（更多 check），或 (b) 在下注时更极化（能打光 + 能继续 barrel 的牌）。\n\n## 3. 范围分析\n\nSB 的范围里包含大量 **Top Pair**（30.1%：Ax，例如 *AsJs*），也有不少 **Covered Pair**（15.7%：没中的口袋对子），以及 **Hidden Sets**（6.2%：例如 *9s9d*）和 **two pairs**（3.5%：例如 *As9s*）。此外，SB 还有用于诈唬/半诈唬的素材：来自 **open-ended straight draws**（3.5%：例如 *JdTd*）和 **gutshots**（4.5%），以及不少未成对、偏“air-ish”的牌，落在 **Kicker High Card / Kicker** 这类桶中。\n\nBTN 的结构相似，但 **Third Pair** 更多（20.5%），整体也更偏边缘成牌，同时 straight draw 的占比更高（open-ender 7.8%，gutshot 8.7%），这与 IP 跟注的范围特征一致。\n\n整体上 SB 有小幅 **range advantage**（52.6% vs 49.0% EQ），顶端也有一定 **nut advantage**（SB 的最强桶更强且更常出现）；但 BTN 并没有被“死盖帽”，因为他们仍会以不低频率拿到 set/two pairs/top pair。由于没有 flush draw，EQ 相对稳定，但对顺子 runout 最敏感。\n\n## 4. 策略分析\n\n总体上 SB 的行动拆分为 **Check 55.8%**、**Bet 11.6bb 30.4%**、**Bet 26.4bb 13.4%**（更大的尺度很少见）。由于 **11.6bb 是主要下注尺度（占所有下注的大多数）**，学习上可以简化为 **Check + 11.6bb**，把更大尺度下注当作次要细节。\n\n当 **check（55.8%）** 时，SB 的过牌范围里放了大量中等强度成牌，并混入一些很强的牌。主要以 check 为主的类别包括 **Covered Pair**（73.7% check）、**Second Pair**（77.3% check）、**Third Pair**（80.4% check）以及 **Kicker High Card**（78.9% check，例如 *KcTc* 经常 check）。同时，**Hidden Sets** 也会高频 check（66.4% check；*9s9d* 以 check 为主，少量混合下注）。这符合 SPR ≈ 2.4 且 OOP 的现实：check 能避免用单一下注尺度让 BTN 更容易做出针对性反制，也避免拿着不想面对加注的牌去扩大底池；并且在过牌范围里保留强牌，使 BTN 不能在转牌无脑 stab。\n\n当 **bet 11.6bb（30.4%）** 时，SB 主要是在做“范围施压 / 权益拒绝”的小尺度下注，同时由于牌面上 BTN 有很多 bluffcatcher，小尺度也更合适。这个尺度主要由 **two pairs**（76.5% 选择 11.6；*As9s* 明显偏向小注）以及相当比例的 **Top Pair** 驱动（47.3% 小注；*AsJs* 会 mix bet/check）。同时它也覆盖 straight draw 部分：**open-ended straight draws** 也很常用小注（48.6%；*JdTd* 频繁选择 11.6bb），利用 fold equity 去压制 BTN 的弱对子/高张，并为成顺后的价值做底池铺垫。\n\n小尺度在这里表现良好，因为 **没有 flush draw**，你不需要为了“收费”而被迫使用大尺度；相反，你可以在让 BTN 的较差成牌继续跟注的同时，仍然从其范围底部拿到弃牌。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_SB_10.9bb_BTN_Call&flop=&turn=&river=",
+      "board": "Ad9h8s",
+      "position": "BTN vs SB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 1. 行动线分析\n\n翻牌为 **Ad9h8s**，这是一个**未成对的 A-high 彩虹面**（三种花色），因此**没有成牌同花，也没有立即的同花听牌**；只存在**后门同花听牌**，需要手牌里带两张同花牌才可能在转牌+河牌完成（例如 SB 持有 **AsKs** 时有后门同花可能）。\n\n从点数结构看，这个牌面连张程度较高（**A-9-8**），因此**顺子听牌较多**：包括明显的**两头顺**（如 **JhTs** 需要 Q/7；以及 76 需要 5/T）和各种**gutshot**。由于不存在同花听牌压力，权益不会因为花色转牌而出现大幅波动，但会在让顺子的高连张转牌出现时明显波动（**T、7、J、Q、6** 等），这些牌会改变双方的继续范围结构，迫使部分牌进入 bluff-catch 模式；整体来看，成牌的权益**中等稳健**（比两色牌面波动更小，但比干燥 Axx 更易变化）。\n\n---\n\n## 2. 牌面分析\n\n翻前行动为 **BTN open 2.5bb → SB 3-bet to 10.9bb → BTN call**，因此 SB 是**翻前进攻方**，但翻牌在 **OOP**。\n\n底池约 **22.8bb**，有效后手约 **89.1bb**，**SPR ≈ 3.9**，属于偏“中低”SPR：超强牌可以在多条街打到打光，但 OOP 通常也不希望用整个范围把底池无限扩大。位置因素在这里很关键：BTN 能用更宽的继续范围实现权益（包括许多弱对子与高张），SB 则需要在 OOP 下构建合理的过牌范围，并避免用那些不愿意面对加注或被 float 的牌去机械 c-bet。\n\n---\n\n## 3. 范围分析\n\nSB 的范围结构更偏向顶端：包含大量 **Top Pair** 与 **Covered Pair**，并且有一定比例的 **Hidden Set** 与 **two pairs**；同时 SB 也会带有不少 **Kicker High Card**，这类牌摊牌价值往往有限，但可以依靠弃牌率与**权益拒绝**获利。\n\nBTN 的范围里会有更多的 **Bottom Pair**、各类高张（如 **Kicker High Card**）以及其他边缘牌；同时 **Top Pair** 仍然占据重要部分（例如 **AcQh**）。\n\n结构上，SB 通常拥有更明确的**范围优势**与更强的**nut advantage**：SB 的“best hand”密度更高，而 BTN 更容易被盖帽，需要依赖边缘对子/听牌去实现权益。不过由于牌面连张，SB 仍需要尊重那些能显著改善 BTN 顺子听牌区域的 runout。\n\n---\n\n## 4. 策略分析\n\n在该类 A-high 彩虹、3BP 且 SPR 中低的场景下，SB 往往会采用**以小尺度 c-bet 为主、搭配一定过牌**的策略：一方面利用范围优势对 BTN 大量弱对子/高张进行施压并做**权益拒绝**；另一方面在 OOP 不能做到全范围无脑 c-bet，需要保留真实的过牌范围以应对 BTN 的位置反制。\n\n小尺度下注会覆盖较广的牌型区间：  \n- 价值下注会包含部分超强牌与强牌，例如 **two pairs**（如 **9d8d**）以及不少 **Top Pair**（如 **AsKs** 往往愿意用小下注开始做价值、同时让更差的继续牌留在池内）。  \n- 诈唬/半诈唬端则会包含顺子听牌（例如 **JhTs** 这类两头顺）以及部分希望通过弃牌率与权益拒绝获利的高张牌（如 **KdTc**）。\n\n过牌同样重要：SB 会用一部分 **Covered Pair**（例如 **KhKd**）选择过牌以控制底池并争取摊牌，同时也会在过牌范围中混入部分更强的牌，避免“check=放弃”，从而在这类连张 A98 牌面上更稳健地对抗 BTN 的位置优势与后续施压。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_Check&turn=&river=",
+      "board": "8h7s2d3s",
+      "position": "UTG vs BTN",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面为 **8h7s2d3s**：这是一个**无成对**、点数偏**低/中**的runout，整体上仍以“一对牌”为主要的成牌类型。花色为**两张spade**，因此存在**仍然有效的flush draw**，但**没有成花**。顺子**尚未完成**，但顺子听牌很多（尤其是指向 **54** 和 **65** 的听牌，以及各种gutshot），因此后续runout会显著影响EQ分布。由于双方范围里都有不少overpair和一对类牌，这些成牌在这里的权益**并不稳健**：spade河牌、出现4/5/6的转牌/河牌，以及一些更高张的落点，都可能改变谁是当前最大牌、以及谁能更可信地施压。\n\n2) **行动线分析、位置、SPR分析：** 翻前行动为 **UTG open 2.5bb → BTN 3-bet 8.5bb → UTG call**，因此这是一个**3BP**，且UTG处于**OOP**对抗BTN。翻牌 **UTG check，BTN check back**，这一点很关键：BTN在8h7s2d选择不c-bet，使得他到转牌的范围相较于“翻牌下注”的版本，往往更少那种“自动强牌”的密度，更偏向于**放弃/控池**的组合。转牌前底池约 **18.5bb**，有效后手约 **91.5bb**，所以 **SPR ≈ 4.9**：深度足够让UTG在转牌既能用**小额权益拒绝/价值**的下注，也能用更大的**polar**尺寸，而不至于被迫投入到底。位置层面，BTN在被check到时通常能较好地实现权益，因此UTG在转牌用一定频率lead，是一种常见做法，用来避免BTN拿着大量A-high与overcard类手牌免费实现权益。\n\n3) **范围分析：** UTG的范围以 **Over pair**（26.35%）为主，同时有相当比例的 **Hidden Set**（6.73%），并包含 **Second Pair**（10.03%）以及大量 **Ace High Card**（32.79%）。相比之下，BTN范围里 **Ace High Card** 占比很高（46.44%），nutty密度更低（Hidden Set仅2.30%），但仍然具备真实强度，例如 **Over pair**（16.06%）以及一些 **Top Pair**（如 **Kc8c**）。从结构上看，UTG**没有被盖帽**（可以有 **7h7d/2s2h** 这类set，也有很多overpair如 **QhQc**），并且UTG具备明确的**范围优势**（EQ 54.94% vs 44.25%）与**nut优势**（UTG在高权益bucket里的“超强牌”更多）。BTN翻牌check back让他在实战中显得**更容易被认为是盖帽的**（更多中等/较弱、依赖实现权益的牌），但他依然可能拿到很强的牌（如 **AsAc**）以及强spade听牌（如 **As9s**），因此UTG也不能盲目用超大尺度持续施压。\n\n4) **策略分析：** UTG转牌整体策略是**混合**的：**6.1bb ~35.8%**、**13.9bb ~33.1%**、以及 **Check ~28.6%**（27.8bb的overbet频率很低，学习时可忽略）。这种混合是合理的：UTG拥有范围/ nut优势，但牌面偏听牌敏感且BTN有位置优势；因此UTG希望：(a) 对BTN庞大的A-high区域进行**权益拒绝**，(b) 用overpair/set在通常领先时提前**扩大底池**，(c) 仍保留一定强牌进入check线，避免BTN每次看到check就自动stab。**6.1bb** 主要承担“范围施压/权益拒绝”的功能：大量 **Top Pair**（多以该尺寸为主）、不少 **Second Pair**，以及许多希望逼退overcard、同时不过度放大波动的中等强度牌会选择这个尺度；同时它也会以有意义的频率出现在set/两对等价值牌上，因此并不构成被盖帽的下注线。**13.9bb** 更偏**polar**：听牌（顺子听牌与flush draw）会更常使用该尺寸，同时一些希望把BTN的A-high与中等对子置于艰难决策中的牌也会倾向更大下注；例如带nut spade的 **AsTs** 更倾向于打大一些，而 **6s5s** 这类combo-draw也符合“施压 + 权益”的类别。**Check** 依然占据不小比例，主要承载那些想控池或无需下注也能舒适实现权益的手牌：大量 **Ace High Card** 会check，一些中等对子也会check，从而避免让BTN形成“check=弱、bet=强”的清晰读牌。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_12.4bb_UTG_Call&turn=UTG_Check_BTN_32.5bb&river=",
+      "board": "8h7s2d3d",
+      "position": "UTG vs BTN",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "8high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面为 **8h7s2d3d**：未成对、整体偏低，而且比看起来更“连张”，因为 **4/5/6** 会与 **8-7-3-2** 结构产生大量互动。花色方面是 **两张方块**，因此存在 **flush draw** 但没有成花；同时转牌 **3d** 也提高了顺子听牌的密度（例如 **6d5d** 会因为对子/顺子+同花的联动而获得很强的EQ）。由于后续无论是 **方块河牌**，还是很多 **低/中张（4/5/6/9/T）**，都会显著改变“谁是最大牌”以及范围如何实现EQ，所以这里的成牌EQ **不够稳健**：UTG 的延续范围里，要么是非常强的成牌（set），要么是对河牌极其敏感、波动很大的听牌。\n\n2) **行动线分析：** 翻牌前行动为 **UTG open 2.5bb → BTN 3-bet 8.5bb → UTG call**，形成 3-bet pot，且 UTG 后续全程 **OOP**。翻牌为 **UTG check → BTN c-bet 12.4bb → UTG call**，BTN 保持主动权，UTG 的范围也立刻被筛选为能够对抗 c-bet 继续的牌。转牌为 **UTG check → BTN bets 32.5bb**，UTG 面临关键决策。此时面对下注，底池约 **75.8bb**，UTG 身后约 **79.1bb**，因此在决策点 **SPR ≈ 1**。低 SPR 使得 **jam 在策略上是可行的**：如果 UTG 选择继续，很多河牌在 OOP 情况下会很难打；而若选择 call，会把河牌带入一个有效后手很浅的局面（call 后河牌 SPR 约 **0.4**），因此不少牌更倾向于通过 shove 立刻实现权益，而不是 call 之后在河牌被迫“猜拳”。\n\n3) **范围分析：** UTG 到达这里时的范围主要由 **Over pair (37.2%)** 与 **Ace High Card (31.7%)** 构成，同时还有相当比例的 **Hidden Set (10.6%)**（例如 **8d8c** 在这里是 set，EQ 极高）。UTG 的主要听牌部分包括由 A♦X♦ 贡献的 **nut_flush_draw (4.25%)**（例如 **AdTd**、**Ad9d**），以及一些 **combo_draw (4.86%)**（例如 **6d5d**）和少量 **flush_draw**。BTN 在该节点的范围更 **top-heavy**：**Over pair 为 46.4%** 且表现很好（例如 **JsJh** 有很强的EQ），同时也有一些 **Hidden Set**，以及方块听牌如 **Ad7d**（pair+nut FD）和 **Kd9d**（FD）。整体来看，BTN 拥有明确的 **range advantage**，并且在顶端牌力密度上也占优（BTN 持有更多处于 75–100 EQ 区间的组合）；而 UTG 更偏向被盖帽在中等强度的一对与 A-high 上，主要靠 set 与强方块听牌来支撑。由于双方范围都包含关键的方块与顺子听牌成分，EQ 对 runout 很敏感；但 UTG 的延续EQ尤其依赖于 **听牌完成** 与 **set 保持领先**。\n\n4) **策略分析：** 面对转牌下注，UTG 的整体策略为 **Fold 47.7% / Call 23.2% / Jam 29.1%**（没有任何一个行动接近范围全覆盖，因此不能简化为单一应对）。**Folding** 占比最大，因为 BTN 在低 SPR 下的二次开火会强力打击 UTG 大量中等/偏弱组合：**gutshot_straight_draw 100% fold**、**open_ended_straight_draw 约 98% fold**，并且许多 **Second Pair** 与 **Ace High Card** 组合也会频繁放弃；这些牌要么EQ不足，要么在 OOP 对抗一个 overpair/set 密度很高的范围时，EQ 实现率很差。**Calling** 主要集中在两类手牌：(a) 足够强，能承受 BTN 的价值密度；但 (b) 立刻把筹码打光并没有显著收益：**Top Pair** 往往高频 call，**Hidden Set** 会混合一部分 call，**nut_flush_draw** 也会混合 call（保留 BTN 的 bluff/value 更宽，同时实现自身EQ）。**Jamming** 则是由 **SPR ≈ 1** 支撑的两极化回应：UTG 会用 **combo_draw（约 95%）**、**flush_draw（约 98%）** 以及相当比例的 **Hidden Set** 高频 shove；这些牌要么追求最大弃牌率+即时实现（听牌），要么希望在危险河牌出现前尽快把 BTN 的 overpair 打进底池（set）。此外，UTG 也会以一定频率把部分 **Over pair** 与一些更低层级的成牌（偏“kicker 型”的牌）作为 shove bluff 混入，尤其是当它们带有相关方块或与牌面有额外交互时，用于避免 jam 过度“纯价值化”。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_12.4bb_UTG_Call&turn=UTG_Check_BTN_32.5bb&river=",
+      "board": "6d6c5h2c",
+      "position": "UTG vs BTN",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "6high",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面为 **6d6c5h2c**：这是一个**成对**的低张牌面（存在用 6x 形成明三条的可能），点数集中在 **6/5/2**，因此大量牌会停留在“一对”强度，同时也确实可能出现葫芦/四条。花色上有 **两张梅花**（6c、2c），因此有明确的 **flush draw** 组件（公共牌面上尚未形成成花）。**成顺**可通过 **3-4** 达成（2-3-4-5-6），范围中也会包含一定的 **gutshot_straight_draw**。整体权益对**runout**较敏感：任意**梅花**河牌都可能完成同花；任意再次**牌面配对**的河牌（6/5/2）会把价值密度更多推向葫芦/四条；而低张连牌会与 3-4 的顺子区域强烈互动，因此很多“一对”类牌的权益并不稳固。\n\n2) **行动线分析：** 翻前为 **UTG open 2.5bb → BTN 3-bets to 8.5bb → UTG calls**，因此 BTN 带着更强、更偏 premium、顶端牌高比重更高的范围进入翻后，而 UTG 的继续范围相对被盖帽。翻牌为 **UTG check → BTN bets 12.4bb → UTG calls**，转牌为 **UTG check → BTN bets 32.5bb**，此时 UTG 在 **OOP** 面对第二枪。BTN 转牌下注后底池约 **75.8bb**，UTG 身后约 **79.1bb**，因此 **SPR ≈ 1.0**。在如此低的 SPR 下，UTG 的决策会自然被压缩为 **fold / call / jam**：call 往往会在很多河牌上接近承诺筹码，而加注基本属于直接 all-in 的几何结构选择，而非“薄价值/保护型”的加注。\n\n3) **范围分析：** UTG 的范围以 **Over pair (50.7%)** 和 **Ace High Card (33.8%)** 为主，同时有少量但关键的 **Full House (3.95%)**、**Four Of A Kind (1.55%)**、**Open Set (1.49%)**、**Second Pair (5.17%)**，以及极少量 **Kicker/Kicker High Card**。UTG 的听牌主要是 **nut_flush_draw (4.93%)**，其次是 **combo_draw (2.24%)** 与 **gutshot_straight_draw (2.91%)**。BTN 由非常强的 **Over pair (50.1%)**（例如 **AhAc**）所锚定，同时包含 **Ace High Card (24.8%)**、**Kicker High Card (13.3%)**、**Kicker (7.0%)**，并带有一些 **Full House/Open Set**；听牌主要是 **nut_flush_draw (4.78%)** 与 **flush_draw (3.02%)**。这里 BTN 拥有明确的 **nuts/strength advantage**（其高权益区域更厚），UTG 虽然也有葫芦/四条，但整体相对 BTN 仍显得更**被盖帽**；总体权益也偏向 BTN。由于双方范围都包含梅花听牌，且牌面还有再次配对的可能，两边“一对”部分的权益都不算“稳健”。\n\n4) **策略分析：** 面对 **32.5bb** 的转牌下注，UTG 的总体频率为 **Fold 46.8% / Jam 79.1bb 30.5% / Call 22.7%**（这里没有实际意义上的 check 选项，可忽略）。**Jam (30.5%)** 是一种偏极化的应对，主要由两类牌驱动：(i) 乐于打光筹码的牌；(ii) 高权益、能利用 fold equity 并进行权益拒绝的牌：**combo_draw** 高比例选择 jam，**nut_flush_draw** 也经常 jam（例如 **AcQc**），**Second Pair** 也会大量 jam，且 **Over pair** 有相当一部分选择 jam——核心思路是在这个 SPR 和尺度下，尽快把权益推进底池，同时不让 BTN 过于轻松地用其范围中的大量弱牌实现权益。**Call (22.7%)** 则集中在那些能强压 BTN 继续范围、并且愿意让 BTN 持续开火的牌：**Full House** 几乎纯 call（例如 **5s5c**），**Open Set** 也几乎纯 call；同时也会有一部分 **nut_flush_draw** 选择 call，以避免过度 jam 进 BTN 最强的继续范围。**Fold (46.8%)** 主要来自对抗 BTN premium-heavy 的 overpair 区域时处于明显劣势的弱 bluff-catcher：整体上 **Over pair** 有较高比例弃牌（尤其是更小的 overpair），**Ace High Card** 在不是强梅花听牌时也会大量弃牌，而大量 **Kicker/Kicker High Card** 在 SPR≈1 的压力下强度不足以继续。像 **QdQc** 这类更高的 overpair 往往会继续（这里并不体现为弃牌），但 UTG 中等强度区域的主体仍需要在该尺度与范围压力下做出让步。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_Check&turn=UTG_Check_BTN_13.9bb&river=",
+      "board": "6h6c5cAs",
+      "position": "UTG vs BTN",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Paired board",
+        "high_card_texture": "6high",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 1) 牌面分析\n\n牌面为 **A♠-6♥-6♣-5♣**：这是一个**成对**牌面（拿到 6x 可以做出 trips），**A-high**，同时有**两张梅花**，因此存在 **flush draw**，但目前**没有成花**。顺子尚未成型，但存在**顺子听牌**（例如 **8♠7♠** 属于 open-ended straight draw 这一类；而像 **9♣8♣** 这类手牌在范围中会体现为 gutshot/combo-draw 的结构）。由于牌面成对，范围最顶端（quads/full houses/trips）的牌力**非常稳健**；相对而言，**一对类手牌**（尤其是非 A 的一对）对后续 runout 更敏感：既要顾忌梅花河牌，也要顾忌部分补顺河牌，同时河牌再成对也可能改变葫芦的可得性。\n\n## 2) 行动线分析\n\n翻前行动为 **UTG open 2.5bb → BTN 3-bet 8.5bb → UTG call**，形成 3BP，且 **UTG OOP**。翻牌 **6♥6♣5♣** 双方过牌（**UTG check, BTN check**），这会让 BTN 的范围保持更宽（大量高张与延迟兑现价值的手牌仍保留），同时使 UTG 的强度在表面上略显不足。转牌 **A♠**：UTG 再次 check，BTN 下注 **13.9bb into ~18.5bb**（约 **75% pot**）。UTG 身后约 **91.5bb**，若 UTG 跟注，底池约为 **46.3bb**，身后约 **77.6bb**，河牌 **SPR ~1.7**。这个 SPR 会把牌局推向更偏“承诺式”的决策：UTG 一旦跟注，很多河牌面对后续压力都会变成“不容易弃牌”的局面，尤其是拿到 top pair 与强听牌时。\n\n## 3) 范围分析\n\nUTG 的范围包含少量非常强的牌（部分 **Four Of A Kind**、**Full House**、**Open Set**），但更大比例是 **Covered Pair**（43.3%）与 **Top Pair**（22.5%），并包含一定数量的 **Kicker High Card/Kicker**。UTG 也有 **nut_flush_draw**（5.7%），以及更小比例的 **flush_draw**、**open_ended_straight_draw**、**gutshot_straight_draw** 与 **combo_draw**。\n\nBTN 的范围以 **Top Pair** 为主（50.8%），同时也包含 **nut_flush_draw** 与 **flush_draw**，并有一定比例的 **Four Of A Kind/Full House**。从强度分桶看，BTN 的超强牌占比很高（75–100 EQ 桶：BTN 为 53.6%，UTG 为 10.1%），因此 BTN 具备明确的 **nut advantage**，整体也有清晰的 **range advantage**（BTN 约 **56.5% equity** vs UTG 约 **44.9%**）。权益并非“锁死”：梅花河牌与部分补顺河牌仍会显著影响结果，但**成对牌面**会让权益波动相比不成对、强连接的牌面更受控。\n\n## 4) 策略分析\n\n基于上述 1–3 点，UTG 面对转牌 13.9bb 的下注，总体策略为 **Fold 49.1% / Call 45.5%**，加注频率较低（**29.2bb: 3.6%**，**44.9bb: 1.8%**）。由于没有任何行动接近范围全频（>80%），这是一个需要**偏紧防守**的节点：BTN 在 A 转牌用大尺度下注，主要是攻击 UTG 被压缩/中等强度的部分，迫使 UTG 主要用能**承受大底池河牌**的牌继续。\n\n**弃牌（Fold）**主要来自 UTG 中大量无法对抗这种偏极化的大转牌下注的组合：**Bottom Pair** 几乎总弃（~98.6%），“偏空气”的部分（**Kicker High Card** 与 **Kicker**）也会大量弃牌（~81.8% 与 ~84.9%）。甚至 **Covered Pair** 也承受很大压力（整体约弃 ~59%）：例如 **Q♠Q♦**（Covered Pair，这里约 41% EQ）就是典型困难牌——A 转牌非常利好 BTN 的范围，而 75% 的下注尺度会对 QQ 形成明显的**权益拒绝**，让其无法“自动兑现”权益。\n\n**跟注（Call）**集中在两类手牌：(a) 已经与 A 强关联；(b) 拥有高 EQ、且在低 SPR 下表现良好的听牌。**Top Pair** 是 UTG 防守的核心（整体跟注 ~94%）；例如 **A♦K♥** 是明确继续的组合（top pair，且在该节点具备很强 EQ）。UTG 的 **nut_flush_draw** 也几乎必须继续（整体跟注 ~98%）：像 **A♣Q♣** 同时具备 top pair + nut flush draw，天然适合兑现权益并对抗对手持续开火。\n\n顺子听牌的继续更有选择性：**open_ended_straight_draw** 整体会更积极地继续（混合 call/raise），而 **gutshot_straight_draw** 往往会弃得更多。加注虽存在，但总体频率很低，训练时可以近似简化掉；当出现加注时，主要对应 UTG 最强的价值牌（尤其是 **Open Set** 与 **Full House**），以及少量高 EQ 听牌候选，用于利用 fold equity 并在河牌 SPR 进一步下降前先行扩大底池。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=UTG_2.5bb_BTN_8.5bb_UTG_Call&flop=UTG_Check_BTN_5.0bb_UTG_Call&turn=&river=",
+      "board": "AdKd3d6d",
+      "position": "UTG vs BTN",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** Turn 牌面为 **AdKd3d6d**：这是一个**不成对**、**A-high** 的牌面，并且场上已经出现 **四张方片**，因此**任何手牌只要拿到一张方片就已经成花（flush）**。（如果 river 再来一张方片，公共牌将变成 **5 张方片**的公共牌同花，很多情况下会更容易出现分池，整体 equity 会明显被压缩。）  \n这个结构上也存在**顺子听牌**（例如 **QcJc** 这种手牌在该结构下可以形成偏顺子听牌/复合听牌（combo_draw）类型的权益），但公共牌本身**没有已经成型的顺子**。由于 turn 已经是“四同花”，牌力往往更偏“二元化”：**带方片的手**通常能更稳定地实现权益；而**不带方片的一对/两对**会变得更难受。整体 equity **并不完全稳健**，因为很多 river 会改变“谁的同花更大”（或在 river 出方片时更容易出现接近分池的结果）。但与更湿、两色且带成对的牌面相比，这里“多重听牌”runout 相对更少，因此整体属于**中等**的 runout 敏感度。\n\n2) **行动线分析：** Preflop 行动为 **UTG open 2.5bb → BTN 3-bet 8.5bb → UTG call**，因此 BTN 是 preflop 进攻方且处于 IP。Flop 行动为 **UTG check → BTN c-bet 5bb → UTG call**，BTN 继续掌握主动权；UTG 来到 turn 时会包含大量 bluff-catcher 与一定比例的 slowplay，而 BTN 仍然可能保留不少持续施压的牌与放弃（give-up）的牌。  \nturn 底池约 **28.5bb**，后手 **86.5bb**，所以 **SPR ≈ 3.0**。这个 SPR 很关键：筹码深度足以让大尺度下注显著极化双方范围，但又没有深到必须让 UTG 立刻用 value 去强行做大底池。此外，UTG 作为 **OOP**，通常更偏好在这种“吓人”的四同花牌面上采用不轻易膨胀底池的策略，避免用中等强度牌把底池做大，同时也给 BTN 用其很宽、偏 bluff-heavy 的范围继续犯错的空间。\n\n3) **范围分析：** 在该节点，UTG 的范围主要由 **Flush（40.5%）**与 **Top Pair（35.6%）**构成，此外还有一些 **Second Pair（11.3%）**、**two pairs（5.4%）**以及部分 **Kicker（7.0%）**。举例说明范围“形状”：**7h7d** 已经是 **flush**，**AhQh** 属于 **Top Pair**，**KsJs** 属于 **Second Pair**，**AsKc** 属于 **two pairs**。  \nBTN 这边有 **Flush（23.8%）**，并且 **Hidden Set（11.1%）**的占比更高，随后是 **Top Pair（24.1%）**与 **Second Pair（22.9%）**；同时 BTN 的整体 **trash** 比例很大（其 trash bucket 约 **46.5%**）。举例：**AsJd** 是 **flush**，**6h6c** 是 **Hidden Set（明三条）**，**AhKh** 是 **two pairs**，**KcQc** 是 **Second Pair**。  \n从结构上看，UTG 具备**明确的 range advantage**（整体 EQ 约 **57%** vs **42%**），因为 UTG 到 turn 往往带着更多可用的强度、dead hand 更少；但在“绝对顶端”上 UTG 又存在一定程度的“顶端不足”，BTN 仍能代表一些更强的顶端结果。因此 nut advantage 更接近**共享**：UTG 拥有**更多 flush**，而 BTN 仍保留部分**最强顶端**组合的覆盖。\n\n4) **策略分析：** 基于上述（1-3），UTG 在 turn 的主策略是 **Check（78.4%）**，辅以少量 **7.7bb 的小 donk bet（21.2%）**；更大尺度的频率很低，学习时可忽略。逻辑在于：这张四同花 turn 属于明显的纹理转折点，UTG 作为 OOP 不希望用范围中段去膨胀底池；同时选择 check 还能让 BTN 用大量 air 继续行动（而 BTN 的 trash 确实很多）。  \n因此，多数成牌会以 **check** 为主：**Top Pair check ~88.6%**、**Second Pair check ~86.9%**、**two pairs check ~87.7%**，甚至 **Flush check ~72.7%**。这样做的核心是：在这个“对手很可能也有 flush、且更差的牌并不愿意轻易跟注”的牌面上，UTG 会把一部分强牌放进 check 线中，使得 UTG 的 check 策略更稳健，也让 BTN 不敢在 UTG check 后过度进攻。  \n**7.7bb** 这个下注更多承担 **merge / bluff utility size** 的功能：它在 **Kicker**（约 **60% bet**）与 **combo_draw**（约 **60% bet**）里出现得更频繁——例如 **QcJc**——因为这些手牌希望立刻让 BTN 最弱的、且不带方片的继续范围弃牌，同时在被跟注时也能用较低成本继续实现权益，而不必在落后时把底池做得过大。UTG 的 **Flush** 也会有一定下注（约 **26.8%**），但不少 flush 更倾向于 check，因为 BTN 的继续范围里同样包含大量 flush，此时下注未必能稳定获得“更差的价值跟注”；check 反而能保留 BTN 的 bluff，并避免自己下注后被更强继续范围隔离。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check_BTN_11.8bb_BB_Call&river=BB_Check",
+      "board": "7c2sKd3c4s",
+      "position": "BTN vs BB",
+      "street": "river",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Khigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "No straight draws and no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：河牌牌面为 **Kd-7c-2s-3c-4s**：**未成对**（牌面本身不带对子，因此不会出现“牌面三条”），整体是 **K 高牌**，同时 **2-3-4** 的跑牌非常连张。花色分布为 **两张梅花 + 两张黑桃 + 一张方片**，所以**不可能成花**；但存在大量**错过的 flush draw**（梅花/黑桃），这些手牌在河牌要么作为纯粹的 bluff-catcher 来摊牌，要么作为 bluffs 出现。这里最关键的是顺子：河牌 **4** 补齐了 wheel 区域，因此像 **A5**、**65** 这类手牌完成顺子；这会让 **一对牌（Kx、7x）** 的权益对跑牌非常敏感，并非“稳赢”，而成牌的 **顺子 / set** 依然非常稳健。\n\n2) **行动线分析**：BTN open **2.5bb**，BB call。翻牌 **Kd7c2s** 行动为 **check → BTN 1.8bb → call**。转牌 **3c** 行动为 **check → BTN 11.8bb → call**。河牌 **4s** 后 BB **check** 给 BTN。河牌底池约 **32.7bb**，BTN 身后约 **83.9bb**，因此 **SPR ≈ 2.6**。BTN 处于**有利位置**，且在翻牌/转牌都是**最后一个下注的进攻方**，这使得 BTN 可以用极化的尺度（包括 all-in）施加最大压力，而 BB 则更容易被压缩到大量 bluff-catching 的范围里。在 SPR 约 2.6 的情况下，**jam 具有可信度**，会迫使 BB 非常选择性地进行防守。\n\n3) **范围分析**：BTN 到河牌时的分布非常 **top-heavy + trashy**（很多**超强牌**，也有很多 **0-EQ** 手牌），这是典型的极化结构。就成牌而言，BTN 有大量 **Top Pair**，同时也包含不小比例的 **Straights** 与 **Hidden Sets**；例如 **Ah5c** 在这里是顺子，**2h2d** 是 set。BTN 也会保留许多错过的听牌（尤其是 **flush_draw / nut_flush_draw**），以及一些 EQ 很低的手牌（Ace-high / “kicker” 类型）用来 bluff。BB 的范围则主要由 **Top Pair** 与 **Second Pair** 构成（大量 Kx 与 7x），相对较少有 **Straights** 和 **Hidden Sets**，因此 BB 顶端更容易被盖帽。总体而言 BTN 同时拥有 **range advantage**（53% vs 48% equity）以及非常明确的 **nut advantage**（BTN 的顺子显著更多），这为大尺度极化下注提供了支撑。\n\n4) **策略分析**：BTN 的河牌策略主要在 **21.9bb（33.8%）**、**83.9bb jam（25.6%）**、**Check（24.5%）**、**42.5bb（15.7%）** 之间分配；很小的 **10.8bb** 线占比可以忽略并简化处理。**Jam（83.9bb）** 是极化的核心杠杆：BTN 会用最强的价值牌大量 jam（顺子与 **Hidden Set** 经常 jam；例如 **2h2d** 明显偏好 jam），同时也会把低摊牌价值的 bluffs 放进这个尺度（许多 **gutshot_straight_draw**，以及一部分 **Ace High Card / combo_draw**）。之所以可行，是因为 BB 的跟注范围主要是 **Kx/7x** 与错过的听牌，而 BB 的坚果牌数量过少，难以惩罚这种 overbet。**21.9bb** 作为主要的“价值打 bluffcatchers”尺度：常用于 **Over pair**、**Top Pair**、**two pairs**，以 BB 的 Kx/7x 为主要目标；当 BTN 做更薄的 value bet 时，这个尺度相比 jam 风险更低。**42.5bb** 介于两者之间：更多出现在并非绝对 nuts 但依然很强的价值牌中（部分 **Hidden Set / two pairs / Top Pair**），也会搭配一小部分 bluffs，目标是在 Kx 不会轻易弃牌的前提下榨取更多价值，同时风险结构又比 all-in 更均衡。**Check（24.5%）** 主要是 BTN 的放弃/摊牌分支：**Third Pair** 经常 check；错过的听花如 **Jc9c** 多数也选择 check（仅少量用来 bluff），从而避免在一个 BB 仍持有大量 bluff-catcher 的河牌过度 bluff。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check&turn=&river=",
+      "board": "QdAd9h",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：翻牌是 **Qd Ad 9h**：**未成对**且 **A-high**，带 **两张方片**（因此存在 **flush draw**，但没有成花）。同时这张牌面 **顺子听牌密集**：例如 **JTx** 有 open-ender，并且存在大量 gutshots（KTx、J8x、T8x 这类连张结构）。由于牌面既是 **two-tone** 又很 **connected**，很多牌的权益对后续公共牌非常敏感：方片转牌、broadway 转牌（T/J/K），以及 9/Q/A 的成对转牌都可能快速改变双方权益分布。强成牌（set/两对/顶对）通常仍能保持不错的 equity，但很多中等强度的牌并不“稳固”，更需要通过谨慎的底池尺度控制来应对。\n\n2) **行动线分析**：翻前为 **BTN open 2.5bb → BB call**；翻牌从 **BB check** 开始，因此 BTN 在 **IP（in position）** 且拥有主动权。底池约 **5.5bb**，有效后手约 **97.5bb**，因此 **SPR ≈ 17.7**（偏高）。高 SPR 往往促使用更多 **check** 来处理中等强度牌（避免用无法承受重压的牌把底池做大），同时也支持在选择下注时使用更大的 **polar bets**（因为你并未 pot-committed，可以施加更强杠杆）。位置优势也让 BTN 更容易实现 equity：check back 并不等于放弃主动权，反而经常能保留 BTN 在后续街采取行动的空间。\n\n3) **范围分析**：BTN 整体拥有 **range advantage**（EQ **54.63%** vs **45.37%**），并且有明确的 **nut advantage**（BTN “best” 桶 **16.8%** vs BB **9.3%**）。在该牌面上，BTN 范围包含较多 **Top Pair**（以 Ax 为主，**~23.9%**），也有强价值牌如 **Hidden Set**（**~2.0%**，例如 **9s9c**、**AsAh**）以及 **two pairs**（**~6.1%**，例如 **AsQc**、**Ah9d**）。BB 依然覆盖所有关键成牌类型（Top Pair ~19.4%，two pairs ~5.3%，也有 set 但频率更低），但整体上 **weak/trash** 的占比更高（BB 的 trash **27.2%** vs BTN **14.5%**）。听牌层面双方都有方片与顺子听牌，但 BTN 顶端更强且有位置，使 BTN 的权益优势在整体上相对稳定；不过由于很多转牌会完成/增强听牌，单看不同 turn 的权益仍然会有较大波动。\n\n4) **策略分析**：BTN 的主要策略是 **Check 58.3%** 与 **bet 6.9bb 28.3%**（其他下注尺度频率很低，学习时可忽略）。**6.9bb** 相对于约 **5.5bb** 的底池属于 **overbet**，这是典型的 **polar** 选择：它迫使 BB 用更强的成牌与更好的听牌继续，同时对 BB 大量的 **Kicker / Kicker High Card / Covered Pair** 这类在高 SPR 下难以承受大注压力的牌施加压力。该 overbet 很大程度由 BTN 的最强价值牌驱动：**Hidden Set** 往往会高频大注（例如 **9s9c** 几乎总是使用 6.9bb），**two pairs** 也更偏向大注（例如 **AsQc** 主要选择 6.9bb）。强 **Top Pair** 也会混合进 overbet，用于价值/保护并进行 **equity denial（权益拒绝）**；例如 **AsKh**（Top Pair）会较频繁选择 6.9bb。与此同时，overbet 需要搭配 bluff/semi-bluff：具备高 equity 的听牌与强施压候选（例如 **JdTd** 这种 combo-draw 形态）也经常选择 6.9bb，在保留较强改善概率的同时最大化 fold equity。之所以偏好 **Checking（58.3%）**，是因为该牌面与 BB 的继续范围匹配度不低（BB 有不少 Ax/Qx/9x 与听牌），SPR 偏高，且 BTN 有大量不想膨胀底池的组合：很多 **Second Pair** 与 **Top Pair** 会混合 check（例如 **QhTc** 经常 check），不少 **Covered Pair**（例如 **5s5d**）也会选择 check 来控制底池尺度。并且，check 线中也混入了部分强牌与强听牌（例如 **Kd2d** 这种 nut flush draw 经常 check），使得 BB 不能在 turn 随意 auto-stab，否则会面临被诱捕以及后续 check-raise 的风险。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_6.9bb_BB_Call&turn=BB_Check&river=",
+      "board": "QdAd9h4h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：转牌牌面 **Qd Ad 9h 4h** 是**不成对**且 **A-high** 的牌面，整体点数分布呈明显的**顶端的牌高比重**（A/Q 主导），同时包含一张中张 **9** 和一张低张 **4**，主要让一些手牌形成 **Bottom Pair**，并带来少量新的 **two pairs**（A4/Q4/94）。花色上是**两张方块（Ad, Qd）**与**两张红桃（9h, 4h）**，因此存在**两种不同的 flush draw**（任何两张红桃或两张方块都可能在听牌），但此时**还没有成花**。顺子同样尚未形成，但有大量 **straight draws**：很多 **gutshots**（例如 KJ 类需要一张 T）以及一些 **open-enders**（JT 类需要 K 或 8）。由于两种同花都可能在河牌完成，同时也存在多种顺子runout，**one-pair 的EQ并不稳健**；很多河牌会显著改变胜负格局，并影响双方是否能进行 **thin value**。\n\n2) **行动线分析**：翻牌前为 **BTN open 2.5bb, BB call**，因此 BTN 以较宽范围并拥有位置优势进入翻牌圈，BB 则以较宽的 defend 范围跟注。翻牌 **BB check, BTN bet 6.9bb, BB call**；这个较大的 flop bet 会把 BB 收缩到更多能继续的手牌（大量 **Top Pair**、**two pairs** 与各类 **draws**），同时使 BTN 的持续下注范围更偏向极化。转牌 **BB 再次 check**，BTN 在 **IP** 且拥有主动权，可以选择：(a) 过牌以让较弱牌实现权益、控制底池；或 (b) 通过大尺度下注对 BB 的 bluff-catcher 区域施加更强压力。此时底池约 **19.3bb**、有效后手约 **90.6bb**，因此 **SPR ≈ 4.7**；这个 SPR 结构支持采用**较大的 turn bet** 来为河牌更舒适的 shove 做铺垫（例如 **28.9bb overbet** 能快速扩大底池，使牌局更接近“一条街打光”的计划）。\n\n3) **范围分析**：BTN 具有相当比例的超强牌——**Hidden Set（~5.9%）**与 **two pairs（~14.1%）**，例如 **AsAc**（Hidden Set）与 **AhQs**（two pairs）。BTN 也有 **Top Pair（~15.3%）**，如 **AcJh**；但 BTN 的范围中仍包含大量 **Kicker / Kicker High Card** 等低EQ持有，以及总体占比不小的**垃圾牌**，同时还分布着 **gutshot_straight_draw**、**flush_draw**、**nut_flush_draw** 以及部分 **combo_draw**（例如 **Jh8h** 是 combo draw）。BB 在跟注 flop bet 之后，其范围以 **Top Pair（~39.1%）**为主（如 **AsJc**），并包含 **two pairs（~12.9%）**（如 **Qh9d**）以及厚实的强听牌层；BB 的垃圾牌比例很低。结构上，BB 的范围更**收缩的**、集中在中强继续牌，而 BTN 更**极化**（既有更多nuts，也有更多air）。尽管整体上 BB 可能拥有**原始EQ优势**（因其跟注后更常是“已成牌”），但 BTN 拥有 **nut advantage**，因为 BB 的 **Hidden Set** 密度相比 BTN 几乎没有。考虑到两种同花听牌与顺子听牌都在运作，整体EQ对runout非常敏感。\n\n4) **策略分析**：BTN 的转牌策略主要在 **Check（~49.5%）** 与一个占主导的下注尺度 **28.9bb（~37.8%）**之间分配；较小的 **14.5bb** 线路虽存在，但为了学习可以简化为“**check or overbet**”。之所以大量过牌，是因为 BTN 有不少低EQ手牌，以及许多中等强度手牌（尤其是 **Top Pair**）并不希望在一个同时存在两种 flush draw 与 straight draws 的牌面上把底池打得过大；过牌有助于控制底池，并降低拿着偏向控池的牌时被 check-raise 处罚的风险。**28.9bb overbet** 属于典型的**极化施压**：它的价值端主要由 **Hidden Set** 与 **two pairs** 驱动（例如 **AhQs** 会非常明显地倾向 28.9bb），同时用来自 **flush_draw / nut_flush_draw / combo_draw** 的 bluffs/semi-bluffs，以及部分能从弃牌收益中获利的低成牌/未成牌进行平衡；例如 **Jh8h（combo_draw）** 就是自然的高压候选，因为它既可能立刻赢下底池，也能在很多河牌获得提升。与此同时，**Covered Pair** 往往更偏向过牌，因为它很难让更好的牌弃牌，也不想打大底池；而 **Top Pair** 整体也偏向过牌，因为它常常可以在 BB 听牌落空后于后续街获得价值，同时避免转牌把方差推得过高。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_6.9bb_BB_Call&turn=BB_Check_BTN_14.5bb&river=",
+      "board": "QdAd9h4h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面是 **Qd Ad 9h 4h**：这是一个**未成对**、**A-high** 的牌面，同时带有**顶端的牌高比重**（A/Q），并搭配两张较小的牌（9/4），因此会产生大量两对与set相关的互动。花色上是**两张方块（Ad Qd）**与**两张红桃（9h 4h）**，所以**方块与红桃的flush draw都成立**，但目前还**没有成花**。顺子尚未形成，但**顺子听牌非常明确存在**（例如带有 **JT** 的组合，在 A-Q-9 这类结构上可以获得近似 open-ended 的听牌权益）。由于存在**两种相互竞争的flush draw**，并且还有顺子相关的runout，**成牌的权益并不稳健**：很多河牌都会显著改变谁是领先者（补花的河牌、补 broadway 的河牌，以及让牌面成对从而改变两对/set价值的河牌）。\n\n2) **行动线分析：** 翻牌前是 **BTN open 2.5bb，BB call**，因此 BTN 以更强、且**有利位置**的范围进入翻牌；BB 防守更宽，但在范围顶端会更容易被盖帽。翻牌是 **BB check，BTN 6.9bb，BB call**，这使得手牌进入一个典型的转牌决策点，同时 BB 的范围也被部分定义（BB 会用大量 Ax、Qx、9x 以及同花听牌继续）。转牌是 **BB check，BTN bet 14.5bb**，来到经典的 **IP double-barrel 节点**，BTN 利用位置与nuts优势施压。BTN下注后底池约为 **34.8bb**，BB 身后约 **90.6bb**，因此面对下注时的即时 **SPR ≈ 2.6**（如果 BB 跟注，河牌 SPR 会降到约 **≈ 1.5**）。更低的后续 SPR 会增加 BB 中等强度牌的压力：河牌很多决策会更接近打到全下尺度，因此 BB 的策略会自然地在 **continue（call）** 与 **fold** 之间形成明显分裂，而加注只占很小比例。\n\n3) **范围分析：** BB 的范围主要由 **Top Pair（39.1%）** 与 **two pairs（12.9%）**构成；此外还有少量 **Second/Third/Bottom Pair**，以及一定比例在面对转牌持续下注时很难承受的 **Kicker High Card / Kicker**。与此同时，BB 也有不少听牌：包括 **nut flush draws（11.98%）**、**flush draws（14.76%）**，以及一些 **combo_draw** 和 **open-ended straight draws**。但 BTN 的范围顶端更重：**Hidden Set（15.05%）**、**two pairs（14.27%）** 与 **Top Pair（23.42%）**，意味着 BTN 拥有更强的 **nuts优势**（尤其是像 44 这种在该转牌出现的set，以及整体更高的set密度）。权益也反映了这一点：**BTN ~55.5% vs BB ~46.1%**。BTN 的“超强牌”占比明显更高，因此 BB 在范围顶端更容易被盖帽，更依赖 bluff-catcher 与听牌来继续。整体权益对runout较敏感，因为双方都有真实的flush draw，且顺子格局变化快；但由于 BTN 在IP且价值牌更集中，BTN 更容易兑现其权益。\n\n4) **策略分析（转牌面对 14.5bb）：** BB 的总体应对为 **Call 50.1%，Fold 42.4%**；加注分别为 **90.6bb（4.17%）** 与 **38.7bb（3.29%）**。用于学习时，这两个加注尺度都不到 10% 频率，可以视为次要分支而简化处理。核心思路是：BB 处于 OOP 且范围顶端被盖帽，无法在面对一个包含大量set/two pairs、并且能够持续barrel的IP范围时“用所有牌都硬防守”；但 BB 也不能过度弃牌，因为价格尚可，且 BB 仍保留了不少能摊牌或在河牌干净提升的对子与pair+draw组合。**跟注**主要来自三类：  \n(i) 强成牌，例如 **two pairs**（跟注占比高，约 **66%**）；  \n(ii) 能承担 bluff-catch 的 **Top Pair**（Top Pair 跟注约 **~68%**；例如 **BB AsJh** 属于 Top Pair / no_draw，通常继续）；  \n(iii) 权益更高的听牌，尤其是 **nut_flush_draw**（跟注约 **~80%**）以及一部分 **flush_draw**（跟注约 **~51%**）。其中，pair+draw 组合尤其适合继续，因为它们不依赖单一类型的outs；例如 **BB Qh8h**（Second Pair + flush_draw）会以较高频率继续。  \n\n**弃牌**主要集中在权益最弱的区域：**gutshot_straight_draw** 基本纯弃（约 **~99.96%**）；**open_ended_straight_draw** 仍会大量弃牌（约 **~81%**），因为其中很多组合 EQ 偏低，且 OOP 兑现率差（例如 **BB JcTd** 属于 open-ended 类别，但大多数时候无法盈利地继续）；同时 **Kicker / Kicker High Card** 也以弃牌为主（弃牌约 **~83%** 与 **~74%**）。这种 call/fold 的分裂，正是 BTN 拥有nuts优势与位置时、而 BB 只能用“能摊牌或能在河牌清晰改善”的那部分范围来防守时的典型结果。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_6.9bb_BB_Call&turn=BB_Check_BTN_14.5bb_BB_Call&river=",
+      "board": "QdAd9h4h7s",
+      "position": "BTN vs BB",
+      "street": "river",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 牌面 **Qd Ad 9h 4h 7s** 是**不成对**的（没有明三条/公共牌成对），顶端是高张结构（**A/Q**），同时带有两张中低张（**9/7/4**），因此会形成大量的**一对**与**两对**结果。花色方面是**两张方片（Ad Qd）**与**两张红桃（9h 4h）**：所以**方片的flush draw从flop就存在**，而**红桃的flush draw从turn开始出现**；河牌 **7s** 对两种同花都属于**brick**。顺子听牌压力也存在，但到河牌更多落在**听牌miss**的范畴（BTN 同时有 **open_ended_straight_draw** 与 **gutshot_straight_draw** 类别；BB 也有 **open_ended_straight_draw**）。由于河牌没有完成主要的同花、也没有改变顶端高张结构，因此此时**成牌权益相对稳定**：turn 仍然是“强牌/强听牌”的，河牌大多依然是强；而错过的听牌大多仍然错过。\n\n2) **行动线分析：** 翻前 **BTN open 2.5bb，BB call**，因此 BTN 有利位置且拥有主动权。Flop：**BB check，BTN overbet 6.9bb into ~5.5bb，BB call**。Turn：**BB check，BTN bet 14.5bb into ~19.3bb，BB call**。River 发 **7s**，**BB 率先行动**，而 BTN 作为前两条barrel的进攻方。此时底池约 **48.3bb**，后手约 **76.1bb**，因此 **SPR ≈ 1.6**。这个 SPR 很关键：如果 BB 大尺度 donk lead，筹码很容易快速打光，而 OOP 会更难兑现薄价值；相对地，选择 check 可以让 BB **诱导/捕捉 BTN 的bluff**，同时避免在 BB 的范围可能会被迫在面对 BTN 最强牌时做艰难 stack-off 决策的情况下继续扩大底池。\n\n3) **范围分析：** BB 到河牌的范围主要由 **Top Pair（46.3%）**与**两对（25.2%）**构成，另外还有较小比例的 **Second Pair（8.7%）**、**Third Pair（5.9%）**、**Bottom Pair（3.5%）**，以及一些 **Kicker High Card / Kicker**。例如：**BB Ac4d** 在这里是**两对**且权益很强；而 **BB As3s** 属于 **Top Pair**（面对 BTN 三枪线时的典型 bluff-catcher / value-catcher）。BB 也保留了相当数量的错过听牌：**nut_flush_draw（19.3%）**、**flush_draw（15.1%）**，以及一些 **combo_draw**（例如 **BB KdJd** 会以偏听牌的高张形态出现）。  \nBTN 的范围则更偏向“两极”：既包含大量非常强的牌（**Hidden Set 15.2%**，例如 **BTN 9s9d**；以及**两对 14.9%**；还有 **Top Pair 23.5%**，例如 **BTN AhKh**，并且它还能带有 **nut_flush_draw**），同时也包含大量 **Kicker / Kicker High Card**（空气与薄摊牌）以及错过的听牌。优势层面：BB 的**范围整体EQ略占优**（BB EQ ~53% vs BTN ~49%），但 BTN 明显拥有更多**绝对nuts**（BTN 的顶端权益桶基本拉满），因此 BB 在最顶端更偏**被盖帽**，但在“一对/两对”这一大块的密度上仍然很强。由于这是一张 brick 河牌，关键听牌没有完成，因此权益对runout的敏感度已经不高。\n\n4) **策略分析：** BB 的河牌策略是 **Check 96.0%**，**Bet 19.3bb 4.0%**，而 **76.1bb 基本不使用**。这种近似范围过牌的 **check** 之所以成立，主要因为：（a）BB 处于 OOP 且 **SPR 很低**；（b）BTN 的范围里 **Hidden Set** 密度更高，因此更具备干净的价值 shove 候选；（c）BTN 也有大量**垃圾牌/错过听牌**，这些牌在面对 BB check 时更倾向于选择 **bluff**，而不是去 call 一个 BB 的领先下注。因此，check 能让 BB 用其大量的 **Top Pair / Second Pair / 两对**更好地兑现权益，避免较弱成牌在对手强价值跟注/加注范围面前把自己打成薄价值反而“value-own”自己，同时也让 BB 的过牌范围依然能包含强牌（例如 **Ac4d**）。由于唯一有一定频率使用的下注尺度（19.3bb）也仍然**不到10%**，实战学习上可以将该节点简化为**“几乎全范围check”**，把主要EV放在 BB check 之后如何应对 BTN 的河牌下注上。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb&turn=&river=",
+      "board": "Ad8c3d",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：翻牌是 **Ad8c3d**：一个**不成对的 A-high** 牌面，同时是**两张方片**（Ad 和 3d），因此 **flush draw 立即成立**，并且在方片转牌/河牌会显著拉动双方的权益波动。点数结构上相对**不连张**（A–8–3），但仍存在**一些顺子听牌可能性**（尤其是涉及小牌的组合，因为 A 可以在 A‑to‑5 顺子中当作 1 使用）。由于是两同花且 A-high，**一对类牌并不完全“安全”**：很多转牌（方片，以及一些让结构更连张的低牌）都会改变谁拥有更多权益、谁更倾向主动施压。最稳健的成牌主要是**暗三条**（例如 **3h3c**）以及**两对**（例如 **Ac8d**）；而边缘的一对与高牌区域更依赖后续 runout。\n\n2) **行动线分析**：翻前 **BTN open 2.5bb，BB call**（100bb）。翻牌 **BB check**，BTN 用 **small c-bet 1.8bb** 打到约 5.5bb 的底池里（约 1/3 pot），因此 BB 现在是在**不利位置**面对一个低风险的持续下注。轮到你决策时底池约 ~7.3bb；如果 call，底池变为 ~9.1bb，有效后手约 ~95.7bb，所以 **call 后 SPR 仍约 ~10.5**（偏高）。在高 SPR 且 OOP 的情况下，BB 通常会更偏向用 **call 来实现权益**，而减少 raise 的频率（raise 会扩大底池，同时 BTN 拥有更强的 Ax 密度并能更积极地继续）。\n\n3) **范围分析**：BB 到达翻牌时的防守范围很宽：包含大量 **Kicker (38.5%)** 与 **Kicker High Card (17.9%)**，同时也有真实的成牌：**Top Pair (18.2%)**、**Covered Pair (10.3%)**、**Second Pair (6.5%)**，以及一些 **two pairs (3.5%)** 和 **Hidden Sets (1.7%)**。BB 也有方片相关组合：**nut_flush_draw (2.3%)**、**flush_draw (7.4%)**，以及 **backdoor_flush_draw (10.9%)**。BTN 的下注范围在顶端更强：更多 **Hidden Sets (4.3%)**（包括 AA），更多且平均权益更高的 **Top Pair (23.0%)**，整体上超强牌占比更高（BTN 的 “best” 桶约 ~33%，BB 约 ~9%）。因此 BTN 同时拥有**范围优势（54.5% EQ vs 45.5%）**以及明确的**nuts 优势**（尤其来自 AA 以及更高密度的强 Ax）。BB 仍然有一定强牌（例如 88/33，以及 A8/A3 这类两对如 **Ac8d**），但总体而言 BB 在最顶端更容易被**盖帽**，并且包含更多低权益空气牌，需要弃牌或选择性防守。由于方片与部分低张/连张 runout 会改变成牌与听牌格局，双方范围的权益都**不够稳健**。\n\n4) **策略分析**：面对这个 small c-bet，BB 的策略是 **Fold 37.1% / Call 53.4% / Raise 6.4bb 9.6%**。由于 raise 频率 **<10%**，学习上可以基本把这个节点简化为以 **call-or-fold** 为主，外加一小部分强力 check-raise。\n\n- **Call（53%）**是防守主干：赔率很好（你用 1.8bb 去争夺约 ~7.3bb，所需权益仅约 ~25%），因此会大量继续：**Top Pair**（Ax，例如 **AsJd**）、大多数 **Covered Pair**（例如 **9h9c**）、大多数 **Second Pair**（8x），以及方片听牌（**nut_flush_draw** 与 **flush_draw** 整体也会大量选择 call）。\n- **Fold（37%）**主要集中在弱的未成对区域：大量缺乏听牌成分的 **Kicker** 与 **Kicker High Card** 会被放弃——例如 **QhJh** 在这里基本是纯弃牌，**KhQc** 也以弃牌为主。\n- **Raise 6.4bb（9.6%）**是施压/价值的切片：主要依靠 **Hidden Sets**（例如 **3h3c** 很高频 raise），并与部分 **two pairs**（例如 **Ac8d**）混合；同时加入一些方片听牌来利用 fold equity 并在高权益时扩大底池（例如 **Kd7d**，以及一些更低的方片听牌如 **5d4d** 也会以激进组合出现）。\n\n整体计划是：**不要在 BTN 的 nuts 优势面前过度 raise**；面对小尺度用足够多的 call 来持续防守与实现权益；把最低 EQ、缺乏权益/发展性的组合果断弃掉。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_6.4bb&turn=&river=",
+      "board": "Ad8c3d",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 牌面分析\n\n翻牌是 **Ad8c3d**：一个**未成对的 A-high** 牌面，点数分布为 **A / 8 / 3**（一张高张 + 两张低/中张）。花色为**两张方片（Ad、3d）+ 一张梅花**，因此存在立即的 **flush draw**（方片）压力，但还没有成花。\n\n顺子潜力存在但有限（这不是高度连张的牌面）；大多数“顺子压力”更多来自少量偏 wheel / 低张连牌类型的牌，而不是大量 open-ender。由于牌面是 **A-high 且 two-tone**，“一对型”牌力对后续公共牌非常敏感（方片 turn/river，以及 turn 成对会改变有效 nuts 的归属），而 **set/两对** 相对更稳健。\n\n## 行动线分析\n\n翻前为 **BTN open 2.5bb，BB call**，因此 BTN 带着典型的宽 open 范围进入翻牌，BB 则带着偏防守型的范围进入翻牌。\n\n翻牌行动：**BB check，BTN c-bet 1.8bb into ~5.5bb，BB check-raise to 6.4bb**。此时决策点上 BTN 处于 **IP（有利位置）**（call 有利于提高实现率，避免被迫放弃权益），但 BB 通过 **check-raise** 拿回了主动权。\n\n若 BTN 选择 call，底池约为 **18.3bb**，有效后手约 **91.1bb**，进入 turn 的 **SPR ≈ 5**——仍有充足操作空间，更支持用“**能实现权益的牌继续 / 不能实现权益的牌弃牌**”的思路，而不是把自己当作已经 pot-committed。\n\n## 范围分析\n\nBTN 的范围包含这里主要的成牌类别——**Hidden Set、两对、Top Pair、Covered Pair、Second Pair、Third Pair**，同时也有大量 **Kicker / Kicker High Card**；听牌主要来自 **nut_flush_draw / flush_draw / backdoor_flush_draw**。\n\n从结构上看，BTN 相比 BB 在顶端牌力明显被盖帽（BTN 在 75–100 EQ 桶仅 **~4.3%**，而 BB 有 **~25.9%**），这在面对翻牌 check-raise 时非常关键。BB 在这张牌面上会有大量 **Hidden Set + 两对**（以及强 Ax），例如 BB 可以有 **Ah8d** 这种很强的价值牌（两对），同时 BB 也有相当比例的 **flush_draw**。\n\n总体而言，这里 **BB 同时拥有 range advantage 与 nut advantage**（总体 EQ 约 **56.9 vs BTN ~43.1**）。BTN 的权益更不稳健，因为 BTN 的很多继续牌是**一对型**，在后续街上更容易被 BB 更高密度的强价值牌、以及方片 runout 所“扩大底池并反超”。\n\n## 策略分析\n\n面对这个 check-raise，BTN 的总体应对为 **Call ~57% / Fold ~42% / Raise 15.6bb ~0.6%**。raise 极少，学习时可以将其**简化忽略**，专注于清晰的 **call-or-fold** 策略。\n\n- **Call** 主要由两类手牌驱动：  \n  (a) 对抗 BB 价值区间依然足够强；和/或  \n  (b) 在 IP 下实现率高、且具备提升空间。  \n  **Hidden Set 与两对**基本都是继续；**Top Pair** 以很高频率继续（例如 **AsJc** 属于 Top Pair 并继续）。同时，由于位置优势 + SPR 允许承受 turn 压力并实现权益，**Second Pair** 也有不少继续频率。  \n  听牌方面，BTN 的 **nut_flush_draw 与 flush_draw** 是明确的 call，因为它们保留了较强 EQ，并能在方片 turn 对 BB 形成压力（例如 **5d4d** 作为 flush_draw 会继续）。\n\n- **Fold** 主要集中在最弱的区间：**Kicker** 与 **Kicker High Card** 在 BTN 范围中占比很大，且往往因为对 BB 最强价值牌的 blockers 不理想、call 了 check-raise 后也难以对抗 turn barreling 并实现权益，因此会高频弃牌；低 EQ 的 backdoor 类型手牌是典型弃牌（例如 **Jc7c** 属于 Kicker + backdoor_flush_draw，容易被全面压制）。\n\n核心逻辑是：BB 在 A83 two-tone 的 check-raise 范围强且价值密度高，BTN 不可能防守所有牌；但 BTN 仍需要**防守足够多**（尤其是 Ax 与方片听牌），因为 IP 优势与给到的价格，使得对抗 BB 听牌占比较高的部分时，call 依然具备盈利性。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_6.4bb_BTN_Call&turn=&river=",
+      "board": "Ad8c3dQs",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面为 **Ad-8c-3d-Qs**：四张不同点数，因此是**无对子**牌面；顶张是明确的 **A-high**，而 **Q** 作为相对翻牌的一张强力高张落地。花色上是**两张方片（Ad、3d）**外加一张梅花和一张黑桃，因此仍然存在**diamond flush draw**，但**没有成花**。顺子权益存在，但主要以**听牌**形式呈现（大量 **gutshot_straight_draw** 以及一部分 **combo_draw** 类型的手牌），且**没有成顺**。由于牌面既有活跃的同花花色、也存在多种顺子跑牌，**成牌的优势并不完全“锁死”**：set/两对依然很强，但河牌可能快速改变权益（尤其是方片河牌以及部分补顺的牌）。此外，这张 Q 也会让一部分手牌提升为 **Second Pair（Qx）**，并改变哪些 bluff-catcher 会更愿意继续。\n\n2) **行动线分析：** 翻前为 **BTN 2.5bb open，BB call**。翻牌 **BB checks**，BTN 用小尺度 c-bet（**1.8bb**），随后 BB **check-raises to 6.4bb**，BTN 跟注——因此 BB 在转牌作为**上一条街的主动方**到达，但仍处于**不利位置（OOP）**。转牌底池约 **18.3bb**，身后约 **91.1bb**，所以 **SPR ≈ 5**。这个 SPR 意味着：BB 不能用所有一对牌去“自动打光”，但 BB 可以选择较大的转牌下注去为河牌施压做铺垫（例如下注 **13.7bb** 会把底池推到一个河牌全下更现实的规模）。同时，OOP 的位置属性也会让 BB 倾向于**更多过牌**，以控制底池结构，并降低被 BTN 利用位置优势施压、从而被迫放弃权益的风险。\n\n3) **范围分析：** BB 在这里的范围更偏**极化**且**听牌占比高**：BB 有大量**垃圾牌（0–30 EQ = 53.2%）**，但同时也保有真实的顶端（**75–100 EQ = 23.1%**）。BB 包含不少 **Hidden Set**（尤其是 33/88 一类，例如 **3h3c**）以及**两对**（A8/A3/AQ 一类），并带有很多方片听牌（**nut_flush_draw** 与 **flush_draw**）以及一些 **combo_draw**（例如 **KdJd**）。BTN 的范围则更**收缩的/压缩的**且更强：垃圾牌占比很低（**5.5%**），而 **50–75 EQ（59.8%）** 的部分占比巨大，主要由 **Top Pair（Ax）** 与一些不错的成牌构成，同时也包含部分听牌（包括 **nut_flush_draw**，例如 **KdQd**）。整体上，BTN 拥有**range advantage**（BTN equity ~60% vs BB ~41%），但 BB 在这个节点仍保有一定的 **nut advantage**：BB 以更高频率出现 **set/两对**。同时，双方的 equity 都不算“稳健”，因为方片以及部分补顺的河牌会显著翻转很多对局结果。\n\n4) **策略分析：** BB 的转牌策略主要由 **Check（62.4%）** 与 **Bet 13.7bb（34.1%）** 构成；其他下注尺度频率很低，研究时可以基本忽略。这样的拆分是合理的：尽管 BB 的 check-raise 范围包含很强的顶端，但 BB 仍是 OOP，且 BTN 的范围里有大量不容易弃掉的 **Ax**，因此 BB 很难在转牌进行高频“range-bet”。**过牌**通常会出现在：(a) 许多经常只能做 **thin** 继续、并倾向控池的一些 **Top Pair**（BB 的 Top Pair 过牌约 93%，例如 **Ah9d**）；(b) 大量基本接近放弃的 **Covered Pair**；(c) 许多更希望实现权益、而不是在面对强跟注范围时扩大底池的 **flush_draw**（例如 **Qd7d** 经常在这里：有听牌但并不总是愿意在 BTN 有利位置下承受更多压力）。而 **13.7bb** 是主要的施压/价值尺度，且以**极化**方式使用：BB 的 **Hidden Set** 与**两对**会明显倾向下注，以打价值并对 BTN 那一大块“**一对 + 听牌**”的手牌进行**权益拒绝**；同时 BB 会用最强的半诈唬来平衡，尤其是 **nut_flush_draw** 与 **combo_draw**（例如 **KdJd**）这类能够在很多河牌继续开火的组合。一些非常弱的牌（纯 **Kicker** 类型，例如 **5s2s**）也会以一定频率作为 bluff 出现在大尺度下注中，避免该尺度过于透明；但下注范围的骨架依然是 **set/两对 + 强听牌**。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_6.4bb_BTN_Call&turn=BB_13.7bb&river=",
+      "board": "Ad8c3dQs",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌牌面为 **A♦ 8♣ 3♦ Q♠**：这是一个**未成对的 A-high** 牌面，并且有**两张方片**，因此存在明确的**diamond flush draw**，但尚未形成同花成牌。Q♠ 作为相对翻牌的高张 overcard，也提升了**顺子听牌的连通性**（一些手牌会在 broadway 区域附近获得或保留 gutshot）。与此同时，低张（8/3）让双方范围中仍保留大量与**两对 / Hidden Set**相关的互动。由于同花可能在后续完成，且部分顺子河牌会显著改变权益分布，**一对类手牌（尤其是 Top Pair）**相对更**依赖 runout**；而**Hidden Set / 两对**整体更稳健（除非河牌完成明显听牌，或让部分两对结构被 counterfeited）。\n\n2) **行动线分析：位置与 SPR 分析：** 翻前 **BTN open 2.5bb，BB call**。翻牌 **BB check，BTN bet 1.8bb，BB check-raise 到 6.4bb，BTN call**。转牌 **BB barrel 13.7bb（约 75% pot）**，此时 **BTN 处于 in position**（若继续，河牌最后行动）。转牌开始时底池约 **18.3bb**；BB 打出 13.7bb 后，BTN 需要在一个大尺寸、偏 polar 的下注面前继续。翻牌结束后有效后手约 **~91.1bb**，因此转牌下注前 SPR 约 **~5**；如果 BTN call，河牌 SPR 会降到约 **~1.7**。这意味着**转牌决策会强烈塑造整手牌**：call 会让大量河牌进入接近 commit 的低 SPR 局面；而 raise 在这里天然更少见，因为这会更早把筹码打进去，但自身范围并不总是 nuts。\n\n3) **范围分析：** BTN 的范围以 **Top Pair（34.0%）**为主，同时包含相当比例的 **two pairs（14.1%）**与 **Hidden Set（8.1%）**，另外还有不少中等/较弱成牌（例如 **Third Pair 12.6%**、**Covered Pair 11.6%**）以及部分听牌（**flush_draw 10.8%**、**nut_flush_draw 3.8%**、**combo_draw 2.8%**、**gutshot_straight_draw 2.1%**）。BB 在翻牌 check-raise 且转牌继续 barrel 之后，范围更“尖”：**Hidden Set（23.5%）**与 **two pairs（17.7%）**占比很高，而 **Top Pair 几乎不存在（0.2%）**，并且包含大量低权益手牌与听牌（尤其是 **flush_draw 17.4%**、**nut_flush_draw 13.0%**）。结构上这是一条典型的**BB polar 叙事**（强价值牌 + bluff/听牌），而 BTN 相对更**被盖帽/一对占比更高**，因此被迫进行防守。**Nut advantage** 明显偏向 BB，因为 BB 以更高频率拿到 **Hidden Set / two pairs**（例如 BB 可以有 **3♠3♣**、**A♥8♠**），且这种优势相对稳健。BTN 的权益实现更脆弱，因为其大量继续牌属于一对或依赖听牌实现的结构。\n\n4) **策略分析：BTN 面对 13.7bb：** 整体上 BTN 的策略为 **Call 55.5% / Fold 36.8% / Raise 36.6bb 7.8%**。由于 raise 频率 **<10%**，在学习与执行层面可以将其**简化掉**，主要采用清晰的 **call-or-fold** 策略，而损失不大。  \n- **Call** 主要由能扛住大尺寸 barrel、且能在 in position 更好实现权益的手牌构成：**Hidden Set** 基本都会继续（常在 call/raise 间混合，例如 **8♠8♦**继续很强势），**two pairs** 也几乎都是 call。**Second Pair** 的继续频率也很高——尤其是带方片时（例如 **Q♦6♦** 高频 call）。**Top Pair** 是核心的混合区域：踢脚更强、更不容易被压制的 Ax 会防得更多；较弱或更容易被 dominated 的 Ax 则更常弃牌；例如 **A♠K♠** 属于混合继续（以 call 为主但仍会混入少量 fold）。所有高质量听牌也会自然继续，因为 BB 的线路偏 polar，BTN 需要足够的防守频率：**nut_flush_draw** 基本都会继续（例如 **K♦Q♦** 继续 100%），而 **flush_draw / combo_draw** 多数也以 call 为主。  \n- **Fold** 主要来自 BTN 中 EQ 过低、且面对 polar barrel 难以良好实现权益的部分：**Covered Pair** 接近纯弃牌（例如 **9♥9♦** 基本总是 fold），以及许多 **Third Pair / 更弱持牌**也会以较高频率放弃。  \n\n整体逻辑是：面对 BB 用大尺寸在转牌进行的 polar barrel（包含大量 **Hidden Set/two pairs** 与听牌），BTN 必须**防守足够宽的一部分**（主要通过 IP call），但应当**放弃那些无法盈利地实现权益、也难以在低 SPR 河牌持续 bluff-catch 的手牌**。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_6.4bb_BTN_Call&turn=BB_13.7bb_BTN_Call&river=",
+      "board": "Ad8c3dQs4h",
+      "position": "BTN vs BB",
+      "street": "river",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：最终牌面是 **Ad8c3dQs4h**。这是**无对子牌面**（没有trips/成对牌面），因此价值区主要由**两对 / set / 唯一的顺子**构成，而不是boat。花色方面有**两张♦（Ad、3d）**，所以前几条街确实存在♦ flush draw，但河牌是 **4h**，**并没有让同花完成**。顺子方面，这个runout非常窄：主要成牌顺子是拿到 **52** 的 **wheel**（例如 **5d2d** 在这里是顺子）。由于同花没中且牌面不成对，**河牌成牌的权益相对稳定**：大牌（Straight/暗三条（set）/两对）依旧很大；没中的♦听牌则被迫进入bluff-catch或bluff的分支，而不是靠河牌提升。\n\n2) **行动线分析**：翻前 **BTN open 2.5bb，BB call**。翻牌 **Ad8c3d** 走向为 **BB check → BTN 1.8bb c-bet → BB check-raise到 6.4bb → BTN call**。转牌 **Qs**：**BB bet 13.7bb，BTN call**。河牌 **4h**：**BB先行动**（OOP），且也是**上一条街的最后进攻者**。河牌底池约 **45.7bb**，BB身后约 **77.4bb**，所以 **SPR ≈ 1.7**，这会自然地支持 **jam-or-check** 与 **大尺度下注**策略：既能可信地威胁打光筹码，同时BTN在跟住翻牌加注与转牌barrel后，范围也已经被明显“筛选”。\n\n3) **范围分析**：BB到河牌时拥有大量**超强牌**价值：**暗三条（set，~23.9%）**、**两对（~20.6%）**、以及**顺子（~5.0%）**。BB也会带来不少较弱成牌（Third Pair/Bottom Pair/带kicker的对子），并且有一部分**没中的♦听牌**（nut_flush_draw/flush_draw）以及一些 **gutshot_straight_draw**。BTN的范围则更集中在**Top Pair（~36.2%）**与**两对（~25.9%）**附近，另有一定比例的**暗三条（set，~7.7%）**，以及更小比例的弱对子与没中的听牌。结构上，BB整体更**polarized**（“很强”的占比高，同时“很弱”的也多），而BTN在两次跟注后更偏向于围绕可bluff-catch的强度形成**收缩的/压缩的（condensed）**范围。BB还拥有**明确的**nut advantage（包括wheel顺子，以及在check-raise这条线下更高密度的set/两对），并且这种优势在此牌面并不脆弱，因为河牌**既没完成同花**，也没让牌面成对。\n\n4) **策略分析**：整体而言，BB使用 **77.4bb jam 33.9%**、**34.3bb 28.3%**、以及 **Check 32.1%**（**15.1bb** 这条线占比小，可忽略）。这种三分支混合是合理的：在 **SPR ~1.7** 且范围更**polar**的前提下，BB需要：(a) 能对BTN收缩的bluff-catcher范围施加最大压力的尺度；(b) 一个很大的非全下尺度来做大价值/大诈唬；(c) 足够的过牌来避免对一个包含大量**Top Pair**的范围进行过薄（thin）的下注。**Jam（77.4bb）**是最polar的一支：它必须用于nuts（**Straight以100%频率jam**；例如 **5d2d**），同时也大量出现在**暗三条（set）**中（许多set希望继续把钱打进去）；并且会吸纳一些天然的bluff候选来自弱区间（BB甚至会用一些低对子牌例如 **6s3s** 这种在此牌面为Bottom Pair的手牌去jam）以及部分没中听牌。**34.3bb**更像是“不把每一手都打到全下”的**大价值/大诈唬**尺度：它是**两对**的主要价值尺度（两对明显偏好34.3；例如 **Ac8d**），同时也承载一部分来自**暗三条（set）**的强价值，并吸收一部分更倾向于“施压但不必总是all-in”的听牌/诈唬组合。**Check（32.1%）**同样必要，因为BTN范围里有大量**Top Pair**，而BB自己的范围也包含不想把自己打成value-own的组合：BB的**Top Pair 100% check**，**Second Pair多数check**，以及很多 **Kicker High Card/Kicker** 类手牌也会check。过牌分支也容纳了不少没中的♦听牌，因为这些牌并不总能盈利地持续开火（例如 **Kd2d** 这种没中的nut_flush_draw类型手牌，会明显更偏向check），从而避免BB出现“bet=永远很强 / check=永远很弱”的结构。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check_BTN_Check&river=BB_Check_BTN_3.0bb",
+      "board": "Ad8c3d8hJs",
+      "position": "BTN vs BB",
+      "street": "river",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 1. 牌面分析  \n牌面为 **Ad–8c–3d–8h–Js**：单张 A 高牌面，**8 成对**（turn 配对），river 来了一张 J，增加了第二张高张。花色分布是 **两张方片（Ad、3d）** 加三张不同花色，因此从 flop 起存在**方片 flush draw**，但 turn/river 都**没有第三张方片**，听花最终**missed**。顺子连张性较低（A-8-3 很断；river 的 J 只会让部分此前街的 **gutshot_straight_draw / open_ended_straight_draw** 组合出现）。由于牌面成对且没有完成同花，**成牌权益相对稳定**：boat/quads 仍然是 nuts，而大多数非 nuts 牌型面对一个可能非常 **Ace-heavy** 的范围时，更多只是 bluffcatch。  \n\n## 2. 行动线分析  \nPreflop：BTN open **2.5bb**，BB call。  \nFlop：**BB check**，BTN 打 **small c-bet 1.8bb**，BB call。  \nTurn：**check/check**，这让 BB 的线在一定程度上更容易被认为缺少顶端强度，同时也让 BTN 的范围保持更宽。  \nRiver：**BB check**，BTN 在约 **9.1bb** 的底池下注 **3.0bb（≈33% pot）**，BB 需要在 OOP 位置应对。BTN 下注后底池约 **12.1bb**，BB 跟注所需的即时胜率约 **24.8%**（3 / 12.1）。虽然筹码仍然很深（river SPR 较高），但从策略选择上看，BB 整体上**不倾向于在没有非常强牌时把底池做得很大**；同时 BTN 的小尺度下注也会鼓励 BB **更宽地 bluffcatch**。  \n\n## 3. 范围分析  \nBB 在这里到达 river 的范围里有大量**垃圾牌**（EQ 0–30 约 **66%**），同时也有一些明确的价值牌（quads / full house / open set 等，但频率较低）。成牌结构上，BB 以 **Top Pair（28%）**、**Third Pair（24.7%）**、**Second Pair（14.7%）** 为主，另有一部分 **Kicker High Card（16%）**；听牌存在但不占主导（尤其是一些 **nut_flush_draw / flush_draw** 最终 missed）。  \nBTN 在该节点的范围则非常 **Ace-heavy**：**Top Pair 约 73%**，且平均 EQ 很高；另外也有 **Full House / Four of a Kind / Open Set** 以及一些 **Kicker** 垃圾牌。总体结果是：BTN 在这里拥有显著的**范围优势**与**nuts 优势**（BTN 的“best”分桶很大），而 BB 整体更容易被认为是**被盖帽的**（虽然顶端强牌存在，但更稀有）。由于没有同花完成、顺子成牌密度也有限，这个 runout 对权益的再分配不大，更多是“价值 vs bluffcatch”的对抗。  \n\n## 4. 策略分析  \n面对 BTN 的 3bb 下注，BB 的总体应对频率为 **Call 55.6%**、**Fold 27.1%**、**raise to 18.1bb 15.7%**（**raise to 10.6bb** 占比 **<10%**，可简化忽略）。这是一个 BB 以**宽跟注**作为默认策略的典型场景：BTN 尺度小且范围里有大量偏价值的 **Top Pair**，而 BB 的很多牌虽然不适合加注，但在底池赔率上**满足约 25% 的门槛**，可以继续。  \n\n- **Call（55.6%）**：以 BB 的 **Top Pair** 为核心，主要选择继续但不扩大底池。Top Pair 通常高频跟注，例如 **Ac4c** 属于 **Top Pair**，策略上以 **call** 为主（带少量混合）。此外，由于下注尺度较小，BB 的大量 **Second Pair / Third Pair / Bottom Pair** 也会进入跟注范围；如果只用 trips/boats 继续会导致过度弃牌。一些 missed 的听牌在具备足够摊牌价值或 blockers 效应时也会被拉入跟注（例如部分 missed 的 **nut_flush_draw** 组合会混入 call）。  \n\n- **Fold（27.1%）**：主要集中在 BB 更弱的 bluffcatch 组合上：大量 **Kicker High Card** 会弃牌；一些没改善的 **gutshot_straight_draw** / **combo_draw** 也会更频繁弃牌，因为它们对 BTN 最强的继续区间缺乏有效 blockers，同时摊牌价值较差。例如 **Kd2d** 属于 **Kicker High Card + nut_flush_draw**（方片 missed），会混合策略，但其中仍有相当比例选择 **fold**，以应对 BTN 偏价值的范围结构。  \n\n- **Raise 18.1bb（15.7%）**：这是 BB 的**极化**应对：价值端主要由真正的怪物牌组成（**Four Of A Kind / Full House / Open Set**），再搭配一部分 bluff，避免 BTN 面对加注时可以过度弃牌。价值端很明确：例如 **3s3h** 在这里是 **Full House**，会以很高频率走 **raise**。此外，BB 也会混合少量 **Top Pair** 进入加注（重点不在薄价值或权益拒绝，而是避免加注范围过于“只剩 nuts”而过于透明），并混入一些 missed 的方片听花（尤其是质量更高的 **flush_draw / nut_flush_draw**）作为 bluff，去平衡这类成对牌面上以 boat/trips 为主的价值加注区间。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "Ad8c3d8h",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Two-tone flop, no made flush, flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析：** 转牌来到 **Ad 8c 3d 8h**：这是一个 **A-high 的成对牌面**，其中 **8 成对**，因此很多牌现在都属于“成牌”——例如 **8x 直接变成明三条（trips）**，而 **A-x 的相对强度**也会提升，因为在这个结构下，对手如果没有 **8** 或者 **boat**，更难拿到比你更强的成牌。花色方面是 **两张方片（Ad、3d）**，所以仍然存在 **活的 diamond flush draw**（还没有成花）。同时也存在一些 **顺子听牌**的可能（尤其是围绕 A-3-8 的低张连张），但更核心的变化来自“成对”：它 **减少了那些干净的 overcards / river 能轻易改变领先方的情况**，不过 **方片 river** 以及与 **boat / trips** 相关的少数 river（比如再次配对、A 相关）仍然很关键。极强牌（boats/quads）在权益上 **相当稳健**，但 **中等成牌（Top Pair / 口袋对子 / Third Pair）** 仍可能因为 **diamond river**，或因为对手范围里包含大量 **8x/boats** 而出现较大波动。\n\n2) **行动线分析：** 翻前是 **BTN open 2.5bb，BB call**。翻牌 **BB check**，BTN 用 **小尺度 c-bet 1.8bb into ~5.5bb**，BB call；转牌 **BB 再次 check**，BTN 处于 **有利位置（IP）**行动。这条线通常会让 BB 留下大量 **继续（continue）**的手牌（很多 A-x、8x、部分 3x，以及方片继续），而 BTN 到转牌时会保留一个 **非常宽的 c-bet 范围**，其中包含不少空气牌。转牌底池约 **9.1bb**，有效后手约 **95.7bb**，所以 **SPR ≈ 10.5**，属于高 SPR：你不需要用中等强度的牌被迫把钱打光。由于 BTN **IP**，既可以通过 **check back**很好地实现权益，也可以选择用更大的下注做 **polar** 施压，因为河牌仍有足够的操作空间。\n\n3) **范围分析：** 在这类成对牌面上，BTN 的范围里确实包含一些极强牌：**Full House（4.76%）**、**Four Of A Kind（0.58%）**，以及 **Open Set（6.90%）**；例如 **As8s** 在这里是 **Full House**，EQ 约 **99%**。但 BTN 也有大量低权益手牌：整体来看 BTN 约有 **~51% 垃圾牌（EQ<30）**，最大的“成牌桶”是 **Kicker（42.81%）**，其次是 **Top Pair（25.57%）**。BB 在翻牌 check-call 之后，范围会更 **收缩的/压缩的**，更集中在中等强度：**Top Pair 占 36.41%**（例如 **Ah9s** 在这里是 **Top Pair**，EQ 约 **74.5%**），同时 BB 也会保留大量 **Third Pair（20.12%）**，以及一些 **Kicker High Card / Kicker**。从纯 equity 来看 BB 整体领先（**BB EQ ~58% vs BTN ~43%**），因此 BB 有 **range advantage**；但 BTN 有 **nut advantage**（BTN 的最顶端桶更高，且可用的 boats/quads 略多）。在只剩一张牌的情况下，且牌面已成对，整体 equity 对 runout 的敏感度 **不会特别夸张**，主要例外在 **方片 river** 以及少量会显著影响 **boat/trips** 的 river。\n\n4) **策略分析：** BTN 的转牌策略是 **Check 65.1%**，以及用 **13.6bb 下注 17.8%**（最常用的下注尺度）。其余下注尺度整体占比更小；用于学习时可以简化为 **Check + 13.6bb** 作为核心策略。这是合理的，因为 BTN 在这里呈现 **polar**：要么你拿着 **真实的超强价值牌**，希望在 BB 仍有大量 bluff-catcher 的牌面上扩大底池；要么你有大量手牌更倾向于在 IP **免费实现权益**。从类别来看，check-back 主要由 **中等摊牌价值**支撑：**Top Pair check ~73%**，而很多 **口袋对子**也倾向于纯 check-back（例如 **QhQd** 在这里 EQ 约 **48.7%**，策略上几乎全是 check-back），同时 **Third Pair check ~99%**——这与高 SPR 下的控池思路一致，并能避免被 check-raise 赶走权益。**13.6bb** 这个尺度是典型的 polar 重锤：主要由 **Full House**（下注频率很高；例如 **As8s** 经常选择 13.6bb）和 **Open Set** 驱动，并由具备权益或关键 blockers 的诈唬来支撑——尤其是 **diamond draws** 以及部分摊牌价值很低的牌。比如 **7d5d** 是一个带 **flush_draw** 且当前 EQ 较低（约 **24%**）的手牌，仍可能作为激进的 **13.6bb** 诈唬候选，目标是让 BB 的 **Third Pair / Kicker** 区间弃牌，同时在被 call 时也有真实的 outs。总体计划是：用大量 **check back** 来实现整体权益；而一旦下注，就用 **大尺度的 polarized range**，利用你在“8 成对”结构上的 **nut advantage**，去压迫 BB 这条线下更 **收缩的/压缩的**中等强度分布。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_1.8bb_BB_Call&turn=BB_Check&river=",
+      "board": "Ad9d3d6d",
+      "position": "BTN vs BB",
+      "street": "turn",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Ahigh",
+        "suit_texture": "Monotone flop, made flushes and flush draws present",
+        "straight_texture": "Straight draws present, no made straight"
+      },
+      "is_verified": 0
+    },
+    "data": "## 牌面分析\n\n转牌是 **Ad 9d 3d 6d**：一个**未成对**、**A-high** 的牌面，并且出现了 **four-flush**（四张方片）。由于牌面上已经有四张方片，**手里只要有任意一张方片就已经是成牌 Flush**，因此这一街**不再存在 flush draw**——要么已经是 Flush（有方片），要么就不是。  \n\n这条线上仍然存在**顺子听牌**（最后一张牌可能围绕 3/6/9 一带连张补牌），但最核心的特征在于：**Flush 会显著压制**那些在别的牌面上本来会很舒服的一对/两对类牌。整体权益对 **runout** 很敏感：  \n- **河牌再来一张方片**会形成**五张方片公共牌**（会压缩 Flush vs Flush 的优势差距）。  \n- **河牌成对**（A/9/6/3）会改变 **Hidden Set / 两对** 相对 Flush 与 bluff-catcher 的强弱关系。\n\n## 行动线分析\n\n翻前 **BTN open 2.5bb**，**BB call**。翻牌（**Ad 9d 3d**）BB **check**，BTN 用 **small c-bet (1.8bb)**，BB **call**。转牌（**6d**）BB 再次 **check**，现在由 **IP** 的 BTN（上一街进攻方）行动。  \n\n此时底池约 **9.1bb**，有效后手约 **95.7bb**，所以 **SPR ≈ 10.5**（仍然偏高）。高 SPR + 转牌出现威胁极强的 four-flush，通常会让策略更偏向：  \n- 大量 **check** 来进行底池控制与实现权益；  \n- 同时允许 BTN 使用更偏 **polar 的大尺度下注**：(a) 用强 Flush 做价值构建底池；(b) 给 BB 的非 Flush bluff-catcher 施加压力（它们通常不愿面对大额下注）。\n\n## 范围分析\n\nBTN 到转牌时包含大量 **Flush**（35.95%），以及 **Hidden Set**（4.06%）、**two pairs**（5.80%）、**Top Pair**（14.39%），同时还有很大比例的偏弱持牌，例如 **Kicker**（25.41%）与更小对子等类别。BB 这边同样有很多 **Flush**（42.80%），并且有大体量的 **Top Pair**（21.89%）和 **Second Pair**（15.92%），以及 **two pairs**（9.90%）。  \n\n从结构上看，BTN 在这里更**极化**：BTN 整体拥有更多 **trash**（0–30 EQ 桶约 38.6%），但最顶端的牌力也略强（顶桶平均 EQ 约 **98.3**，而 BB 约 **94.5**），也就是 BTN 仍然能拿到**更强的 Flush 区间**（例如 **KdQs** 就是权益非常高的成牌 Flush）。与此同时，BB 的范围更“结实”，**垃圾牌更少**（约 2.4%），中等强度、能与牌面连接的牌更多。  \n\n整体权益更偏向 **BB**（BB ~56.2% vs BTN ~45.1%），因此 BB 拥有 **range advantage**，而 BTN 仍保留一定 **nut advantage**（最高 Flush 区域）。\n\n## 策略分析\n\nBTN 的整体策略明显偏向 **check-heavy**：**Check 68.3%**；而一旦下注，主要使用一个下注尺度：**13.6bb（19.2%）**；更小的下注尺度可以为学习效率而简化忽略。  \n\n高频 check 符合这个局面：BB 有大量**成牌 Flush**，同时也有足够多能在该牌面继续的组合；而 BTN 的范围里有不少牌要么属于**薄价值**（例如 **Top Pair**），要么并不是对抗强继续范围的理想诈唬候选，因此 BTN 经常更倾向于 **check 拿免费牌**，利用位置实现权益（例如 **AsQc** 这类 Top Pair 组合在这里基本总是 check）。  \n\n当 BTN 选择下注 **13.6bb** 时，它是一个明显 **polar** 的下注：  \n1) **价值下注**：主要来自 **Flush**，以及部分 **Hidden Set**（希望扩大底池，同时 BB 仍可能用更差的牌继续）。  \n2) **施压型诈唬**：来自那些摊牌几乎赢不了、但可以逼弃 BB 的非方片 bluff-catcher 的低权益手牌。  \n\n这也体现在类别倾向上：**Hidden Set** 下注 13.6bb 的频率较高（38.7%）；而 **Flush** 仍会混合下注（约 20% 用 13.6bb）以避免过于“牌面化”。在诈唬端，BTN 会使用诸如 **Bottom Pair**（13.6bb 频率 43.8%）、**Third Pair**（22.6%）以及大量 **Kicker** 类持牌（31.3%）来利用牌面的“Flush 威胁”制造弃牌。  \n\n同时，check 线本身也不会显得过弱，因为即使是强牌也并非总下注（例如 **Flush** 仍有约 64.3% 选择 check），因此 BB 不能仅凭 BTN 的转牌 check 就简单地进行过度弃牌。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_2.8bb&turn=&river=",
+      "board": "JcTh9s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Jhigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：翻牌 **Jc Th 9s** 是**无对**且**rainbow**（一张梅花/红心/黑桃），因此**没有立即的同花听牌**；花色相关的权益主要来自 **backdoor flush draws**（例如 **6c3c** 这种牌仍可能在 turn/river 补成同花）。点数结构高度连通，且**已经存在成牌顺子**（尤其是 **KQ** 和 **87**），同时还密集分布着大量 **open-ended straight draws** 与 **gutshots**。由于有太多 turn 牌会强烈改变牌面结构（Q/K/8/7 会补齐顺子；J/T/9 会让牌面成对并改变相对牌力），这张翻牌上的成牌权益**并不稳健**——即使没有同花因素，后续街面也会让牌力与继续/施压的激励出现大幅波动。\n\n2) **行动线分析**：翻前为 **BTN open 2.5bb，BB call**。翻牌 BB 处于 **out of position**，选择 check，BTN（作为翻前加注者且 **in position**）下注 **2.8bb 到 ~5.5bb（~51% pot）**。此时 BB 在 **Fold / Call / check-raise 到 8.4bb** 之间选择。有效后手约 ~97.5bb，且 BTN 下注后底池约 ~8.3bb，BB 在这个决策点处于一个 **高 SPR spot（~11.7）**（若 BB call，SPR 仍约 ~8.5）。高 SPR + OOP 通常会让 BB 更倾向于**用能实现权益的牌去 call**（对子 + 强听牌），并**更多弃掉实现率低的垃圾牌**；同时让加注更有选择性，因为在一个波动很大的牌面上 OOP 扩大底池风险很高，除非你确实拥有杠杆（nuts / 强权益 + blockers）。\n\n3) **范围分析**：BB 到达翻牌的范围偏向**听牌与中等对子**：**open-ended straight draws（~27.6%）**、**gutshots（~24.8%）**，以及不小比例的 **Top Pair（~10.2%）**、**Second Pair（~10.7%）**、**Third Pair（~11.5%）**，并包含一些 **Straights（~4.8%）/ two pairs（~5.9%）**。BTN 的 c-bet 范围在顶部结构上更强：更多 **Straights（~7.9%）**、更多 **Hidden Sets（~3.0%）**，还有 **two pairs（~6.9%）**，并且关键是存在 **Over pairs（~6.4%）**；同时包含大量 **Ace High Card（~30.2%）**，以及更多 **open-ended straight draws（~32.2%）**。总体上 BTN 同时拥有**range advantage（55.4% vs 44.6% EQ）**与**nut advantage**（超强牌桶密度更高；例如 BTN 很自然会有 **KhQc** 这种组合，而 BB 的顶端组合整体更少）。因此 BB 在最顶端相较 BTN 略显**被盖帽**，且由于牌面顺子成分极重，权益对 **runout** 非常敏感。\n\n4) **策略分析**（BB vs 2.8bb c-bet）：BB 的总体应对为 **Fold 42.93% / Call 48.72% / Raise 8.35%（到 8.4bb）**。由于没有任何一种行动接近范围全覆盖，这是一套真正的混合策略，主要由两点驱动：(i) BTN 的位置与 nut 优势；(ii) BB 需要防守到足够比例，但又不能在动态牌面上 OOP 用实现率低的牌过度防守。**Call（48.7%）**主要由实现率高、且/或强到不能弃的牌构成：BB 用 **Top Pair（93.9% call）**几乎都 call，也会用大量 **Second Pair（93.7%）**、**Third Pair（83.0%）** call，并且多数 **two pairs（79.8%）**与很多 **Straights（63.2%）**也偏向 call。强听牌也倾向 call：**open-ended straight draws 约 ~69.0% call**（例如 **QdJh** 属于 **Top Pair + open-ended straight draw**，主要通过 call 继续），而 **gutshots** 更偏混合，但在具备不错可玩性的情况下仍会防守一部分（**~46.6% call**）。**Fold（42.9%）**则集中在面对约 1/2-pot 下注时不满足“权益 + 实现率”标准的牌：**Covered Pairs 约 ~86.8% fold**、**Ace High Card 约 ~86.6% fold**，以及不少低影响持牌落在 **Kicker（61.0% fold）**与 **no_draw（50.8% fold）**中。纯粹、低 EQ 且互动性差的 gutshot 可以直接弃掉（例如 **7d5d** 在这里是 **gutshot**，选择 fold）。**8.4bb raise（8.35%）**确实存在，但比例较小，学习时基本可以简化为 **call/fold**；在均衡中它主要用于用**非常强的价值牌**以及少量高权益的 **semi-bluff** 候选去施压（通常是顺子/set 与一些强听牌），同时避免在 OOP 且对方有 nut 优势时把底池过度膨胀。"
+  },
+  {
+    "meta_data": {
+      "line": "preflop=BTN_2.5bb_BB_Call&flop=BB_Check_BTN_2.8bb_BB_8.4bb&turn=&river=",
+      "board": "JcTh9s",
+      "position": "BTN vs BB",
+      "street": "flop",
+      "texture": {
+        "pairing_texture": "Unpaired board",
+        "high_card_texture": "Jhigh",
+        "suit_texture": "Rainbow flop, no made flush, no flush draw",
+        "straight_texture": "Made straight present"
+      },
+      "is_verified": 0
+    },
+    "data": "1) **牌面分析**：翻牌为 **Jc Th 9s**，这是一个**无对子**、**J-high**、**rainbow** 的牌面，因此**没有立即的同花听牌**；与花色相关的权益主要来自 **backdoor flush draws**。这张牌面的核心在于连张性：牌面上已经存在**成牌顺子**（例如 **KQ**、**Q8**），并且会在双方范围中产生大量高密度的 **open-ended straight draws** 与 **gutshots**。由于有很多转牌会直接影响 nuts 与一对牌型（补顺子的牌、以及让牌面成对的牌），**成牌的 equity 并不稳定**：大量转牌会显著改变谁是当前最强牌、以及谁能更有利地施加压力，因此这是一个对后续发牌非常敏感（**high runout-sensitivity**）的 spot。\n\n2) **行动线分析**：翻前行动为 **BTN open 2.5bb，BB calls**（100bb 深度）。翻牌 **BB checks，BTN c-bets 2.8bb**，随后 **BB check-raises to 8.4bb**，BTN 在**有利位置（IP）**面对加注。若 BTN 跟注，底池约为 **25.1bb**，有效后手约 **89.1bb**，因此转牌 **SPR ≈ 3.6**。这个 SPR 足够低，使得：(a) BB 的 check-raise 可以可信地为转/河的持续施压做铺垫；(b) 即便 BTN 有位置优势，也不能因为位置就“什么都跟一张”——继续游戏需要要么有真实 equity（成牌/强听牌），要么具备在面对持续 barrel 时良好的权益兑现能力。\n\n3) **范围分析**：BTN 到翻牌时的范围偏听牌化：**open-ended straight draws（~32%）**与 **gutshots（~23%）**占比非常高，另外还有大量 **Ace High Card（~30%）**。BTN 的成牌当然存在，但在范围顶端相对更薄：**Straight（~7.9%）**、**Hidden Set（~3.0%）**、**two pairs（~6.9%）**、**Over pair（~6.4%）**，以及 **Top Pair（~12.9%）**和 **Second Pair（~7.3%）**。BB 作为翻前跟注方，在这张牌面上的分布更强：**Straight（~21.2%）**、**two pairs（~14.4%）**，以及数量巨大的 **open-ended straight draws（~47.1%）**；同时 BB **没有垃圾牌（0–30 EQ 桶为 0%）**。总体而言：BB 在这里同时拥有**范围优势**与 **nut advantage**（BTN 在范围顶端明显更容易被盖帽），并且由于牌面极其动态，这种优势更容易转化为主动进攻。\n\n4) **策略分析**：BTN 面对 check-raise 的整体应对为 **Call ~59% / Fold ~39%**；**19.6bb 的 re-raise 仅 ~2.5%**，因此在学习时可以将这个节点简化为几乎是纯粹的 **call-or-fold** 决策。**跟注**主要由两类手牌驱动：(i) 在 **SPR ~3.6** 下已经强到可以舒适打光的牌；(ii) 面对 BB 偏价值、同时夹杂大量听牌的 check-raise 范围，仍能保有足够 equity 的强听牌。BTN 基本会继续所有顶端成牌：**Straights** 以跟注为主（例如 **Qd8d** 继续；它是 **Straight**），**Hidden Sets** 也以跟注为主并带少量混合（例如 **JhJd** 继续；它是 **Hidden Set**）。**two pairs** 与 **Over pair** 也几乎属于纯继续。  \nBTN 也会以显著频率防守不少一对牌，因为如果面对一个包含大量听牌的 BB check-raise 范围而弃牌过多，会变得可被利用：**Top Pair** 大量跟注（并且可能带额外 equity，例如 **KdJs**，属于 **Top Pair + gutshot**），**Second Pair/Third Pair** 也会以有意义的频率倾向跟注，主要原因是 BB 的 check-raise 中包含许多听牌，而这些一对在当前仍领先于其中相当一部分。对于听牌而言，**open-ended straight draws** 是主要继续项（甚至像 **AdQs** 这种 **Ace High Card + open-ender**，在 IP 也能较好兑现权益），而 **gutshots** 也会以足够频率继续，以满足防守需求，并考虑到价格与 implied odds。  \n**弃牌**主要集中在那些落后太多、且在面对转牌 barrel 时过于脆弱的组合：**Covered Pair** 基本 **fold 100%**；**backdoor flush draws** 大约 **fold ~80%**（缺少 front-door flush draw 可依赖）；此外，大量 **Ace High Card** 与低“kicker 型”手牌会弃牌（以及约一半标记为 **no_draw** 的手牌），因为它们既不太能用 blockers 限制 BB 的强继续范围，也难以在转牌上以足够频率改善来承受 BB 的压力。"
+  }
+]
