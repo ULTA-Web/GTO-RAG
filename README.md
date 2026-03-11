@@ -150,9 +150,35 @@ print(prompt)
 
 ## 注意事项
 
-1. 首次运行文本RAG检索的建库函数时，会下载嵌入模型，可能需要几分钟时间
-2. 基于board计算的例子检索需要rag_metadata.json文件
-3. 处理翻译情况使用内置的德扑专业术语词典
+1. **文本RAG检索的嵌入模型**：
+   - 默认使用本地模型，存储在model目录
+   - 推荐使用sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2模型
+   - 下载方法：
+     ```bash
+     # 使用Hugging Face CLI下载
+     huggingface-cli download sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --local-dir model
+     ```
+   - 首次运行建库函数时，会自动加载模型，可能需要几分钟时间
+
+2. **基于board计算的例子检索**：
+   - 需要rag_metadata.json文件，包含历史策略数据
+   - 文件格式：JSON数组，每个元素包含meta_data和data字段
+
+3. **处理翻译情况**：
+   - 使用内置的德扑专业术语词典
+   - 词典存储在src/translation/ingest.py文件中
+
+4. **文件夹组织**：
+   - data/：存放PDF文件，用于文本RAG检索
+   - db/：存储向量数据库，由文本RAG检索自动生成
+   - model/：存储嵌入模型，需要手动下载
+   - src/：源代码目录，包含三个功能模块
+
+5. **GitHub仓库包含内容**：
+   - 包含所有源代码文件
+   - 包含rag_metadata.json文件
+   - 包含data、db和model目录结构
+   - 模型文件较大，可能需要使用Git LFS存储
 
 ## 示例
 
