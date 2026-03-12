@@ -1,6 +1,21 @@
 import re
+import os
 from collections import defaultdict
+from langchain_huggingface import HuggingFaceEmbeddings
 from src.translation.ingest import POKER_TERMINOLOGY, STOP_WORDS
+
+# 模型配置
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+LOCAL_MODEL_PATH = os.path.join(BASE_DIR, "model")
+
+# 简单检查路径
+if os.path.exists(LOCAL_MODEL_PATH):
+    EMBEDDING_MODEL_PATH = LOCAL_MODEL_PATH
+else:
+    EMBEDDING_MODEL_PATH = LOCAL_MODEL_PATH
+
+# 加载嵌入模型
+embedding_model = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_PATH)
 
 def preprocess_text(text):
     # 1. 转为小写
@@ -67,6 +82,23 @@ def lemmatize_word(word):
     # 优先匹配变体映射，无匹配则返回原词
     return variant_map.get(word.lower(), word.lower())
 
+def calculate_similarity(text1, text2):
+    """
+    计算两个文本的相似度
+    """
+    embedding1 = embedding_model.embed_query(text1)
+    embedding2 = embedding_model.embed_query(text2)
+    
+    # 计算余弦相似度
+    dot_product = sum(a * b for a, b in zip(embedding1, embedding2))
+    norm1 = sum(a * a for a in embedding1) ** 0.5
+    norm2 = sum(b * b for b in embedding2) ** 0.5
+    
+    if norm1 * norm2 == 0:
+        return 0.0
+    
+    return dot_product / (norm1 * norm2)
+
 def match_terminology(text):
     """
     核心匹配逻辑
@@ -107,6 +139,26 @@ def match_terminology(text):
             hit_terms[lemmatized_token] = POKER_TERMINOLOGY[lemmatized_token]
         elif token in POKER_TERMINOLOGY:
             hit_terms[token] = POKER_TERMINOLOGY[token]
+    
+    # 使用embedding模型计算相似度，补充匹配
+    similarity_threshold = 0.7  # 相似度阈值，可调整
+    text_lower = text.lower()
+    
+    # 遍历所有术语，计算相似度
+    for term in POKER_TERMINOLOGY:
+        # 如果已经匹配到了，跳过
+        if term in hit_terms:
+            continue
+        
+        # 计算术语与输入文本的相似度
+        similarity = calculate_similarity(term, text_lower)
+        
+        # 如果相似度超过阈值，添加到匹配结果
+        if similarity >= similarity_threshold:
+            # 检查术语是否在文本中出现（部分匹配）
+            term_lower = term.lower()
+            if term_lower in text_lower:
+                hit_terms[term] = POKER_TERMINOLOGY[term]
     
     return dict(hit_terms)
 
