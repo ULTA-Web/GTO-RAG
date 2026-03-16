@@ -142,22 +142,16 @@ def match_terminology(text):
     
     # 使用embedding模型计算相似度，补充匹配
     similarity_threshold = 0.7  # 相似度阈值，可调整
-    text_lower = text.lower()
+    unmatched_terms = [term for term in POKER_TERMINOLOGY if term not in hit_terms]
+    unmatched_tokens = [token for idx, token in enumerate(tokens) if idx not in matched_indices]
     
-    # 遍历所有术语，计算相似度
-    for term in POKER_TERMINOLOGY:
-        # 如果已经匹配到了，跳过
-        if term in hit_terms:
-            continue
+    if unmatched_terms and unmatched_tokens:
+        similarity_matrix = calculate_similarity_matrix(unmatched_terms, unmatched_tokens)
         
-        # 计算术语与输入文本的相似度
-        similarity = calculate_similarity(term, text_lower)
-        
-        # 如果相似度超过阈值，添加到匹配结果
-        if similarity >= similarity_threshold:
-            # 检查术语是否在文本中出现（部分匹配）
-            term_lower = term.lower()
-            if term_lower in text_lower:
+        for term_idx, term in enumerate(unmatched_terms):
+            term_similarities = similarity_matrix[term_idx]
+            matched_token_indices = np.where(term_similarities >= similarity_threshold)[0]
+            if len(matched_token_indices) > 0:
                 hit_terms[term] = POKER_TERMINOLOGY[term]
     
     return dict(hit_terms)
